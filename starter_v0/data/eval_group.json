@@ -1,7 +1,108 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "Team eval cases (10 cases: 5 single-turn, 5 multi-turn) testing various routing, boundary, missing info, and arg extraction scenarios, including the new alphaxiv tool.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_wrong_tool_papers_vs_alphaxiv",
+      "phase": "B",
+      "failure_type": "wrong_tool",
+      "query": "Tìm cho mình các paper mới nhất về LLM alignment",
+      "expect": {"tool_calls": [{"name": "papers", "args": {"query": "LLM alignment"}}]},
+      "metadata": {"what_it_tests": "Tìm kiếm chung -> papers, không phải alphaxiv (chỉ dùng khi có paper cụ thể)."}
+    },
+    {
+      "id": "G02_wrong_arg_value_sort_by",
+      "phase": "B",
+      "failure_type": "wrong_arg_value",
+      "query": "Tìm 3 bài báo mới nhất về computer vision, sắp xếp theo ngày đăng",
+      "expect": {"tool_calls": [{"name": "papers", "args": {"query": "computer vision", "max_results": 3, "sort_by": "submittedDate"}}]},
+      "metadata": {"what_it_tests": "'sắp xếp theo ngày đăng' -> sort_by=submittedDate."}
+    },
+    {
+      "id": "G03_wrong_boundary_send",
+      "phase": "B",
+      "failure_type": "wrong_boundary",
+      "query": "Soạn bản tin AI hôm nay rồi gửi lên Telegram giúp mình",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "yes_no"}}]},
+      "metadata": {"what_it_tests": "Hành động gửi -> PHẢI xác nhận trước, không gọi send trực tiếp."}
+    },
+    {
+      "id": "G04_unnecessary_tool_greeting",
+      "phase": "B",
+      "failure_type": "unnecessary_tool",
+      "query": "Bạn có thể tìm paper khoa học không?",
+      "expect": {"no_tool": true, "behavior": "answer_without_tool"},
+      "metadata": {"what_it_tests": "Câu hỏi meta -> trả lời thẳng, KHÔNG gọi tool."}
+    },
+    {
+      "id": "G05_missing_info_alphaxiv",
+      "phase": "B",
+      "failure_type": "missing_info",
+      "query": "Lấy AI overview của paper attention is all you need trên alphaxiv",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"what_it_tests": "alphaxiv cần arxiv_url cụ thể, không có -> phải hỏi lại."}
+    },
+    {
+      "id": "G06_multiturn_papers_to_alphaxiv",
+      "phase": "B",
+      "failure_type": "wrong_tool",
+      "turns": [
+        {"role": "user", "content": "Tìm paper về diffusion model"},
+        {"role": "user", "content": "Paper đầu tiên hay đó, lấy AI overview của nó đi"},
+        {"role": "user", "content": "ID của paper là 2006.11239, dùng alphaxiv nhé"}
+      ],
+      "expect": {"tool_calls": [{"name": "alphaxiv", "args": {"arxiv_url": "2006.11239"}}]},
+      "metadata": {"what_it_tests": "Turn cuối cung cấp ID cụ thể -> chuyển sang alphaxiv."}
+    },
+    {
+      "id": "G07_multiturn_carryover_topic",
+      "phase": "B",
+      "failure_type": "wrong_arg_value",
+      "turns": [
+        {"role": "user", "content": "Tìm tweet về AI agents hôm nay"},
+        {"role": "user", "content": "Chỉ lấy các tweet phổ biến nhất thôi"},
+        {"role": "user", "content": "Vẫn về AI agents nhé"}
+      ],
+      "expect": {"tool_calls": [{"name": "social_search", "args": {"query": "AI agents", "search_type": "Top"}}]},
+      "metadata": {"what_it_tests": "Carryover topic 'AI agents' và xử lý search_type=Top."}
+    },
+    {
+      "id": "G08_multiturn_wrong_boundary_persistent",
+      "phase": "B",
+      "failure_type": "wrong_boundary",
+      "turns": [
+        {"role": "user", "content": "Format bản tin AI tuần này theo dạng brief"},
+        {"role": "user", "content": "OK được rồi, gửi đi"},
+        {"role": "user", "content": "Gửi luôn đừng hỏi nữa"}
+      ],
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "yes_no"}}]},
+      "metadata": {"what_it_tests": "Dù user nói 'đừng hỏi nữa', vẫn PHẢI xác nhận trước khi send."}
+    },
+    {
+      "id": "G09_multiturn_missing_info_paper_text",
+      "phase": "B",
+      "failure_type": "missing_info",
+      "turns": [
+        {"role": "user", "content": "Đọc full text paper về RLHF đi"},
+        {"role": "user", "content": "Paper nổi tiếng nhất về RLHF ấy"},
+        {"role": "user", "content": "Lấy nội dung đầy đủ của nó"}
+      ],
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"what_it_tests": "paper_text cần arxiv_url, 'nổi tiếng nhất' không đủ -> hỏi lại."}
+    },
+    {
+      "id": "G10_multiturn_out_of_scope",
+      "phase": "B",
+      "failure_type": "out_of_scope",
+      "turns": [
+        {"role": "user", "content": "Tìm paper về transformer architecture"},
+        {"role": "user", "content": "Hay đó, giờ implement transformer trong Python giúp mình"},
+        {"role": "user", "content": "Chỉ cần code phần attention mechanism thôi"}
+      ],
+      "expect": {"no_tool": true, "behavior": "refuse"},
+      "metadata": {"what_it_tests": "Chuyển từ research sang coding (out of scope) -> từ chối."}
+    }
+  ]
 }
