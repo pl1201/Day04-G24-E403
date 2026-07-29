@@ -125,3 +125,41 @@ tools:
         arxiv_url: {type: string, default: "", description: "ID hoặc địa chỉ arXiv"}
         language: {type: string, default: "en", description: "Ngôn ngữ overview"}
       required: [arxiv_url]
+
+  - name: related
+    description: "Từ MỘT bài báo arXiv đã biết id/URL, tìm các bài báo liên quan/tương tự để mở rộng literature review. Chỉ dùng khi đã có bài gốc làm hạt giống; nếu chỉ có từ khóa/chủ đề thì dùng papers."
+    parameters:
+      type: object
+      properties:
+        arxiv_url: {type: string, default: "", description: "ID hoặc địa chỉ arXiv của bài gốc"}
+        max_results: {type: integer, default: 5, description: "Số bài liên quan, tối đa 10"}
+      required: [arxiv_url]
+
+  - name: cite
+    description: "Tạo trích dẫn (BibTeX hoặc APA) cho một bài báo arXiv đã biết id/URL. Dùng khi người dùng cần trích dẫn/tài liệu tham khảo; không dùng để tìm bài (dùng papers) hay đọc nội dung bài (dùng paper_text/alphaxiv)."
+    parameters:
+      type: object
+      properties:
+        arxiv_url: {type: string, default: "", description: "ID hoặc địa chỉ arXiv"}
+        style: {type: string, enum: [bibtex, apa], default: "bibtex", description: "Kiểu trích dẫn"}
+      required: [arxiv_url]
+
+  - name: dedupe
+    description: "Lọc bỏ item trùng lặp (trùng URL sau chuẩn hóa hoặc trùng tiêu đề) trong danh sách kết quả ĐÃ thu thập, trước khi đưa sang format. Chỉ xử lý dữ liệu có sẵn, không gọi mạng và không tìm kiếm được gì mới."
+    parameters:
+      type: object
+      properties:
+        items:
+          type: array
+          default: []
+          description: "Danh sách item đã thu thập"
+          items:
+            type: object
+            properties:
+              title: {type: string}
+              url: {type: string}
+              source: {type: string}
+              summary: {type: string}
+              section: {type: string}
+        merge_fields: {type: boolean, default: true, description: "Bù field còn trống từ bản trùng"}
+      required: [items]

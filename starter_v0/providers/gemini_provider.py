@@ -4,9 +4,19 @@ import itertools
 import json
 import os
 import re
+import time
 from typing import Any
 
 from providers.base import ModelResponse, ToolCall
+
+
+# 429 clears by switching key (free tier is 5 req/min PER KEY); 503 is a shared
+# server-side spike, so it needs a short wait instead.
+ROTATE_MARKER = "RESOURCE_EXHAUSTED"
+BACKOFF_MARKER = "UNAVAILABLE"
+EXTRA_ATTEMPTS = 3
+BACKOFF_SECONDS = 2.0
+MAX_BACKOFF_SECONDS = 8.0
 
 
 def _gemini_api_keys(base_env: str) -> list[str]:
@@ -117,15 +127,15 @@ class GeminiProvider:
         if declarations:
             config_kwargs["tools"] = [types.Tool(function_declarations=declarations)]
 
-        keys_tried = 0
-        keys_available = len(_gemini_api_keys(self.api_key_env)) or 1
+        attempts = 0
+        max_attempts = (len(_gemini_api_keys(self.api_key_env)) or 1) + EXTRA_ATTEMPTS
         last_exc: Exception | None = None
         resp = None
-        while keys_tried < keys_available:
+        while attempts < max_attempts:
             api_key = next(self._key_cycle)
             if not api_key:
                 raise RuntimeError(f"Missing API key env var: {self.api_key_env}")
-            keys_tried += 1
+            attempts += 1
             try:
                 client = genai.Client(api_key=api_key)
                 resp = client.models.generate_content(
@@ -136,8 +146,12 @@ class GeminiProvider:
                 break
             except Exception as exc:
                 last_exc = exc
-                if "RESOURCE_EXHAUSTED" not in str(exc) or keys_tried >= keys_available:
+                message = str(exc)
+                retryable = ROTATE_MARKER in message or BACKOFF_MARKER in message
+                if not retryable or attempts >= max_attempts:
                     raise
+                if BACKOFF_MARKER in message:
+                    time.sleep(min(BACKOFF_SECONDS * attempts, MAX_BACKOFF_SECONDS))
         if resp is None:
             raise last_exc or RuntimeError("Gemini request failed with no available API key")
 
