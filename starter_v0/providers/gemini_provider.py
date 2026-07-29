@@ -1,12 +1,24 @@
 from __future__ import annotations
 
-import itertools
 import json
 import os
 import re
+import time
 from typing import Any
 
 from providers.base import ModelResponse, ToolCall
+
+
+# The free tier meters requests per key AND per model: a per-minute cap plus a
+# per-day cap (quotaId ...PerDayPerProjectPerModel). A per-minute 429 clears by
+# switching key; a per-day 429 means that key is done for the day, so it is
+# retired instead of being retried. 503 is a shared server spike -> short wait.
+ROTATE_MARKER = "RESOURCE_EXHAUSTED"
+BACKOFF_MARKER = "UNAVAILABLE"
+DAILY_QUOTA_MARKER = "PerDay"
+EXTRA_ATTEMPTS = 3
+BACKOFF_SECONDS = 2.0
+MAX_BACKOFF_SECONDS = 8.0
 
 
 def _gemini_api_keys(base_env: str) -> list[str]:
@@ -92,7 +104,26 @@ class GeminiProvider:
     ) -> None:
         self.api_key_env = api_key_env
         self.default_model = default_model
-        self._key_cycle = itertools.cycle(_gemini_api_keys(api_key_env) or [""])
+        self._keys = _gemini_api_keys(api_key_env)
+        self._exhausted: set[str] = set()
+        self._next_index = 0
+
+    def _usable_keys(self, model_name: str) -> list[str]:
+        if not self._keys:
+            raise RuntimeError(f"Missing API key env var: {self.api_key_env}")
+        usable = [key for key in self._keys if key not in self._exhausted]
+        if not usable:
+            raise RuntimeError(
+                f"All {len(self._keys)} {self.api_key_env} key(s) hit the per-day free-tier quota "
+                f"for model {model_name}. Use a different --model, switch --provider, "
+                f"or wait for the daily quota reset."
+            )
+        return usable
+
+    def _take_key(self, usable: list[str]) -> str:
+        key = usable[self._next_index % len(usable)]
+        self._next_index += 1
+        return key
 
     def complete(
         self,
@@ -117,27 +148,33 @@ class GeminiProvider:
         if declarations:
             config_kwargs["tools"] = [types.Tool(function_declarations=declarations)]
 
-        keys_tried = 0
-        keys_available = len(_gemini_api_keys(self.api_key_env)) or 1
+        model_name = model or self.default_model
+        attempts = 0
+        max_attempts = len(self._usable_keys(model_name)) + EXTRA_ATTEMPTS
         last_exc: Exception | None = None
         resp = None
-        while keys_tried < keys_available:
-            api_key = next(self._key_cycle)
-            if not api_key:
-                raise RuntimeError(f"Missing API key env var: {self.api_key_env}")
-            keys_tried += 1
+        while attempts < max_attempts:
+            usable = self._usable_keys(model_name)
+            api_key = self._take_key(usable)
+            attempts += 1
             try:
                 client = genai.Client(api_key=api_key)
                 resp = client.models.generate_content(
-                    model=model or self.default_model,
+                    model=model_name,
                     contents=contents,
                     config=types.GenerateContentConfig(**config_kwargs),
                 )
                 break
             except Exception as exc:
                 last_exc = exc
-                if "RESOURCE_EXHAUSTED" not in str(exc) or keys_tried >= keys_available:
+                message = str(exc)
+                if ROTATE_MARKER in message and DAILY_QUOTA_MARKER in message:
+                    self._exhausted.add(api_key)
+                retryable = ROTATE_MARKER in message or BACKOFF_MARKER in message
+                if not retryable or attempts >= max_attempts:
                     raise
+                if BACKOFF_MARKER in message:
+                    time.sleep(min(BACKOFF_SECONDS * attempts, MAX_BACKOFF_SECONDS))
         if resp is None:
             raise last_exc or RuntimeError("Gemini request failed with no available API key")
 

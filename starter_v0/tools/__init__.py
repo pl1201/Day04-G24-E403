@@ -8,8 +8,11 @@ import yaml
 # Folder names are intentionally vague to match the tool names students see.
 # The imported function names are the underlying implementations (unchanged).
 from .alphaxiv.tool import get_alphaxiv_overview
+from .cite.tool import build_citation
 from .clarify.tool import ask_user
+from .dedupe.tool import deduplicate_sources
 from .papers.tool import arxiv_search
+from .related.tool import find_related_papers
 from .paper_text.tool import get_arxiv_paper_text
 from .timeline.tool import get_user_tweets
 from .fetch.tool import read_url
@@ -37,6 +40,9 @@ TOOL_FUNCTIONS = {
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
     "alphaxiv": get_alphaxiv_overview,
+    "related": find_related_papers,
+    "cite": build_citation,
+    "dedupe": deduplicate_sources,
 }
 
 
