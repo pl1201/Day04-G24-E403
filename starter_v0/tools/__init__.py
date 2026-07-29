@@ -7,6 +7,7 @@ import yaml
 
 # Folder names are intentionally vague to match the tool names students see.
 # The imported function names are the underlying implementations (unchanged).
+from .alphaxiv.tool import get_alphaxiv_overview
 from .clarify.tool import ask_user
 from .papers.tool import arxiv_search
 from .paper_text.tool import get_arxiv_paper_text
@@ -35,6 +36,7 @@ TOOL_FUNCTIONS = {
     "policy": search_company_policy,
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
+    "alphaxiv": get_alphaxiv_overview,
 }
 
 

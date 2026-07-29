@@ -116,3 +116,12 @@ tools:
         max_pages: {type: integer, default: 5, description: "Số trang"}
         max_chars: {type: integer, default: 8000, description: "Số ký tự"}
       required: [arxiv_url]
+
+  - name: alphaxiv
+    description: "Lấy tóm tắt/overview do AI viết trên AlphaXiv cho một bài báo arXiv đã biết id/URL. Chỉ dùng khi đã có bài báo cụ thể và cần overview AI; không dùng để tìm kiếm theo từ khóa (dùng papers) hay lấy full text (dùng paper_text)."
+    parameters:
+      type: object
+      properties:
+        arxiv_url: {type: string, default: "", description: "ID hoặc địa chỉ arXiv"}
+        language: {type: string, default: "en", description: "Ngôn ngữ overview"}
+      required: [arxiv_url]
