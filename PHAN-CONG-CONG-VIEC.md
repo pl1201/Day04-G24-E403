@@ -46,12 +46,12 @@ measured_cases = total_cases
 
 | Thành viên | Vai trò | File/thư mục sở hữu | Kết quả bàn giao |
 |---|---|---|---|
-| Người 1 | Baseline và phân tích lỗi | `runs/`, `analysis/` | Metrics v0, danh sách case fail, ba giả thuyết |
-| Người 2 | Tối ưu system prompt | `artifacts/system_prompt.md` | Ba vòng cải tiến v1–v3 |
-| Người 3 | Thiết kế team eval | `data/eval_group.json` | Đúng 10 case và kết quả group eval |
-| Người 4 | Xây tool mới | `tools/<tool_moi>/` | `tool.py`, `TOOL.md`, smoke test, YAML đề xuất |
-| Người 5 | Xây giao diện | `app.py`, dependency UI | UI chat, tool trace và transcript |
-| Người 6 | Report, demo và QA | `artifacts/REPORT.md` | Report A/B, demo scenarios, final checklist |
+| Đinh Lê Quỳnh Phương - 2A202601865| Baseline và phân tích lỗi | `runs/`, `analysis/` | Metrics v0, danh sách case fail, ba giả thuyết |
+| Lưu Quang Nhật - 2A202601920 | Tối ưu system prompt | `artifacts/system_prompt.md` | Ba vòng cải tiến v1–v3 |
+| Nguyễn Ngọc Sơn - 2A202601948 | Thiết kế team eval | `data/eval_group.json` | Đúng 10 case và kết quả group eval |
+| Kim Mạnh Hưng - 2A202601679 | Xây tool mới | `tools/<tool_moi>/` | `tool.py`, `TOOL.md`, smoke test, YAML đề xuất |
+| Đoàn Minh Hiếu - 2A202601733 | Xây giao diện | `app.py`, dependency UI | UI chat, tool trace và transcript |
+| Phùng Văn Linh - 2A202601992 | Report, demo và QA | `artifacts/REPORT.md` | Report A/B, demo scenarios, final checklist |
 
 ---
 

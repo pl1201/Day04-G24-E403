@@ -1,0 +1,889 @@
+{
+  "run_id": "v3-finalcheck_B_group_openai_20260729T114148729183",
+  "version": "v3-finalcheck",
+  "artifact_version": "v3-finalcheck+p4eb4aca78475+tee55f2ba381e",
+  "prompt_hash": "4eb4aca784753cebc0a40900b59997c99e657ee2a6b38156284408034af9a3a7",
+  "tools_hash": "ee55f2ba381ee017f0c51d19b4f0099ad01762f5b6d89038a28a3510120eea76",
+  "phase": "B",
+  "suite": "group",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "system_prompt": "D:\\lab\\Day04-G24-E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\lab\\Day04-G24-E403\\starter_v0\\artifacts\\tools.yaml",
+  "eval_cases": "data\\eval_group.json",
+  "dataset_id": "day04_v2_research_group",
+  "dataset_role": "group",
+  "description": "Team eval cases (10 cases: 5 single-turn, 5 multi-turn) testing various routing, boundary, missing info, and arg extraction scenarios, including the new alphaxiv tool.",
+  "generated_at": "2026-07-29T11:41:48",
+  "summary": {
+    "total_cases": 10,
+    "measured_cases": 10,
+    "provider_error_cases": 0,
+    "passed_cases": 7,
+    "case_accuracy": 0.7,
+    "tool_routing_accuracy": 0.8,
+    "argument_accuracy": 0.7,
+    "multiturn_accuracy": 0.8,
+    "failure_counts": {
+      "wrong_arg_value": 1,
+      "missing_info": 2
+    },
+    "observed_mismatch_counts": {
+      "wrong_arg_value": 1,
+      "missing_tool_call": 2
+    }
+  },
+  "results": [
+    {
+      "id": "G01_wrong_tool_papers_vs_alphaxiv",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Tìm kiếm chung -> papers, không phải alphaxiv (chỉ dùng khi có paper cụ thể)."
+      },
+      "input": "Tìm cho mình các paper mới nhất về LLM alignment",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM alignment"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "LLM alignment",
+              "max_results": 5,
+              "sort_by": "lastUpdatedDate"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "LLM alignment",
+            "max_results": 5,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "LLM alignment",
+            "api_query": "all:LLM AND all:alignment",
+            "total_results": 12876,
+            "items": [
+              {
+                "arxiv_id": "2607.25947v1",
+                "title": "A Cost-Effective Multimodal LLM Reasoning Framework for Question Answering over Irregular Clinical Time Series",
+                "summary": "Question answering (QA) over irregular clinical time series (ICTS) plays a pivotal role in a wide range of healthcare applications. Although recent multimodal time-series large language models (LLMs) have shown considerable promise in general-purpose time-series QA, they remain poorly equipped to model the sparsity, asynchrony, and irregular sampling patterns of clinical observations. To fill this gap, we propose ClinPRISM, a cost-effective multimodal LLM reasoning framework for question answering over ICTS data. First, we devise an irregularity-aware multi-scale encoder to capture sparse clinical evidence at diverse temporal scales. Then, we propose a temporal evidence distiller to integrate representations across these scales and compress them into a small number of LLM-compatible tokens. Moreover, we introduce a progressive alignment strategy that sequentially aligns the irregular trajectories with the LLM's textual embedding space. To facilitate training, we construct 30,000 clinical time series paired with multi-scale descriptions, together with 41,000 instruction-tuning instances spanning 11 tasks. Using a 4-billion-parameter LLM backbone, ClinPRISM achieves state-of-the-art performance on the held-out evaluation benchmark while using only 16 time-series tokens and achieving an average inference latency of 0.15 seconds per question.",
+                "authors": [
+                  "Frank Nie",
+                  "Ethan B Liu",
+                  "Yuan Zhu",
+                  "Wei Fan",
+                  "Jindong Han"
+                ],
+                "published": "2026-07-28T16:33:41Z",
+                "updated": "2026-07-28T16:33:41Z",
+                "url": "http://arxiv.org/abs/2607.25947v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25947v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25936v1",
+                "title": "From Role Prompt to Infinite Thinking: Exploiting Persona Conditioning for Inference Cost Attacks in LLMs",
+                "summary": "LLMs are increasingly deployed in real-world applications, making inference efficiency and service reliability critical concerns due to their substantial computational costs. However, the autoregressive generation mechanism of LLMs enables malicious prompts to manipulate generation behaviors, inducing excessive token generation that amplifies computational consumption and threatens service efficiency. Existing methods mainly rely on adversarial suffixes or explicit extension instructions, which introduce detectable behaviors and limit their applicability. In this paper, we reveal a previously unexplored vulnerability caused by persona consistency in LLMs, where models maintain assigned roles and reproduce corresponding behaviors even when they result in inefficient reasoning and excessive generation. Based on this observation, we propose RolePlay, a task-aware dynamic persona alignment framework that constructs adaptive personas to naturally induce inefficient yet semantically coherent behaviors for inference cost amplification. Extensive experiments across multiple LLMs and diverse task datasets demonstrate that RolePlay consistently outperforms existing inference extension methods, achieving an average token amplification of up to \\bm{$7.64\\times$} and a maximum token amplification ratio of \\bm{$207.64\\times$}. Our findings identify persona conditioning as a new attack surface for LLM inference efficiency and offer a new perspective on computational cost amplification.",
+                "authors": [
+                  "Zhiyi Mou",
+                  "Wangze Ni",
+                  "Tianfang Xiao",
+                  "Haoyang LI",
+                  "Chen Jason Zhang",
+                  "Hanzhi Ma",
+                  "Yang Bai",
+                  "Zhibo Wang",
+                  "Kui Ren"
+                ],
+                "published": "2026-07-28T16:20:01Z",
+                "updated": "2026-07-28T16:20:01Z",
+                "url": "http://arxiv.org/abs/2607.25936v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25936v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25886v1",
+                "title": "RSIBench-Data: Benchmarking Data-Centric Research for Recursive Self-Improvement",
+                "summary": "Recursive self-improvement requires turning evidence of model failures into better models. Data-centric post-training research entails diagnosing capability gaps, designing and validating training-data strategies, and learning from checkpoint feedback. Can LLM agents automate this loop? Existing benchmarks entangle research decisions with optimization, serving, evaluation, and systems implementation, obscuring agents' research capability. We introduce RSIBench-Data, a controlled benchmark of LLM agents as data-centric researchers with a fixed post-training stack. Agents iteratively revise training-data strategies for a fixed target model; training and serving use Tinker-backed services, official evaluation runs through Harbor and E2B sandboxes, and budgets are fixed across agents. We evaluate four frontier agents on six benchmarks across software engineering, terminal use, scientific question answering, and mathematics. Agents demonstrate core data-centric research capabilities: in 58.33\\% of settings, they improve upon the first valid attempt by refining strategies from feedback. However, improvement is inconsistent. Among searches continuing after the best observed score, 78.26\\% end with a lower-scoring final attempt, while the rest only recover the same peak. A strong candidate may therefore appear early or midway through a run even as later revisions fail. Trajectory analysis identifies four patterns in stronger runs: accurate hypotheses, validation-grounded supervision, behavior-aligned data, and preservation of strong checkpoints. These findings suggest that current agents can make useful data-centric discoveries but cannot yet translate feedback into consistent improvements. RSIBench-Data provides a measurable, auditable testbed for the research capabilities required for recursive self-improvement. We open-source our code at https://github.com/evolvent-ai/RSIBench-Data.",
+                "authors": [
+                  "Fanqing Meng",
+                  "Lingxiao Du",
+                  "Qiguang Chen",
+                  "Ziqi Zhao",
+                  "Haocheng Lu",
+                  "Mengkang Hu",
+                  "Michael Qizhe Shieh"
+                ],
+                "published": "2026-07-28T15:46:41Z",
+                "updated": "2026-07-28T15:46:41Z",
+                "url": "http://arxiv.org/abs/2607.25886v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25886v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.SE",
+                "categories": [
+                  "cs.SE",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25873v1",
+                "title": "How Do LLMs Read Bug Reports? An Empirical Study of Attention in LLMs for Automated Program Repair",
+                "summary": "Large Language Model (LLM)-based Automated Program Repair systems are advancing rapidly, yet their performance remains inconsistent. Even when provided with the same contextual information, an LLM may generate a correct patch for one bug but fail on another closely related bug. Why this happens remains poorly understood, and it is unclear how LLMs prioritize the diverse information in bug reports and whether model attention affects repair success. In this paper, we present the first empirical study of attention patterns in LLM-based program repair, providing interpretable insights into how models process bug reports and where their attention is concentrated during repair. We analyze 319 real-world Python and Java bugs from SWE-bench Verified and Multi-SWE-bench to study (RQ1) how model attention is distributed across bug report sections, (RQ2) how attention patterns within each section differ between successful and unsuccessful repairs, and (RQ3) how these patterns compare to information developers consider important for bug fixing. We find that successful repairs are characterized by diffused attention across multiple diagnostic components such as bug descriptions, stacktraces, and test cases, while failures often exhibit over-localized attention toward metadata such as version information. We further observe that stronger alignment between model attention and developer-identified key sections and phrases is associated with higher repair success. Our results provide the first empirical evidence that attention misallocation is a key factor in LLM-based APR failures, and offer actionable insights for designing more interpretable and reliable future APR systems.",
+                "authors": [
+                  "Ramtin Ehsani",
+                  "Irene Manotas",
+                  "Saurabh Pujar",
+                  "Luca Buratti",
+                  "Preetha Chatterjee"
+                ],
+                "published": "2026-07-28T15:38:12Z",
+                "updated": "2026-07-28T15:38:12Z",
+                "url": "http://arxiv.org/abs/2607.25873v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25873v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.SE",
+                "categories": [
+                  "cs.SE",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.25851v1",
+                "title": "Rethinking Training Data for Generating Code Review Comments",
+                "summary": "Generating code review comments has become a prominent research direction in automated code review, commonly formulated as a text generation task over diff-comment pairs. Despite advances in learning-based approaches, generated review comments are often generic, weakly grounded, or non-actionable. Recent studies have also shown that review comment datasets contain noisy or unsuitable training instances, motivating LLM-based dataset cleaning approaches. In this paper, we argue that problematic training instances are not homogeneous and that some limitations stem from deeper issues in the task formulation itself. Through an empirical inspection of a widely used review comment dataset, we identify misaligned training pairs: instances where the relationship between the code change and the review comment does not provide a reliable learning signal for generating actionable review feedback from localized inputs. We derive a taxonomy of misalignment capturing three recurring sources: semantic ambiguity, lack of actionability, and context dependence. We further explore whether incorporating this taxonomy into LLM-based filtering improves the identification of problematic training instances, observing that detecting misaligned training pairs remains challenging. Based on these observations, we argue that improving review comment generation requires more than dataset cleaning alone, motivating explicit validity criteria, richer contextual inputs, and evaluation practices aligned with review intent and actionability.",
+                "authors": [
+                  "Leonardo Centellas-Claros",
+                  "Estefania Pakarati-Cofre",
+                  "Juan Pablo Sandoval Alcocer",
+                  "Diego Elias Costa"
+                ],
+                "published": "2026-07-28T15:24:30Z",
+                "updated": "2026-07-28T15:24:30Z",
+                "url": "http://arxiv.org/abs/2607.25851v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25851v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.SE",
+                "categories": [
+                  "cs.SE"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G02_wrong_arg_value_sort_by",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "'sắp xếp theo ngày đăng' -> sort_by=submittedDate."
+      },
+      "input": "Tìm 3 bài báo mới nhất về computer vision, sắp xếp theo ngày đăng",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "computer vision",
+              "max_results": 3,
+              "sort_by": "submittedDate"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": true,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "computer vision",
+              "max_results": 3,
+              "sort_by": "lastUpdatedDate"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": "wrong_arg_value",
+        "failure_type": "wrong_arg_value",
+        "failures": [
+          "sort_by: expected 'submittedDate', got 'lastUpdatedDate'"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "computer vision",
+            "max_results": 3,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "computer vision",
+            "api_query": "all:computer AND all:vision",
+            "total_results": 217660,
+            "items": [
+              {
+                "arxiv_id": "2607.26055v1",
+                "title": "$π\\mathbf{R}^2$: Reactive Real-time Flow Policies",
+                "summary": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input arriving mid-execution, sacrificing \\emph{reactivity}. Replanning more often would restore it, but the perception-to-action pipeline (a large backbone plus multiple denoising steps) is too slow: this \\emph{latency} forbids frequent replanning and leaves committed actions stale, making such policies ill-suited for dynamic, closed-loop control. We present $π\\mathbf{R}^2$, which makes these policies reactive and real-time while retaining large backbones, expressive multi-modal policies, and multi-action prediction. Built on the per-position noise schedule of diffusion forcing, $π\\mathbf{R}^2$ contributes two ideas. First, it splits conditioning into a fast channel (proprioception, fresh every tick) and an asynchronously updated slow channel (vision-language features), so the policy reacts to proprioception within a chunk while tolerating stale vision. Second, a latency-adaptive flow schedule treats in-flight actions as inpainting conditioning and emits actions in one denoising step per call, letting one trained model adapt to varying hardware latency. Requiring minimal modification to existing architectures, $π\\mathbf{R}^2$ can be finetuned from a pretrained policy: applied to GR00T-N1.7 on a real xArm6+XHand platform, it replans closed-loop roughly $4\\times$ faster than the base policy (~$25$Hz on an A5000 GPU), acting on a fresh observation every $40$ms. Across simulation and real-world manipulation tasks, $π\\mathbf{R}^2$ improves the success rate by up to $23\\%$ in simulation and $30\\%$ in the real world over the strongest baseline. Project page: https://pi-r2-flow.github.io/",
+                "authors": [
+                  "Sungjae Park",
+                  "Shubham Tulsiani"
+                ],
+                "published": "2026-07-28T17:59:31Z",
+                "updated": "2026-07-28T17:59:31Z",
+                "url": "http://arxiv.org/abs/2607.26055v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26055v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.RO",
+                "categories": [
+                  "cs.RO",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26043v1",
+                "title": "Re-thinking Mammography Transfer Learning: The Dataset-Informed Transfer Learning (DITL) Framework for Breast Cancer Screening and Lesion Diagnosis",
+                "summary": "Enhancing classification performance in mammography remains a persistent challenge across both small curated datasets and large-scale clinical cohorts. Conventional transfer learning approaches often neglect dataset-specific characteristics, while recent neighborhood-informed methods have been restricted to narrow tasks with rigid formulations, limiting their scalability to population-level datasets. To address these challenges, we propose the Dataset-Informed Transfer Learning (DITL) framework, which integrates dataset-derived difficulty signals with neighborhood-based triplet supervision in a unified objective. DITL introduces two adaptive components: (i) Adaptive Difficulty-Weighted Cross-Entropy (A-DWCE), which assigns per-sample weights based on k-nearest neighbor label purity in a self-supervised feature space, and (ii) Adaptive Neighborhood Representation Triplet (A-NR-Triplet), which enforces intra-class compactness and inter-class separation using a learnable margin. Unlike focal loss, DITL requires no hyperparameter tuning, removes heuristic weighting and fixed margins, and incurs negligible computational overhead, yielding a robust and scalable optimization strategy. On the large-scale VinDR-Mammo dataset, DITL achieves state-of-the-art performance for whole-image breast density classification, with significant improvements across accuracy, F1-score, and AUC (p < 0.0001). Beyond large cohorts, DITL also delivers consistent, statistically significant gains on small ROI datasets (p < 0.0001). By bridging small-scale lesion analysis with large-scale density estimation, DITL establishes a clinically relevant, scalable, and generalizable framework for mammography classification, spanning the full breast cancer screening-to-diagnosis spectrum.",
+                "authors": [
+                  "Adarsh Bhandary Panambur",
+                  "Siming Bayer",
+                  "Andreas Maier"
+                ],
+                "published": "2026-07-28T17:52:36Z",
+                "updated": "2026-07-28T17:52:36Z",
+                "url": "http://arxiv.org/abs/2607.26043v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26043v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26042v1",
+                "title": "VetClaw: An Edge-Cloud Multimodal Agentic System for Veterinary Disease Screening",
+                "summary": "We present VetClaw, an edge-cloud multimodal agentic system for early veterinary disease screening. VetClaw uses a camera module as an edge sensing device and sends captured images, together with optional symptom descriptions, to a server-hosted vision-language model for zero-shot disease classification. The system separates agent interaction from workflow orchestration: OpenClaw provides scheduling, tool access, user interaction, and notification services on the edge device, while LangGraph manages the stateful screening workflow, including input validation, image transmission, model invocation, safety checks, conditional routing, failure handling, and structured logging. This design moves beyond static image classification by enabling the system to collect visual evidence, invoke external models, apply deterministic safety rules, and generate diagnostic-support alerts. Results show that image-only VLM prediction remains limited, whereas symptom-guided and multimodal inputs improve zero-shot classification performance. Thus, VetClaw transforms a static prediction model into a coordinated, safety-aware system that can use tools, manage workflows, handle failures, and escalate uncertain cases.",
+                "authors": [
+                  "Syed Mhamudul Hasan",
+                  "Anas AlSobeh",
+                  "Hussein Zangoti",
+                  "Abdur R. Shahid"
+                ],
+                "published": "2026-07-28T17:50:25Z",
+                "updated": "2026-07-28T17:50:25Z",
+                "url": "http://arxiv.org/abs/2607.26042v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26042v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G03_wrong_boundary_send",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Hành động gửi -> PHẢI xác nhận trước, không gọi send trực tiếp."
+      },
+      "input": "Soạn bản tin AI hôm nay rồi gửi lên Telegram giúp mình",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có muốn tôi gửi bản tin AI hôm nay lên Telegram không?",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có muốn tôi gửi bản tin AI hôm nay lên Telegram không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có muốn tôi gửi bản tin AI hôm nay lên Telegram không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G04_unnecessary_tool_greeting",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "Câu hỏi meta -> trả lời thẳng, KHÔNG gọi tool."
+      },
+      "input": "Bạn có thể tìm paper khoa học không?",
+      "expect": {
+        "no_tool": true,
+        "behavior": "answer_without_tool"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Có, tôi có thể tìm kiếm các bài báo khoa học. Bạn cần tìm bài báo về chủ đề gì?",
+        "case_failure_type": "unnecessary_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    },
+    {
+      "id": "G05_missing_info_alphaxiv",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": false,
+      "metadata": {
+        "what_it_tests": "alphaxiv cần arxiv_url cụ thể, không có -> phải hỏi lại."
+      },
+      "input": "Lấy AI overview của paper attention is all you need trên alphaxiv",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "alphaxiv",
+            "args": {
+              "arxiv_url": "https://arxiv.org/abs/1706.03762"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "missing_info",
+        "failures": [
+          "missing tool call clarify",
+          "extra tool call alphaxiv"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "alphaxiv",
+          "args": {
+            "arxiv_url": "https://arxiv.org/abs/1706.03762"
+          },
+          "result": {
+            "tool": "get_alphaxiv_overview",
+            "arxiv_id": "1706.03762",
+            "title": "Attention Is All You Need",
+            "abstract": "The dominant sequence transduction models are based on complex recurrent or\nconvolutional neural networks in an encoder-decoder configuration. The best\nperforming models also connect the encoder and decoder through an attention\nmechanism. We propose a new simple network architecture, the Transformer, based\nsolely on attention mechanisms, dispensing with recurrence and convolutions\nentirely. Experiments on two machine translation tasks show these models to be\nsuperior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014\nEnglish-to-German translation task, improving over the existing best results,\nincluding ensembles by over 2 BLEU. On the WMT 2014 English-to-French\ntranslation task, our model establishes a new single-model state-of-the-art\nBLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction\nof the training costs of the best models from the literature. We show that the\nTransformer generalizes well to other tasks by applying it successfully to\nEnglish constituency parsing both with large and limited training data.",
+            "ai_overview": "Researchers from Google Brain and Google Research introduce the Transformer, a novel neural network architecture that replaces recurrent and convolutional layers entirely with attention mechanisms. The Transformer achieves new state-of-the-art performance on machine translation benchmarks, securing a BLEU score of 28.4 on WMT 2014 English-to-German, while drastically reducing training costs and demonstrating strong generalization to other NLP tasks like constituency parsing.",
+            "url": "https://alphaxiv.org/paper/1706.03762",
+            "source": "alphaxiv.org"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G06_multiturn_papers_to_alphaxiv",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Turn cuối cung cấp ID cụ thể -> chuyển sang alphaxiv."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper về diffusion model"
+        },
+        {
+          "role": "user",
+          "content": "Paper đầu tiên hay đó, lấy AI overview của nó đi"
+        },
+        {
+          "role": "user",
+          "content": "ID của paper là 2006.11239, dùng alphaxiv nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "alphaxiv",
+            "args": {
+              "arxiv_url": "2006.11239"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "alphaxiv",
+            "args": {
+              "arxiv_url": "2006.11239"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_tool",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "alphaxiv",
+          "args": {
+            "arxiv_url": "2006.11239"
+          },
+          "result": {
+            "tool": "get_alphaxiv_overview",
+            "arxiv_id": "2006.11239",
+            "title": "Denoising Diffusion Probabilistic Models",
+            "abstract": "We present high quality image synthesis results using diffusion probabilistic\nmodels, a class of latent variable models inspired by considerations from\nnonequilibrium thermodynamics. Our best results are obtained by training on a\nweighted variational bound designed according to a novel connection between\ndiffusion probabilistic models and denoising score matching with Langevin\ndynamics, and our models naturally admit a progressive lossy decompression\nscheme that can be interpreted as a generalization of autoregressive decoding.\nOn the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and\na state-of-the-art FID score of 3.17. On 256x256 LSUN, we obtain sample quality\nsimilar to ProgressiveGAN. Our implementation is available at\nhttps://github.com/hojonathanho/diffusion",
+            "ai_overview": "Jonathan Ho, Ajay Jain, and Pieter Abbeel demonstrated that Denoising Diffusion Probabilistic Models (DDPMs) can generate high-fidelity images, achieving state-of-the-art FID scores on CIFAR10. This was accomplished by re-parameterizing the model to predict noise and optimizing a simplified objective, which enabled the models to produce samples competitive with leading Generative Adversarial Networks.",
+            "url": "https://alphaxiv.org/paper/2006.11239",
+            "source": "alphaxiv.org"
+          }
+        }
+      ]
+    },
+    {
+      "id": "G07_multiturn_carryover_topic",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Carryover topic 'AI agents' và xử lý search_type=Top."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm tweet về AI agents hôm nay"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ lấy các tweet phổ biến nhất thôi"
+        },
+        {
+          "role": "user",
+          "content": "Vẫn về AI agents nhé"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI agents",
+              "search_type": "Top"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "social_search",
+            "args": {
+              "query": "AI agents",
+              "search_type": "Top",
+              "limit": 5
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_arg_value",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "AI agents",
+            "search_type": "Top",
+            "limit": 5
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "AI agents",
+            "search_type": "Top",
+            "items": [
+              {
+                "title": "For the first time, AI agents can actually spend money without CAPTCHAs or ID. 🤖",
+                "summary": "For the first time, AI agents can actually spend money without CAPTCHAs or ID. 🤖\n\nLightning payments, QR codes, and cash out to Argentine pesos, all just by asking. 🤯 https://t.co/zQ8hDKvGgu",
+                "url": "https://x.com/A1Laboratory/status/2082139806100869476",
+                "source": "@A1Laboratory",
+                "date": "Tue Jul 28 16:23:08 +0000 2026",
+                "metrics": {
+                  "favorites": 20,
+                  "retweets": 5,
+                  "views": "1029"
+                }
+              },
+              {
+                "title": "Traditional vs. Agentic RAG, clearly explained!",
+                "summary": "Traditional vs. Agentic RAG, clearly explained!\n\nThe future is Agentic RAG, and it's because a traditional RAG setup has some major limitations...👇\n\n1) Retrieve once and generate once.\n↳ This means if the retrieved context isn't enough or correct, the LLM can not dynamically search for more information.\n\n2) Inability to reason through complex queries.\n↳ If a query requires multiple retrieval steps or CoT (chain of thought), traditional RAG falls short.\n\n3) Limited adaptability\n↳ The system can't modify its strategy based on the problem at hand. Eg. Whether to do vector search, web search or call an API.\n\nAgentic RAG addresses these issues.\n\nThe core idea is to introduce agentic behaviors at each stage of RAG.\n\nAgents can actively think through tasks—planning, adapting, and iterating to find the best solution, rather than just following a set of instructions, and LLMs enable this.\n\nThe image below illustrates the workflow of an agentic RAG. Refer to it as you continue reading...\n\nSteps 1-2) The user inputs a query, and an agent refines it (corrects spelling, simplifies for embedding, etc.)\n\nStep 3) Another agent decides if more details are needed.\n↳ Step 4) If not, the refined query is sent to the LLM.\n↳ Steps 5-8) If yes, the agent selects the relevant sources (vector database, tools/APIs, internet), retrieves context, and sends it to the LLM.\n\nStep 9) A response is generated.\n\nStep 10) A final agent checks if the answer is relevant.\n↳ Step 11) If yes, return the response.\n↳ Step 12) If no, restart from Step 1. This process repeats until the system provides an acceptable answer or concedes it cannot respond.\n\nThis makes the RAG much more dynamic and robust.\n\nHowever, it's important to note that building RAG systems often comes down to design preferences and choices.\n\nThe diagram below is just one of many blueprints an agentic RAG system may have.\n\nYou can adapt it to suit your specific use case.\n\nEnjoyed this? You should also my RAG series! From building and optimizing RAG apps to evaluating performance and crafting agentic & multi-modal systems—it's all here.\n\nLink in the next tweet!\n_____\nFind me → @akshay_pachaar ✔️\nFor more insights and tutorials on AI and Machine Learning!",
+                "url": "https://x.com/akshay_pachaar/status/1870446667444740444",
+                "source": "@akshay_pachaar",
+                "date": "Sat Dec 21 12:30:11 +0000 2024",
+                "metrics": {
+                  "favorites": 2224,
+                  "retweets": 410,
+                  "views": "175598"
+                }
+              },
+              {
+                "title": "Good night everyone. ",
+                "summary": "Good night everyone. \n\nai meets web3 on @pharos_network !\n\njust minted my very own carnival companion with @AnvitaFlow for the #pharosagentcarnival \n\nfrom prompt to nft in minutes. this is what happens when ai agents get creative. little bot big vibes celebrating pharos's 1st anniversary in style \n\ncheck out my mint here \nhttps://t.co/kCqKExHHi7\n\nthe carnival's just getting started. deploy your own steward agent generate your masterpiece and mint yours too. rewards are waiting \n\njoin the fun 👉 https://t.co/niu70SUgGb\n\nwho's got the best agent art so far? drop yours below 👇",
+                "url": "https://x.com/potu_eth/status/2079603677812469791",
+                "source": "@potu_eth",
+                "date": "Tue Jul 21 16:25:28 +0000 2026",
+                "metrics": {
+                  "favorites": 365,
+                  "retweets": 46,
+                  "views": "16377"
+                }
+              },
+              {
+                "title": "🚨Microsoft just turned Copilot into a digital coworker.",
+                "summary": "🚨Microsoft just turned Copilot into a digital coworker.\nNot using this in 2026 = falling behind.\n\nThe latest update in Microsoft 365 Copilot isn’t just an upgrade.\n\nIt’s a complete shift from AI tools → AI teammates.\n\nHere’s everything you need to know 👇\n\n🔹 1. Microsoft Copilot Cowork (Biggest Update)\n\nAI now works like a real teammate:\n\n* Plans projects\n* Reviews budgets\n* Manages calendar + tasks\n* Executes workflows end-to-end\n\n👉 This is Agentic AI (AI that acts, not just responds)\n\n🔹 2. Enterprise-Ready AI (Built-in)\n\n* Data security\n* Permissions\n* Compliance\n\n👉 Respects company data boundaries (no leaks)\n\n🔹 3. Multi-Model AI (GPT + Claude)\n\n* One AI writes\n* Another critiques\n* Compare answers side-by-side\n\nResult:\n✔ Higher accuracy\n✔ Fewer hallucinations\n✔ Better decisions\n\n🔹 4. AI Agents Across Office Apps\n\nWorks inside: Excel • Word • PowerPoint • Outlook\n\nCapabilities:\n* Create documents\n* Analyze data\n* Build presentations\n* Draft emails\n* Answer questions like a human\n\n👉 Enables human + AI collaboration workflows\n\n🔹 5. Agent Mode + Automation\n\nAI interacts with apps, websites, and systems\n\nAutomates repetitive work:\n* Data entry\n* Reporting\n* Workflow approvals\n\n👉 Microsoft calls this Agent Mode / Agentic Enterprise\n\n🔹 6. Advanced Research AI\n\nDeep research engine that:\n* Analyzes multiple sources\n* Cross-checks insights\n\nGreat for:\n* Strategy docs\n* Market research\n* Reports\n\n🔹 7. Copilot App Improvements\n\n* Better UI + navigation\n* Chat history + search\n* Central AI content library\n\n👉 Becomes your AI workspace\n\n🔹 8. Copilot Studio (Build Your Own AI)\n\nCreate custom AI assistants (no coding):\n\nUse cases:\n* HR bots\n* Customer support\n* Internal knowledge assistants\n\n👉 Fully customizable AI workflows\n\n🔹 9. Smarter Features in Daily Apps\n\nIn Excel:\n* Create tables from images\n* Instant data analysis\n\nIn Word:\n* Convert handwritten notes\n* Draft documents with AI\n\nIn PowerPoint:\n* Auto-generate slides & designs\n\nIn Outlook:\n* Email drafting + prioritization\n\n👉 Saves hours of manual work daily\n\n🔹 10. The Big Shift (2026)\n\nMicrosoft 365 is moving from:\n❌ “AI that answers”\n✅ “AI that does work for you”\n\nThis is called:\n👉 Agentic AI + AI Coworkers\n\n🔹 Simple Summary\n\nCopilot is no longer just a chatbot.\n\nIt’s becoming:\n* A researcher\n* A task executor\n* A workflow manager\n* A team member\n\nClosing (punchline):\nAI doesn’t fail at intelligence.\nIt fails at execution.\n\nMicrosoft just fixed that.\n\nIf you're building or using AI in 2026, you need to understand this shift.\n\n𝗕𝗲𝗰𝗼𝗺𝗲 𝗯𝗲𝘁𝘁𝗲𝗿 𝗮𝘁 𝗔𝗜 𝗶𝗻 𝗷𝘂𝘀𝘁 𝟭 𝗺𝗶𝗻𝘂𝘁𝗲 𝗮 𝗱𝗮𝘆. 𝗝𝗼𝗶𝗻 𝗺𝘆 𝘄𝗲𝗲𝗸𝗹𝘆 𝗻𝗲𝘄𝘀𝗹𝗲𝘁𝘁𝗲𝗿 𝘄𝗵𝗲𝗿𝗲 𝗜 𝗱𝗼𝗰𝘂𝗺𝗲𝗻𝘁 𝘁𝗵𝗲 𝗿𝗲𝗮𝗹-𝘄𝗼𝗿𝗹𝗱 𝗷𝗼𝘂𝗿𝗻𝗲𝘆 𝗼𝗳 𝗔𝗜 𝘁𝗿𝗮𝗻𝘀𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻. \n👉 𝗦𝗶𝗴𝗻 𝘂𝗽 𝗳𝗿𝗲𝗲 now → https://t.co/Kj8zW95H9X\n\nFollow @AiswaryaVenkit1 for more such insights!!",
+                "url": "https://x.com/AiswaryaVenkit1/status/2078819645038141939",
+                "source": "@AiswaryaVenkit1",
+                "date": "Sun Jul 19 12:30:00 +0000 2026",
+                "metrics": {
+                  "favorites": 66,
+                  "retweets": 11,
+                  "views": "18699"
+                }
+              },
+              {
+                "title": "Build AI apps and agents from idea to production in one unified environment. Get started with Microsoft Foundry. https:/",
+                "summary": "Build AI apps and agents from idea to production in one unified environment. Get started with Microsoft Foundry. https://t.co/Sp6EjqDG9M It’s never been easier to build, optimize, and govern AI apps and agents that understand your business context and deliver business impact. Our unified, interoperable AI platform enables developers to build faster and smarter, while organizations gain fleetwide security and governance in a unified portal. #MicrosoftFoundry #microsoft #azureai #ai #genai #azureopenai",
+                "url": "https://x.com/MSFTMechanics/status/2082286665565978885",
+                "source": "@MSFTMechanics",
+                "date": "Wed Jul 29 02:06:42 +0000 2026",
+                "metrics": {
+                  "favorites": 2,
+                  "retweets": 0,
+                  "views": "575"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "G08_multiturn_wrong_boundary_persistent",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Dù user nói 'đừng hỏi nữa', vẫn PHẢI xác nhận trước khi send."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Format bản tin AI tuần này theo dạng brief"
+        },
+        {
+          "role": "user",
+          "content": "OK được rồi, gửi đi"
+        },
+        {
+          "role": "user",
+          "content": "Gửi luôn đừng hỏi nữa"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "yes_no"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "question": "Bạn có chắc chắn muốn gửi bản tin AI tuần này mà không cần xác nhận không?",
+              "response_type": "yes_no"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "wrong_boundary",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": [
+        {
+          "tool": "clarify",
+          "args": {
+            "question": "Bạn có chắc chắn muốn gửi bản tin AI tuần này mà không cần xác nhận không?",
+            "response_type": "yes_no"
+          },
+          "result": {
+            "tool": "ask_user",
+            "question": "Bạn có chắc chắn muốn gửi bản tin AI tuần này mà không cần xác nhận không?",
+            "response_type": "yes_no",
+            "options": [],
+            "awaiting_user": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "G09_multiturn_missing_info_paper_text",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "paper_text cần arxiv_url, 'nổi tiếng nhất' không đủ -> hỏi lại."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Đọc full text paper về RLHF đi"
+        },
+        {
+          "role": "user",
+          "content": "Paper nổi tiếng nhất về RLHF ấy"
+        },
+        {
+          "role": "user",
+          "content": "Lấy nội dung đầy đủ của nó"
+        }
+      ],
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "clarify",
+            "args": {
+              "response_type": "text"
+            }
+          }
+        ]
+      },
+      "result": {
+        "passed": false,
+        "routing_correct": false,
+        "args_correct": false,
+        "actual_tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "RLHF",
+              "max_results": 1,
+              "sort_by": "relevance"
+            }
+          }
+        ],
+        "actual_text": null,
+        "case_failure_type": "missing_info",
+        "observed_mismatch": "missing_tool_call",
+        "failure_type": "missing_info",
+        "failures": [
+          "missing tool call clarify",
+          "extra tool call papers"
+        ]
+      },
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "RLHF",
+            "max_results": 1,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "RLHF",
+            "api_query": "all:RLHF",
+            "total_results": 1367,
+            "items": [
+              {
+                "arxiv_id": "2312.11456v4",
+                "title": "Iterative Preference Learning from Human Feedback: Bridging Theory and Practice for RLHF under KL-Constraint",
+                "summary": "This paper studies the alignment process of generative models with Reinforcement Learning from Human Feedback (RLHF). We first identify the primary challenges of existing popular methods like offline PPO and offline DPO as lacking in strategical exploration of the environment. Then, to understand the mathematical principle of RLHF, we consider a standard mathematical formulation, the reverse-KL regularized contextual bandit for RLHF. Despite its widespread practical application, a rigorous theoretical analysis of this formulation remains open. We investigate its behavior in three distinct settings -- offline, online, and hybrid -- and propose efficient algorithms with finite-sample theoretical guarantees. Moving towards practical applications, our framework, with a robust approximation of the information-theoretical policy improvement oracle, naturally gives rise to several novel RLHF algorithms. This includes an iterative version of the Direct Preference Optimization (DPO) algorithm for online settings, and a multi-step rejection sampling strategy for offline scenarios. Our empirical evaluations on real-world alignment experiment of large language model demonstrate that these proposed methods significantly surpass existing strong baselines, such as DPO and Rejection Sampling Optimization (RSO), showcasing the connections between solid theoretical foundations and their potent practical implementations.",
+                "authors": [
+                  "Wei Xiong",
+                  "Hanze Dong",
+                  "Chenlu Ye",
+                  "Ziqi Wang",
+                  "Han Zhong",
+                  "Heng Ji",
+                  "Nan Jiang",
+                  "Tong Zhang"
+                ],
+                "published": "2023-12-18T18:58:42Z",
+                "updated": "2024-05-01T14:50:56Z",
+                "url": "http://arxiv.org/abs/2312.11456v4",
+                "pdf_url": "https://arxiv.org/pdf/2312.11456v4",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "stat.ML"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "id": "G10_multiturn_out_of_scope",
+      "phase": "B",
+      "suite": "group",
+      "case_suite": "group",
+      "is_multiturn": true,
+      "metadata": {
+        "what_it_tests": "Chuyển từ research sang coding (out of scope) -> từ chối."
+      },
+      "input": [
+        {
+          "role": "user",
+          "content": "Tìm paper về transformer architecture"
+        },
+        {
+          "role": "user",
+          "content": "Hay đó, giờ implement transformer trong Python giúp mình"
+        },
+        {
+          "role": "user",
+          "content": "Chỉ cần code phần attention mechanism thôi"
+        }
+      ],
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "result": {
+        "passed": true,
+        "routing_correct": true,
+        "args_correct": true,
+        "actual_tool_calls": [],
+        "actual_text": "Tôi không thể viết mã cho bạn, nhưng tôi có thể giúp bạn hiểu cách hoạt động của cơ chế attention trong transformer. Bạn có muốn tôi giải thích về nó không?",
+        "case_failure_type": "out_of_scope",
+        "observed_mismatch": null,
+        "failure_type": null,
+        "failures": []
+      },
+      "tool_results": []
+    }
+  ]
+}

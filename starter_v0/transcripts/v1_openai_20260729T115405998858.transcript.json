@@ -1,0 +1,1688 @@
+{
+  "transcript_id": "v1_openai_20260729T115405998858",
+  "version": "v1",
+  "artifact_version": "v1+p4eb4aca78475+tee55f2ba381e",
+  "prompt_hash": "4eb4aca784753cebc0a40900b59997c99e657ee2a6b38156284408034af9a3a7",
+  "tools_hash": "ee55f2ba381ee017f0c51d19b4f0099ad01762f5b6d89038a28a3510120eea76",
+  "provider": "openai",
+  "model": null,
+  "system_prompt": "D:\\lab\\Day04-G24-E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\lab\\Day04-G24-E403\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T11:54:05",
+  "updated_at": "2026-07-29T12:14:18",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T11:54:14",
+      "user": "bạn là ai",
+      "status": "answered",
+      "assistant_text": "Tôi là một trợ lý AI, được thiết kế để giúp bạn tìm kiếm thông tin, trả lời câu hỏi và hỗ trợ trong nhiều lĩnh vực khác nhau. Nếu bạn có bất kỳ câu hỏi nào hoặc cần trợ giúp, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi là một trợ lý AI, được thiết kế để giúp bạn tìm kiếm thông tin, trả lời câu hỏi và hỗ trợ trong nhiều lĩnh vực khác nhau. Nếu bạn có bất kỳ câu hỏi nào hoặc cần trợ giúp, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T11:54:14"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T11:54:39",
+      "user": "Top 5 bài báo về dinh dưỡng",
+      "status": "answered",
+      "assistant_text": "Dưới đây là 5 bài báo về dinh dưỡng:\n\n1. **[Comprehensive Evaluation of Large Multimodal Models for Nutrition Analysis: A New Benchmark Enriched with Contextual Metadata](http://arxiv.org/abs/2507.07048v2)**\n   - **Tác giả**: Bruce Coburn, Jiangpeng He, Megan E. Rollo, Satvinder S. Dhaliwal, Deborah A. Kerr, Fengqing Zhu\n   - **Tóm tắt**: Bài báo này nghiên cứu cách các mô hình đa phương thức lớn (LMMs) có thể được áp dụng để phân tích dinh dưỡng từ hình ảnh bữa ăn, đồng thời giới thiệu một bộ dữ liệu mới về hình ảnh thực phẩm.\n   - **Ngày xuất bản**: 09/07/2025\n   - [PDF](https://arxiv.org/pdf/2507.07048v2)\n\n2. **[Space nutrition: the key role of nutrition in human space flight](http://arxiv.org/abs/1610.00703v1)**\n   - **Tác giả**: Catalano Enrico\n   - **Tóm tắt**: Bài báo này xem xét vai trò của dinh dưỡng trong chuyến bay không gian, bao gồm các yêu cầu dinh dưỡng cho phi hành gia và tác động của điều kiện môi trường.\n   - **Ngày xuất bản**: 02/10/2016\n   - [PDF](https://arxiv.org/pdf/1610.00703v1)\n\n3. **[DPF-Nutrition: Food Nutrition Estimation via Depth Prediction and Fusion](http://arxiv.org/abs/2310.11702v1)**\n   - **Tác giả**: Yuzhe Han, Qimin Cheng, Wenjin Wu, Ziyang Huang\n   - **Tóm tắt**: Bài báo này giới thiệu phương pháp ước lượng dinh dưỡng DPF-Nutrition, sử dụng hình ảnh đơn và dự đoán độ sâu để cải thiện độ chính xác trong ước lượng khẩu phần thực phẩm.\n   - **Ngày xuất bản**: 18/10/2023\n   - [PDF](https://arxiv.org/pdf/2310.11702v1)\n\n4. **[Application of AI in Nutrition](http://arxiv.org/abs/2312.11569v1)**\n   - **Tác giả**: Ritu Ramakrishnan, Tianxiang Xing, Tianfeng Chen, Ming-Hao Lee, Jinzhu Gao\n   - **Tóm tắt**: Bài báo này thảo luận về cách trí tuệ nhân tạo đang thay đổi cách mà các chuyên gia dinh dưỡng đưa ra quyết định và phát triển các hệ thống gợi ý dinh dưỡng.\n   - **Ngày xuất bản**: 18/12/2023\n   - [PDF](https://arxiv.org/pdf/2312.11569v1)\n\n5. **[Uncovering the nutritional landscape of food](http://arxiv.org/abs/1408.3600v2)**\n   - **Tác giả**: Seunghyeon Kim, Jaeyun Sung, Mathias Foo, Yong-Su Jin, Pan-Jun Kim\n   - **Tóm tắt**: Bài báo này sử dụng các phương pháp phân tích dữ liệu để đánh giá thành phần dinh dưỡng của thực phẩm và mối quan hệ giữa các chất dinh dưỡng.\n   - **Ngày xuất bản**: 11/08/2014\n   - [PDF](https://arxiv.org/pdf/1408.3600v2)\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "dinh dưỡng",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "dinh dưỡng",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "dinh dưỡng",
+                "api_query": "all:nutrition",
+                "total_results": 759,
+                "items": [
+                  {
+                    "arxiv_id": "2507.07048v2",
+                    "title": "Comprehensive Evaluation of Large Multimodal Models for Nutrition Analysis: A New Benchmark Enriched with Contextual Metadata",
+                    "summary": "Large Multimodal Models (LMMs) are increasingly applied to meal images for nutrition analysis. However, existing work primarily evaluates proprietary models, such as GPT-4. This leaves the broad range of LLMs underexplored. Additionally, the influence of integrating contextual metadata and its interaction with various reasoning modifiers remains largely uncharted. This work investigates how interpreting contextual metadata derived from GPS coordinates (converted to location/venue type), timestamps (transformed into meal/day type), and the food items present can enhance LMM performance in estimating key nutritional values. These values include calories, macronutrients (protein, carbohydrates, fat), and portion sizes. We also introduce \\textbf{ACETADA}, a new food-image dataset slated for public release. This open dataset provides nutrition information verified by the dietitian and serves as the foundation for our analysis. Our evaluation across eight LMMs (four open-weight and four closed-weight) first establishes the benefit of contextual metadata integration over straightforward prompting with images alone. We then demonstrate how this incorporation of contextual information enhances the efficacy of reasoning modifiers, such as Chain-of-Thought, Multimodal Chain-of-Thought, Scale Hint, Few-Shot, and Expert Persona. Empirical results show that integrating metadata intelligently, when applied through straightforward prompting strategies, can significantly reduce the Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE) in predicted nutritional values. This work highlights the potential of context-aware LMMs for improved nutrition analysis.",
+                    "authors": [
+                      "Bruce Coburn",
+                      "Jiangpeng He",
+                      "Megan E. Rollo",
+                      "Satvinder S. Dhaliwal",
+                      "Deborah A. Kerr",
+                      "Fengqing Zhu"
+                    ],
+                    "published": "2025-07-09T17:10:33Z",
+                    "updated": "2025-10-03T18:00:15Z",
+                    "url": "http://arxiv.org/abs/2507.07048v2",
+                    "pdf_url": "https://arxiv.org/pdf/2507.07048v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1610.00703v1",
+                    "title": "Space nutrition: the key role of nutrition in human space flight",
+                    "summary": "From the basic impact of nutrient intake on health maintenance to the psychosocial benefits of mealtime, great advancements in nutritional sciences for support of human space travel have occurred over the past 60 years. Nutrition in space has many areas of impact, including provision of required nutrients and maintenance of endocrine, immune, and musculoskeletal systems. It is affected by environmental conditions such as radiation, temperature, and atmospheric pressures, and these are reviewed. Nutrition with respect to space flight is closely interconnected with other life sciences research disciplines including the study of hematology, immunology, as well as neurosensory, cardiovascular, gastrointestinal, circadian rhythms, and musculoskeletal physiology. Psychosocial aspects of nutrition are also important for more productive missions and crew morale. Research conducted to determine the impact of spaceflight on human physiology and subsequent nutritional requirements will also have direct and indirect applications in Earth-based nutrition research. Cumulative nutritional research over the past five decades has resulted in the current nutritional requirements for astronauts. Realization of the full role of nutrition during spaceflight is critical for the success of extended-duration missions. Long-duration missions will require quantitation of nutrient requirements for maintenance of health and protection against the effects of microgravity. Keywords: Space nutrition, space flight, effects of microgravity, astronauts, space food",
+                    "authors": [
+                      "Catalano Enrico"
+                    ],
+                    "published": "2016-10-02T21:39:54Z",
+                    "updated": "2016-10-02T21:39:54Z",
+                    "url": "http://arxiv.org/abs/1610.00703v1",
+                    "pdf_url": "https://arxiv.org/pdf/1610.00703v1",
+                    "source": "arxiv.org",
+                    "primary_category": "q-bio.OT",
+                    "categories": [
+                      "q-bio.OT",
+                      "q-bio.TO"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2310.11702v1",
+                    "title": "DPF-Nutrition: Food Nutrition Estimation via Depth Prediction and Fusion",
+                    "summary": "A reasonable and balanced diet is essential for maintaining good health. With the advancements in deep learning, automated nutrition estimation method based on food images offers a promising solution for monitoring daily nutritional intake and promoting dietary health. While monocular image-based nutrition estimation is convenient, efficient, and economical, the challenge of limited accuracy remains a significant concern. To tackle this issue, we proposed DPF-Nutrition, an end-to-end nutrition estimation method using monocular images. In DPF-Nutrition, we introduced a depth prediction module to generate depth maps, thereby improving the accuracy of food portion estimation. Additionally, we designed an RGB-D fusion module that combined monocular images with the predicted depth information, resulting in better performance for nutrition estimation. To the best of our knowledge, this was the pioneering effort that integrated depth prediction and RGB-D fusion techniques in food nutrition estimation. Comprehensive experiments performed on Nutrition5k evaluated the effectiveness and efficiency of DPF-Nutrition.",
+                    "authors": [
+                      "Yuzhe Han",
+                      "Qimin Cheng",
+                      "Wenjin Wu",
+                      "Ziyang Huang"
+                    ],
+                    "published": "2023-10-18T04:23:05Z",
+                    "updated": "2023-10-18T04:23:05Z",
+                    "url": "http://arxiv.org/abs/2310.11702v1",
+                    "pdf_url": "https://arxiv.org/pdf/2310.11702v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2312.11569v1",
+                    "title": "Application of AI in Nutrition",
+                    "summary": "In healthcare, artificial intelligence (AI) has been changing the way doctors and health experts take care of people. This paper will cover how AI is making major changes in the health care system, especially with nutrition. Various machine learning and deep learning algorithms have been developed to extract valuable information from healthcare data which help doctors, nutritionists, and health experts to make better decisions and make our lifestyle healthy. This paper provides an overview of the current state of AI applications in healthcare with a focus on the utilization of AI-driven recommender systems in nutrition. It will discuss the positive outcomes and challenges that arise when AI is used in this field. This paper addresses the challenges to develop AI recommender systems in healthcare, providing a well-rounded perspective on the complexities. Real-world examples and research findings are presented to underscore the tangible and significant impact AI recommender systems have in the field of healthcare, particularly in nutrition. The ongoing efforts of applying AI in nutrition lay the groundwork for a future where personalized recommendations play a pivotal role in guiding individuals toward healthier lifestyles.",
+                    "authors": [
+                      "Ritu Ramakrishnan",
+                      "Tianxiang Xing",
+                      "Tianfeng Chen",
+                      "Ming-Hao Lee",
+                      "Jinzhu Gao"
+                    ],
+                    "published": "2023-12-18T04:37:45Z",
+                    "updated": "2023-12-18T04:37:45Z",
+                    "url": "http://arxiv.org/abs/2312.11569v1",
+                    "pdf_url": "https://arxiv.org/pdf/2312.11569v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.HC",
+                    "categories": [
+                      "cs.HC",
+                      "cs.IR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1408.3600v2",
+                    "title": "Uncovering the nutritional landscape of food",
+                    "summary": "Recent progresses in data-driven analysis methods, including network-based approaches, are revolutionizing many classical disciplines. These techniques can also be applied to food and nutrition, which must be studied to design healthy diets. Using nutritional information from over 1,000 raw foods, we systematically evaluated the nutrient composition of each food in regards to satisfying daily nutritional requirements. The nutrient balance of a food was quantified herein as nutritional fitness, using the food's frequency of occurrence in nutritionally adequate food combinations. Nutritional fitness offers prioritization of recommendable foods within a global network of foods, in which foods are connected based on the similarities of their nutrient compositions. We identified a number of key nutrients, such as choline and alpha-linolenic acid, whose levels in foods can critically affect the foods' nutritional fitness. Analogously, pairs of nutrients can have the same effect. In fact, two nutrients can impact the nutritional fitness synergistically, although the individual nutrients alone may not. This result, involving the tendency among nutrients to show correlations in their abundances across foods, implies a hidden layer of complexity when exploring for foods whose balance of nutrients within pairs holistically helps meet nutritional requirements. Interestingly, foods with high nutritional fitness successfully maintain this nutrient balance. This effect expands our scope to a diverse repertoire of nutrient-nutrient correlations, integrated under a common network framework that yields unexpected yet coherent associations between nutrients. Our nutrient-profiling approach combined with a network-based analysis provides a more unbiased, global view of the relationships between foods and nutrients, and can be extended towards nutritional policies, food marketing, and personalized nutrition.",
+                    "authors": [
+                      "Seunghyeon Kim",
+                      "Jaeyun Sung",
+                      "Mathias Foo",
+                      "Yong-Su Jin",
+                      "Pan-Jun Kim"
+                    ],
+                    "published": "2014-08-11T17:21:40Z",
+                    "updated": "2015-03-14T14:05:51Z",
+                    "url": "http://arxiv.org/abs/1408.3600v2",
+                    "pdf_url": "https://arxiv.org/pdf/1408.3600v2",
+                    "source": "arxiv.org",
+                    "primary_category": "physics.soc-ph",
+                    "categories": [
+                      "physics.soc-ph",
+                      "cs.SI",
+                      "physics.data-an"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là 5 bài báo về dinh dưỡng:\n\n1. **[Comprehensive Evaluation of Large Multimodal Models for Nutrition Analysis: A New Benchmark Enriched with Contextual Metadata](http://arxiv.org/abs/2507.07048v2)**\n   - **Tác giả**: Bruce Coburn, Jiangpeng He, Megan E. Rollo, Satvinder S. Dhaliwal, Deborah A. Kerr, Fengqing Zhu\n   - **Tóm tắt**: Bài báo này nghiên cứu cách các mô hình đa phương thức lớn (LMMs) có thể được áp dụng để phân tích dinh dưỡng từ hình ảnh bữa ăn, đồng thời giới thiệu một bộ dữ liệu mới về hình ảnh thực phẩm.\n   - **Ngày xuất bản**: 09/07/2025\n   - [PDF](https://arxiv.org/pdf/2507.07048v2)\n\n2. **[Space nutrition: the key role of nutrition in human space flight](http://arxiv.org/abs/1610.00703v1)**\n   - **Tác giả**: Catalano Enrico\n   - **Tóm tắt**: Bài báo này xem xét vai trò của dinh dưỡng trong chuyến bay không gian, bao gồm các yêu cầu dinh dưỡng cho phi hành gia và tác động của điều kiện môi trường.\n   - **Ngày xuất bản**: 02/10/2016\n   - [PDF](https://arxiv.org/pdf/1610.00703v1)\n\n3. **[DPF-Nutrition: Food Nutrition Estimation via Depth Prediction and Fusion](http://arxiv.org/abs/2310.11702v1)**\n   - **Tác giả**: Yuzhe Han, Qimin Cheng, Wenjin Wu, Ziyang Huang\n   - **Tóm tắt**: Bài báo này giới thiệu phương pháp ước lượng dinh dưỡng DPF-Nutrition, sử dụng hình ảnh đơn và dự đoán độ sâu để cải thiện độ chính xác trong ước lượng khẩu phần thực phẩm.\n   - **Ngày xuất bản**: 18/10/2023\n   - [PDF](https://arxiv.org/pdf/2310.11702v1)\n\n4. **[Application of AI in Nutrition](http://arxiv.org/abs/2312.11569v1)**\n   - **Tác giả**: Ritu Ramakrishnan, Tianxiang Xing, Tianfeng Chen, Ming-Hao Lee, Jinzhu Gao\n   - **Tóm tắt**: Bài báo này thảo luận về cách trí tuệ nhân tạo đang thay đổi cách mà các chuyên gia dinh dưỡng đưa ra quyết định và phát triển các hệ thống gợi ý dinh dưỡng.\n   - **Ngày xuất bản**: 18/12/2023\n   - [PDF](https://arxiv.org/pdf/2312.11569v1)\n\n5. **[Uncovering the nutritional landscape of food](http://arxiv.org/abs/1408.3600v2)**\n   - **Tác giả**: Seunghyeon Kim, Jaeyun Sung, Mathias Foo, Yong-Su Jin, Pan-Jun Kim\n   - **Tóm tắt**: Bài báo này sử dụng các phương pháp phân tích dữ liệu để đánh giá thành phần dinh dưỡng của thực phẩm và mối quan hệ giữa các chất dinh dưỡng.\n   - **Ngày xuất bản**: 11/08/2014\n   - [PDF](https://arxiv.org/pdf/1408.3600v2)\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "dinh dưỡng",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "dinh dưỡng",
+            "api_query": "all:nutrition",
+            "total_results": 759,
+            "items": [
+              {
+                "arxiv_id": "2507.07048v2",
+                "title": "Comprehensive Evaluation of Large Multimodal Models for Nutrition Analysis: A New Benchmark Enriched with Contextual Metadata",
+                "summary": "Large Multimodal Models (LMMs) are increasingly applied to meal images for nutrition analysis. However, existing work primarily evaluates proprietary models, such as GPT-4. This leaves the broad range of LLMs underexplored. Additionally, the influence of integrating contextual metadata and its interaction with various reasoning modifiers remains largely uncharted. This work investigates how interpreting contextual metadata derived from GPS coordinates (converted to location/venue type), timestamps (transformed into meal/day type), and the food items present can enhance LMM performance in estimating key nutritional values. These values include calories, macronutrients (protein, carbohydrates, fat), and portion sizes. We also introduce \\textbf{ACETADA}, a new food-image dataset slated for public release. This open dataset provides nutrition information verified by the dietitian and serves as the foundation for our analysis. Our evaluation across eight LMMs (four open-weight and four closed-weight) first establishes the benefit of contextual metadata integration over straightforward prompting with images alone. We then demonstrate how this incorporation of contextual information enhances the efficacy of reasoning modifiers, such as Chain-of-Thought, Multimodal Chain-of-Thought, Scale Hint, Few-Shot, and Expert Persona. Empirical results show that integrating metadata intelligently, when applied through straightforward prompting strategies, can significantly reduce the Mean Absolute Error (MAE) and Mean Absolute Percentage Error (MAPE) in predicted nutritional values. This work highlights the potential of context-aware LMMs for improved nutrition analysis.",
+                "authors": [
+                  "Bruce Coburn",
+                  "Jiangpeng He",
+                  "Megan E. Rollo",
+                  "Satvinder S. Dhaliwal",
+                  "Deborah A. Kerr",
+                  "Fengqing Zhu"
+                ],
+                "published": "2025-07-09T17:10:33Z",
+                "updated": "2025-10-03T18:00:15Z",
+                "url": "http://arxiv.org/abs/2507.07048v2",
+                "pdf_url": "https://arxiv.org/pdf/2507.07048v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "1610.00703v1",
+                "title": "Space nutrition: the key role of nutrition in human space flight",
+                "summary": "From the basic impact of nutrient intake on health maintenance to the psychosocial benefits of mealtime, great advancements in nutritional sciences for support of human space travel have occurred over the past 60 years. Nutrition in space has many areas of impact, including provision of required nutrients and maintenance of endocrine, immune, and musculoskeletal systems. It is affected by environmental conditions such as radiation, temperature, and atmospheric pressures, and these are reviewed. Nutrition with respect to space flight is closely interconnected with other life sciences research disciplines including the study of hematology, immunology, as well as neurosensory, cardiovascular, gastrointestinal, circadian rhythms, and musculoskeletal physiology. Psychosocial aspects of nutrition are also important for more productive missions and crew morale. Research conducted to determine the impact of spaceflight on human physiology and subsequent nutritional requirements will also have direct and indirect applications in Earth-based nutrition research. Cumulative nutritional research over the past five decades has resulted in the current nutritional requirements for astronauts. Realization of the full role of nutrition during spaceflight is critical for the success of extended-duration missions. Long-duration missions will require quantitation of nutrient requirements for maintenance of health and protection against the effects of microgravity. Keywords: Space nutrition, space flight, effects of microgravity, astronauts, space food",
+                "authors": [
+                  "Catalano Enrico"
+                ],
+                "published": "2016-10-02T21:39:54Z",
+                "updated": "2016-10-02T21:39:54Z",
+                "url": "http://arxiv.org/abs/1610.00703v1",
+                "pdf_url": "https://arxiv.org/pdf/1610.00703v1",
+                "source": "arxiv.org",
+                "primary_category": "q-bio.OT",
+                "categories": [
+                  "q-bio.OT",
+                  "q-bio.TO"
+                ]
+              },
+              {
+                "arxiv_id": "2310.11702v1",
+                "title": "DPF-Nutrition: Food Nutrition Estimation via Depth Prediction and Fusion",
+                "summary": "A reasonable and balanced diet is essential for maintaining good health. With the advancements in deep learning, automated nutrition estimation method based on food images offers a promising solution for monitoring daily nutritional intake and promoting dietary health. While monocular image-based nutrition estimation is convenient, efficient, and economical, the challenge of limited accuracy remains a significant concern. To tackle this issue, we proposed DPF-Nutrition, an end-to-end nutrition estimation method using monocular images. In DPF-Nutrition, we introduced a depth prediction module to generate depth maps, thereby improving the accuracy of food portion estimation. Additionally, we designed an RGB-D fusion module that combined monocular images with the predicted depth information, resulting in better performance for nutrition estimation. To the best of our knowledge, this was the pioneering effort that integrated depth prediction and RGB-D fusion techniques in food nutrition estimation. Comprehensive experiments performed on Nutrition5k evaluated the effectiveness and efficiency of DPF-Nutrition.",
+                "authors": [
+                  "Yuzhe Han",
+                  "Qimin Cheng",
+                  "Wenjin Wu",
+                  "Ziyang Huang"
+                ],
+                "published": "2023-10-18T04:23:05Z",
+                "updated": "2023-10-18T04:23:05Z",
+                "url": "http://arxiv.org/abs/2310.11702v1",
+                "pdf_url": "https://arxiv.org/pdf/2310.11702v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2312.11569v1",
+                "title": "Application of AI in Nutrition",
+                "summary": "In healthcare, artificial intelligence (AI) has been changing the way doctors and health experts take care of people. This paper will cover how AI is making major changes in the health care system, especially with nutrition. Various machine learning and deep learning algorithms have been developed to extract valuable information from healthcare data which help doctors, nutritionists, and health experts to make better decisions and make our lifestyle healthy. This paper provides an overview of the current state of AI applications in healthcare with a focus on the utilization of AI-driven recommender systems in nutrition. It will discuss the positive outcomes and challenges that arise when AI is used in this field. This paper addresses the challenges to develop AI recommender systems in healthcare, providing a well-rounded perspective on the complexities. Real-world examples and research findings are presented to underscore the tangible and significant impact AI recommender systems have in the field of healthcare, particularly in nutrition. The ongoing efforts of applying AI in nutrition lay the groundwork for a future where personalized recommendations play a pivotal role in guiding individuals toward healthier lifestyles.",
+                "authors": [
+                  "Ritu Ramakrishnan",
+                  "Tianxiang Xing",
+                  "Tianfeng Chen",
+                  "Ming-Hao Lee",
+                  "Jinzhu Gao"
+                ],
+                "published": "2023-12-18T04:37:45Z",
+                "updated": "2023-12-18T04:37:45Z",
+                "url": "http://arxiv.org/abs/2312.11569v1",
+                "pdf_url": "https://arxiv.org/pdf/2312.11569v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.HC",
+                "categories": [
+                  "cs.HC",
+                  "cs.IR"
+                ]
+              },
+              {
+                "arxiv_id": "1408.3600v2",
+                "title": "Uncovering the nutritional landscape of food",
+                "summary": "Recent progresses in data-driven analysis methods, including network-based approaches, are revolutionizing many classical disciplines. These techniques can also be applied to food and nutrition, which must be studied to design healthy diets. Using nutritional information from over 1,000 raw foods, we systematically evaluated the nutrient composition of each food in regards to satisfying daily nutritional requirements. The nutrient balance of a food was quantified herein as nutritional fitness, using the food's frequency of occurrence in nutritionally adequate food combinations. Nutritional fitness offers prioritization of recommendable foods within a global network of foods, in which foods are connected based on the similarities of their nutrient compositions. We identified a number of key nutrients, such as choline and alpha-linolenic acid, whose levels in foods can critically affect the foods' nutritional fitness. Analogously, pairs of nutrients can have the same effect. In fact, two nutrients can impact the nutritional fitness synergistically, although the individual nutrients alone may not. This result, involving the tendency among nutrients to show correlations in their abundances across foods, implies a hidden layer of complexity when exploring for foods whose balance of nutrients within pairs holistically helps meet nutritional requirements. Interestingly, foods with high nutritional fitness successfully maintain this nutrient balance. This effect expands our scope to a diverse repertoire of nutrient-nutrient correlations, integrated under a common network framework that yields unexpected yet coherent associations between nutrients. Our nutrient-profiling approach combined with a network-based analysis provides a more unbiased, global view of the relationships between foods and nutrients, and can be extended towards nutritional policies, food marketing, and personalized nutrition.",
+                "authors": [
+                  "Seunghyeon Kim",
+                  "Jaeyun Sung",
+                  "Mathias Foo",
+                  "Yong-Su Jin",
+                  "Pan-Jun Kim"
+                ],
+                "published": "2014-08-11T17:21:40Z",
+                "updated": "2015-03-14T14:05:51Z",
+                "url": "http://arxiv.org/abs/1408.3600v2",
+                "pdf_url": "https://arxiv.org/pdf/1408.3600v2",
+                "source": "arxiv.org",
+                "primary_category": "physics.soc-ph",
+                "categories": [
+                  "physics.soc-ph",
+                  "cs.SI",
+                  "physics.data-an"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:54:39"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T11:55:08",
+      "user": "Top 5 bài báo về học máy",
+      "status": "answered",
+      "assistant_text": "Dưới đây là 5 bài báo mới nhất về học máy:\n\n1. **[Changing Data Sources in the Age of Machine Learning for Official Statistics](http://arxiv.org/abs/2306.04338v1)**\n   - **Tác giả**: Cedric De Boom, Michael Reusens\n   - **Tóm tắt**: Bài báo này thảo luận về tầm quan trọng của việc thay đổi nguồn dữ liệu trong thống kê chính thức và các rủi ro liên quan đến việc sử dụng học máy trong bối cảnh này.\n   - **Ngày xuất bản**: 07/06/2023\n   - [PDF](https://arxiv.org/pdf/2306.04338v1)\n\n2. **[DOME: Recommendations for supervised machine learning validation in biology](http://arxiv.org/abs/2006.16189v4)**\n   - **Tác giả**: Ian Walsh, Dmytro Fishman, Dario Garcia-Gasulla, và các tác giả khác\n   - **Tóm tắt**: Bài báo này đưa ra các khuyến nghị cho việc xác thực học máy có giám sát trong sinh học, nhằm cải thiện tiêu chuẩn và hiểu biết về hiệu suất của các phương pháp học máy.\n   - **Ngày xuất bản**: 25/06/2020\n   - [PDF](https://arxiv.org/pdf/2006.16189v4)\n\n3. **[Learning Curves for Decision Making in Supervised Machine Learning: A Survey](http://arxiv.org/abs/2201.12150v2)**\n   - **Tác giả**: Felix Mohr, Jan N. van Rijn\n   - **Tóm tắt**: Bài báo này khảo sát các mô hình đường cong học tập và ứng dụng của chúng trong việc ra quyết định trong học máy có giám sát.\n   - **Ngày xuất bản**: 28/01/2022\n   - [PDF](https://arxiv.org/pdf/2201.12150v2)\n\n4. **[Active learning for data streams: a survey](http://arxiv.org/abs/2302.08893v4)**\n   - **Tác giả**: Davide Cacciarelli, Murat Kulahci\n   - **Tóm tắt**: Bài báo này cung cấp cái nhìn tổng quan về các phương pháp học chủ động cho các dòng dữ liệu, nhằm tối ưu hóa việc gán nhãn dữ liệu.\n   - **Ngày xuất bản**: 17/02/2023\n   - [PDF](https://arxiv.org/pdf/2302.08893v4)\n\n5. **[Physics-Inspired Interpretability Of Machine Learning Models](http://arxiv.org/abs/2304.02381v2)**\n   - **Tác giả**: Maximilian P Niroomand, David J Wales\n   - **Tóm tắt**: Bài báo này đề xuất một phương pháp mới để giải thích các quyết định của mô hình học máy, lấy cảm hứng từ các phương pháp trong khoa học vật lý.\n   - **Ngày xuất bản**: 05/04/2023\n   - [PDF](https://arxiv.org/pdf/2304.02381v2)\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "machine learning",
+                "max_results": 5
+              }
+            },
+            {
+              "name": "papers",
+              "args": {
+                "query": "machine learning",
+                "max_results": 5,
+                "sort_by": "lastUpdatedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "machine learning",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "machine learning",
+                "api_query": "all:machine AND all:learning",
+                "total_results": 338525,
+                "items": [
+                  {
+                    "arxiv_id": "2306.04338v1",
+                    "title": "Changing Data Sources in the Age of Machine Learning for Official Statistics",
+                    "summary": "Data science has become increasingly essential for the production of official statistics, as it enables the automated collection, processing, and analysis of large amounts of data. With such data science practices in place, it enables more timely, more insightful and more flexible reporting. However, the quality and integrity of data-science-driven statistics rely on the accuracy and reliability of the data sources and the machine learning techniques that support them. In particular, changes in data sources are inevitable to occur and pose significant risks that are crucial to address in the context of machine learning for official statistics. This paper gives an overview of the main risks, liabilities, and uncertainties associated with changing data sources in the context of machine learning for official statistics. We provide a checklist of the most prevalent origins and causes of changing data sources; not only on a technical level but also regarding ownership, ethics, regulation, and public perception. Next, we highlight the repercussions of changing data sources on statistical reporting. These include technical effects such as concept drift, bias, availability, validity, accuracy and completeness, but also the neutrality and potential discontinuation of the statistical offering. We offer a few important precautionary measures, such as enhancing robustness in both data sourcing and statistical techniques, and thorough monitoring. In doing so, machine learning-based official statistics can maintain integrity, reliability, consistency, and relevance in policy-making, decision-making, and public discourse.",
+                    "authors": [
+                      "Cedric De Boom",
+                      "Michael Reusens"
+                    ],
+                    "published": "2023-06-07T11:08:12Z",
+                    "updated": "2023-06-07T11:08:12Z",
+                    "url": "http://arxiv.org/abs/2306.04338v1",
+                    "pdf_url": "https://arxiv.org/pdf/2306.04338v1",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.ML",
+                    "categories": [
+                      "stat.ML",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2006.16189v4",
+                    "title": "DOME: Recommendations for supervised machine learning validation in biology",
+                    "summary": "Modern biology frequently relies on machine learning to provide predictions and improve decision processes. There have been recent calls for more scrutiny on machine learning performance and possible limitations. Here we present a set of community-wide recommendations aiming to help establish standards of supervised machine learning validation in biology. Adopting a structured methods description for machine learning based on data, optimization, model, evaluation (DOME) will aim to help both reviewers and readers to better understand and assess the performance and limitations of a method or outcome. The recommendations are formulated as questions to anyone wishing to pursue implementation of a machine learning algorithm. Answers to these questions can be easily included in the supplementary material of published papers.",
+                    "authors": [
+                      "Ian Walsh",
+                      "Dmytro Fishman",
+                      "Dario Garcia-Gasulla",
+                      "Tiina Titma",
+                      "Gianluca Pollastri",
+                      "The ELIXIR Machine Learning focus group",
+                      "Jen Harrow",
+                      "Fotis E. Psomopoulos",
+                      "Silvio C. E. Tosatto"
+                    ],
+                    "published": "2020-06-25T12:01:39Z",
+                    "updated": "2021-01-07T07:29:24Z",
+                    "url": "http://arxiv.org/abs/2006.16189v4",
+                    "pdf_url": "https://arxiv.org/pdf/2006.16189v4",
+                    "source": "arxiv.org",
+                    "primary_category": "q-bio.OT",
+                    "categories": [
+                      "q-bio.OT",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2201.12150v2",
+                    "title": "Learning Curves for Decision Making in Supervised Machine Learning: A Survey",
+                    "summary": "Learning curves are a concept from social sciences that has been adopted in the context of machine learning to assess the performance of a learning algorithm with respect to a certain resource, e.g., the number of training examples or the number of training iterations. Learning curves have important applications in several machine learning contexts, most notably in data acquisition, early stopping of model training, and model selection. For instance, learning curves can be used to model the performance of the combination of an algorithm and its hyperparameter configuration, providing insights into their potential suitability at an early stage and often expediting the algorithm selection process. Various learning curve models have been proposed to use learning curves for decision making. Some of these models answer the binary decision question of whether a given algorithm at a certain budget will outperform a certain reference performance, whereas more complex models predict the entire learning curve of an algorithm. We contribute a framework that categorises learning curve approaches using three criteria: the decision-making situation they address, the intrinsic learning curve question they answer and the type of resources they use. We survey papers from the literature and classify them into this framework.",
+                    "authors": [
+                      "Felix Mohr",
+                      "Jan N. van Rijn"
+                    ],
+                    "published": "2022-01-28T14:34:32Z",
+                    "updated": "2025-01-28T14:39:26Z",
+                    "url": "http://arxiv.org/abs/2201.12150v2",
+                    "pdf_url": "https://arxiv.org/pdf/2201.12150v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2302.08893v4",
+                    "title": "Active learning for data streams: a survey",
+                    "summary": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+                    "authors": [
+                      "Davide Cacciarelli",
+                      "Murat Kulahci"
+                    ],
+                    "published": "2023-02-17T14:24:13Z",
+                    "updated": "2023-11-29T21:07:15Z",
+                    "url": "http://arxiv.org/abs/2302.08893v4",
+                    "pdf_url": "https://arxiv.org/pdf/2302.08893v4",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.ML",
+                    "categories": [
+                      "stat.ML",
+                      "cs.LG",
+                      "stat.ME"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2304.02381v2",
+                    "title": "Physics-Inspired Interpretability Of Machine Learning Models",
+                    "summary": "The ability to explain decisions made by machine learning models remains one of the most significant hurdles towards widespread adoption of AI in highly sensitive areas such as medicine, cybersecurity or autonomous driving. Great interest exists in understanding which features of the input data prompt model decision making. In this contribution, we propose a novel approach to identify relevant features of the input data, inspired by methods from the energy landscapes field, developed in the physical sciences. By identifying conserved weights within groups of minima of the loss landscapes, we can identify the drivers of model decision making. Analogues to this idea exist in the molecular sciences, where coordinate invariants or order parameters are employed to identify critical features of a molecule. However, no such approach exists for machine learning loss landscapes. We will demonstrate the applicability of energy landscape methods to machine learning models and give examples, both synthetic and from the real world, for how these methods can help to make models more interpretable.",
+                    "authors": [
+                      "Maximilian P Niroomand",
+                      "David J Wales"
+                    ],
+                    "published": "2023-04-05T11:35:17Z",
+                    "updated": "2024-12-15T17:17:01Z",
+                    "url": "http://arxiv.org/abs/2304.02381v2",
+                    "pdf_url": "https://arxiv.org/pdf/2304.02381v2",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            },
+            {
+              "tool": "papers",
+              "args": {
+                "query": "machine learning",
+                "max_results": 5,
+                "sort_by": "lastUpdatedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "machine learning",
+                "api_query": "all:machine AND all:learning",
+                "total_results": 338525,
+                "items": [
+                  {
+                    "arxiv_id": "2607.26055v1",
+                    "title": "$π\\mathbf{R}^2$: Reactive Real-time Flow Policies",
+                    "summary": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input arriving mid-execution, sacrificing \\emph{reactivity}. Replanning more often would restore it, but the perception-to-action pipeline (a large backbone plus multiple denoising steps) is too slow: this \\emph{latency} forbids frequent replanning and leaves committed actions stale, making such policies ill-suited for dynamic, closed-loop control. We present $π\\mathbf{R}^2$, which makes these policies reactive and real-time while retaining large backbones, expressive multi-modal policies, and multi-action prediction. Built on the per-position noise schedule of diffusion forcing, $π\\mathbf{R}^2$ contributes two ideas. First, it splits conditioning into a fast channel (proprioception, fresh every tick) and an asynchronously updated slow channel (vision-language features), so the policy reacts to proprioception within a chunk while tolerating stale vision. Second, a latency-adaptive flow schedule treats in-flight actions as inpainting conditioning and emits actions in one denoising step per call, letting one trained model adapt to varying hardware latency. Requiring minimal modification to existing architectures, $π\\mathbf{R}^2$ can be finetuned from a pretrained policy: applied to GR00T-N1.7 on a real xArm6+XHand platform, it replans closed-loop roughly $4\\times$ faster than the base policy (~$25$Hz on an A5000 GPU), acting on a fresh observation every $40$ms. Across simulation and real-world manipulation tasks, $π\\mathbf{R}^2$ improves the success rate by up to $23\\%$ in simulation and $30\\%$ in the real world over the strongest baseline. Project page: https://pi-r2-flow.github.io/",
+                    "authors": [
+                      "Sungjae Park",
+                      "Shubham Tulsiani"
+                    ],
+                    "published": "2026-07-28T17:59:31Z",
+                    "updated": "2026-07-28T17:59:31Z",
+                    "url": "http://arxiv.org/abs/2607.26055v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.26055v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.RO",
+                    "categories": [
+                      "cs.RO",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.26052v1",
+                    "title": "Spend Experts Where You Are Unsure: Confidence-Adaptive Routing for Mixture-of-Experts LoRA",
+                    "summary": "Mixture-of-Experts (MoE) variants of Low-Rank Adaptation (LoRA) route every token to a fixed number of experts $k$. Tokens differ in how uncertain the model is about them, so a single k over-spends on easy tokens and under-serves hard ones. We observe that the router's output distribution is already a per-token uncertainty signal: peaked mass indicates confidence, while a flat distribution indicates ambiguity. We introduce CARE (Confidence-Adaptive Routing of Experts), which admits experts in a nucleus fashion. Experts are activated in decreasing router weight until their cumulative mass reaches a threshold, with a small extension when the admitted experts disagree. A budget thermostat calibrates the threshold so that the average number of active experts matches any target. CARE is a drop-in, single-forward-pass rule with no extra parameters. Across eight commonsense benchmarks on LLaMA-3.1-8B and Qwen2.5-7B, as well as math, code, and knowledge tasks, CARE improves over fixed top-k MoE-LoRA at matched compute and matches the fixed-k=4 baseline while activating fewer experts. The same confidence and disagreement signals also improve out-of-distribution detection over MSP, entropy, and multi-pass proxies. We support the design with nucleus fidelity, budget optimality, and an epistemic reading of disagreement, and we release code.",
+                    "authors": [
+                      "Tom Saliencro",
+                      "Rohan Desai",
+                      "Priya Nair",
+                      "Maya Lindqvist",
+                      "Daniel Whitmore"
+                    ],
+                    "published": "2026-07-28T17:59:16Z",
+                    "updated": "2026-07-28T17:59:16Z",
+                    "url": "http://arxiv.org/abs/2607.26052v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.26052v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.18292v3",
+                    "title": "Reliability Scales Inversely: Hallucinations Snowball Faster in Bigger Language Models",
+                    "summary": "Bigger language models are less reliable. Across three families, three benchmarks and six rungs, including in-the-wild chat logs, scaling closes the start-of-response knowledge gap up to $7\\times$ while within-response knowledge degradation grows up to $39\\times$. We trace that residual to one variable, the per-position disagreement $δ= \\log p_M - \\log p_O$ against a stronger oracle, whose second moment splits exactly into bias$^2$ $\\mathrm{KL}(p_M \\,\\|\\, p_O)^2$ and decoding risk $\\mathrm{Var}[δ]$. That split is an interpretability statement before it is a statistical one: the model's self-readable uncertainty $H(p_M)$ enters only the bias term, so the risk term has no model-readable component. Risk also takes a growing share of the squared error with scale, $31\\%$ to $49\\%$ from $1.7$B to $14$B. At a fabrication $H(p_M)$ relaxes within one token while risk persists up to $23\\times$ longer, leaving a confident-but-precarious regime that bridges consecutive fabrications ($+69\\%$ at $14$B). Contracting that risk at fixed $\\mathrm{KL}$ removes $35$-$74\\%$ of web-verified hallucinations across six rungs and three families. Semantic entropy fires $\\approx$$30\\%$ less on that branch ($p\\!<\\!10^{-16}$) though it carries nearly $4\\times$ the fabrications. Bigger models snowball mistakes faster, through a failure mode that is dominant, self-perpetuating, causal and invisible to the model itself.",
+                    "authors": [
+                      "Kushal Chakrabarti"
+                    ],
+                    "published": "2026-06-30T17:51:04Z",
+                    "updated": "2026-07-28T17:58:05Z",
+                    "url": "http://arxiv.org/abs/2607.18292v3",
+                    "pdf_url": "https://arxiv.org/pdf/2607.18292v3",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2507.10643v4",
+                    "title": "TaylorPODA: A Taylor Expansion-Based Method to Improve Post-Hoc Attributions for Opaque Models",
+                    "summary": "Post-hoc model-agnostic local attribution (LA) methods have been widely adopted to explain opaque AI models by quantifying feature-wise contributions. However, many existing methods rely on heuristic or only partially justified attribution mechanisms, while the quality of attribution itself is often shaped by downstream objectives without universally accepted standards. In this work, we propose Taylor exPansion-Originated aDaptive Attribution (TaylorPODA), a new post-hoc model-agnostic LA method grounded in the Taylor expansion framework. We first introduce a set of postulates, which formalize principled requirements for explicitly and exhaustively attributing Taylor terms to the corresponding features. Based on these postulates, we analyze existing post-hoc model-agnostic LA methods and identify a fundamental tension between principled attribution and adaptation toward user-defined utilities. To address this challenge, TaylorPODA introduces a controllable allocation mechanism for Taylor interaction effects, enabling attribution results to adapt to downstream objectives while preserving the proposed postulates. Furthermore, although developed from a Taylor-expansion perspective, TaylorPODA also admits a Harsanyi-dividend interpretation, allowing the attribution mechanism to extend beyond model differentiability. Theoretical analysis demonstrates that TaylorPODA satisfies all the proposed postulates together with an additional adaptation property. Empirical results across multiple datasets and both differentiable and non-differentiable models further show that TaylorPODA achieves consistently improved alignment with user-defined utilities while maintaining the communicability of the resulting explanations. Overall, this work provides a starting point toward more trustworthy XAI systems for the deployment of increasingly powerful yet opaque task models.",
+                    "authors": [
+                      "Yuchi Tang",
+                      "Iñaki Esnaola",
+                      "George Panoutsos"
+                    ],
+                    "published": "2025-07-14T16:38:30Z",
+                    "updated": "2026-07-28T17:52:39Z",
+                    "url": "http://arxiv.org/abs/2507.10643v4",
+                    "pdf_url": "https://arxiv.org/pdf/2507.10643v4",
+                    "source": "arxiv.org",
+                    "primary_category": "stat.ML",
+                    "categories": [
+                      "stat.ML",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.26043v1",
+                    "title": "Re-thinking Mammography Transfer Learning: The Dataset-Informed Transfer Learning (DITL) Framework for Breast Cancer Screening and Lesion Diagnosis",
+                    "summary": "Enhancing classification performance in mammography remains a persistent challenge across both small curated datasets and large-scale clinical cohorts. Conventional transfer learning approaches often neglect dataset-specific characteristics, while recent neighborhood-informed methods have been restricted to narrow tasks with rigid formulations, limiting their scalability to population-level datasets. To address these challenges, we propose the Dataset-Informed Transfer Learning (DITL) framework, which integrates dataset-derived difficulty signals with neighborhood-based triplet supervision in a unified objective. DITL introduces two adaptive components: (i) Adaptive Difficulty-Weighted Cross-Entropy (A-DWCE), which assigns per-sample weights based on k-nearest neighbor label purity in a self-supervised feature space, and (ii) Adaptive Neighborhood Representation Triplet (A-NR-Triplet), which enforces intra-class compactness and inter-class separation using a learnable margin. Unlike focal loss, DITL requires no hyperparameter tuning, removes heuristic weighting and fixed margins, and incurs negligible computational overhead, yielding a robust and scalable optimization strategy. On the large-scale VinDR-Mammo dataset, DITL achieves state-of-the-art performance for whole-image breast density classification, with significant improvements across accuracy, F1-score, and AUC (p < 0.0001). Beyond large cohorts, DITL also delivers consistent, statistically significant gains on small ROI datasets (p < 0.0001). By bridging small-scale lesion analysis with large-scale density estimation, DITL establishes a clinically relevant, scalable, and generalizable framework for mammography classification, spanning the full breast cancer screening-to-diagnosis spectrum.",
+                    "authors": [
+                      "Adarsh Bhandary Panambur",
+                      "Siming Bayer",
+                      "Andreas Maier"
+                    ],
+                    "published": "2026-07-28T17:52:36Z",
+                    "updated": "2026-07-28T17:52:36Z",
+                    "url": "http://arxiv.org/abs/2607.26043v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.26043v1",
+                    "source": "arxiv.org",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG"
+                    ]
+                  }
+                ],
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là 5 bài báo mới nhất về học máy:\n\n1. **[Changing Data Sources in the Age of Machine Learning for Official Statistics](http://arxiv.org/abs/2306.04338v1)**\n   - **Tác giả**: Cedric De Boom, Michael Reusens\n   - **Tóm tắt**: Bài báo này thảo luận về tầm quan trọng của việc thay đổi nguồn dữ liệu trong thống kê chính thức và các rủi ro liên quan đến việc sử dụng học máy trong bối cảnh này.\n   - **Ngày xuất bản**: 07/06/2023\n   - [PDF](https://arxiv.org/pdf/2306.04338v1)\n\n2. **[DOME: Recommendations for supervised machine learning validation in biology](http://arxiv.org/abs/2006.16189v4)**\n   - **Tác giả**: Ian Walsh, Dmytro Fishman, Dario Garcia-Gasulla, và các tác giả khác\n   - **Tóm tắt**: Bài báo này đưa ra các khuyến nghị cho việc xác thực học máy có giám sát trong sinh học, nhằm cải thiện tiêu chuẩn và hiểu biết về hiệu suất của các phương pháp học máy.\n   - **Ngày xuất bản**: 25/06/2020\n   - [PDF](https://arxiv.org/pdf/2006.16189v4)\n\n3. **[Learning Curves for Decision Making in Supervised Machine Learning: A Survey](http://arxiv.org/abs/2201.12150v2)**\n   - **Tác giả**: Felix Mohr, Jan N. van Rijn\n   - **Tóm tắt**: Bài báo này khảo sát các mô hình đường cong học tập và ứng dụng của chúng trong việc ra quyết định trong học máy có giám sát.\n   - **Ngày xuất bản**: 28/01/2022\n   - [PDF](https://arxiv.org/pdf/2201.12150v2)\n\n4. **[Active learning for data streams: a survey](http://arxiv.org/abs/2302.08893v4)**\n   - **Tác giả**: Davide Cacciarelli, Murat Kulahci\n   - **Tóm tắt**: Bài báo này cung cấp cái nhìn tổng quan về các phương pháp học chủ động cho các dòng dữ liệu, nhằm tối ưu hóa việc gán nhãn dữ liệu.\n   - **Ngày xuất bản**: 17/02/2023\n   - [PDF](https://arxiv.org/pdf/2302.08893v4)\n\n5. **[Physics-Inspired Interpretability Of Machine Learning Models](http://arxiv.org/abs/2304.02381v2)**\n   - **Tác giả**: Maximilian P Niroomand, David J Wales\n   - **Tóm tắt**: Bài báo này đề xuất một phương pháp mới để giải thích các quyết định của mô hình học máy, lấy cảm hứng từ các phương pháp trong khoa học vật lý.\n   - **Ngày xuất bản**: 05/04/2023\n   - [PDF](https://arxiv.org/pdf/2304.02381v2)\n\nNếu bạn cần thêm thông tin chi tiết về bất kỳ bài báo nào, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "machine learning",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "machine learning",
+            "api_query": "all:machine AND all:learning",
+            "total_results": 338525,
+            "items": [
+              {
+                "arxiv_id": "2306.04338v1",
+                "title": "Changing Data Sources in the Age of Machine Learning for Official Statistics",
+                "summary": "Data science has become increasingly essential for the production of official statistics, as it enables the automated collection, processing, and analysis of large amounts of data. With such data science practices in place, it enables more timely, more insightful and more flexible reporting. However, the quality and integrity of data-science-driven statistics rely on the accuracy and reliability of the data sources and the machine learning techniques that support them. In particular, changes in data sources are inevitable to occur and pose significant risks that are crucial to address in the context of machine learning for official statistics. This paper gives an overview of the main risks, liabilities, and uncertainties associated with changing data sources in the context of machine learning for official statistics. We provide a checklist of the most prevalent origins and causes of changing data sources; not only on a technical level but also regarding ownership, ethics, regulation, and public perception. Next, we highlight the repercussions of changing data sources on statistical reporting. These include technical effects such as concept drift, bias, availability, validity, accuracy and completeness, but also the neutrality and potential discontinuation of the statistical offering. We offer a few important precautionary measures, such as enhancing robustness in both data sourcing and statistical techniques, and thorough monitoring. In doing so, machine learning-based official statistics can maintain integrity, reliability, consistency, and relevance in policy-making, decision-making, and public discourse.",
+                "authors": [
+                  "Cedric De Boom",
+                  "Michael Reusens"
+                ],
+                "published": "2023-06-07T11:08:12Z",
+                "updated": "2023-06-07T11:08:12Z",
+                "url": "http://arxiv.org/abs/2306.04338v1",
+                "pdf_url": "https://arxiv.org/pdf/2306.04338v1",
+                "source": "arxiv.org",
+                "primary_category": "stat.ML",
+                "categories": [
+                  "stat.ML",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2006.16189v4",
+                "title": "DOME: Recommendations for supervised machine learning validation in biology",
+                "summary": "Modern biology frequently relies on machine learning to provide predictions and improve decision processes. There have been recent calls for more scrutiny on machine learning performance and possible limitations. Here we present a set of community-wide recommendations aiming to help establish standards of supervised machine learning validation in biology. Adopting a structured methods description for machine learning based on data, optimization, model, evaluation (DOME) will aim to help both reviewers and readers to better understand and assess the performance and limitations of a method or outcome. The recommendations are formulated as questions to anyone wishing to pursue implementation of a machine learning algorithm. Answers to these questions can be easily included in the supplementary material of published papers.",
+                "authors": [
+                  "Ian Walsh",
+                  "Dmytro Fishman",
+                  "Dario Garcia-Gasulla",
+                  "Tiina Titma",
+                  "Gianluca Pollastri",
+                  "The ELIXIR Machine Learning focus group",
+                  "Jen Harrow",
+                  "Fotis E. Psomopoulos",
+                  "Silvio C. E. Tosatto"
+                ],
+                "published": "2020-06-25T12:01:39Z",
+                "updated": "2021-01-07T07:29:24Z",
+                "url": "http://arxiv.org/abs/2006.16189v4",
+                "pdf_url": "https://arxiv.org/pdf/2006.16189v4",
+                "source": "arxiv.org",
+                "primary_category": "q-bio.OT",
+                "categories": [
+                  "q-bio.OT",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2201.12150v2",
+                "title": "Learning Curves for Decision Making in Supervised Machine Learning: A Survey",
+                "summary": "Learning curves are a concept from social sciences that has been adopted in the context of machine learning to assess the performance of a learning algorithm with respect to a certain resource, e.g., the number of training examples or the number of training iterations. Learning curves have important applications in several machine learning contexts, most notably in data acquisition, early stopping of model training, and model selection. For instance, learning curves can be used to model the performance of the combination of an algorithm and its hyperparameter configuration, providing insights into their potential suitability at an early stage and often expediting the algorithm selection process. Various learning curve models have been proposed to use learning curves for decision making. Some of these models answer the binary decision question of whether a given algorithm at a certain budget will outperform a certain reference performance, whereas more complex models predict the entire learning curve of an algorithm. We contribute a framework that categorises learning curve approaches using three criteria: the decision-making situation they address, the intrinsic learning curve question they answer and the type of resources they use. We survey papers from the literature and classify them into this framework.",
+                "authors": [
+                  "Felix Mohr",
+                  "Jan N. van Rijn"
+                ],
+                "published": "2022-01-28T14:34:32Z",
+                "updated": "2025-01-28T14:39:26Z",
+                "url": "http://arxiv.org/abs/2201.12150v2",
+                "pdf_url": "https://arxiv.org/pdf/2201.12150v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2302.08893v4",
+                "title": "Active learning for data streams: a survey",
+                "summary": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+                "authors": [
+                  "Davide Cacciarelli",
+                  "Murat Kulahci"
+                ],
+                "published": "2023-02-17T14:24:13Z",
+                "updated": "2023-11-29T21:07:15Z",
+                "url": "http://arxiv.org/abs/2302.08893v4",
+                "pdf_url": "https://arxiv.org/pdf/2302.08893v4",
+                "source": "arxiv.org",
+                "primary_category": "stat.ML",
+                "categories": [
+                  "stat.ML",
+                  "cs.LG",
+                  "stat.ME"
+                ]
+              },
+              {
+                "arxiv_id": "2304.02381v2",
+                "title": "Physics-Inspired Interpretability Of Machine Learning Models",
+                "summary": "The ability to explain decisions made by machine learning models remains one of the most significant hurdles towards widespread adoption of AI in highly sensitive areas such as medicine, cybersecurity or autonomous driving. Great interest exists in understanding which features of the input data prompt model decision making. In this contribution, we propose a novel approach to identify relevant features of the input data, inspired by methods from the energy landscapes field, developed in the physical sciences. By identifying conserved weights within groups of minima of the loss landscapes, we can identify the drivers of model decision making. Analogues to this idea exist in the molecular sciences, where coordinate invariants or order parameters are employed to identify critical features of a molecule. However, no such approach exists for machine learning loss landscapes. We will demonstrate the applicability of energy landscape methods to machine learning models and give examples, both synthetic and from the real world, for how these methods can help to make models more interpretable.",
+                "authors": [
+                  "Maximilian P Niroomand",
+                  "David J Wales"
+                ],
+                "published": "2023-04-05T11:35:17Z",
+                "updated": "2024-12-15T17:17:01Z",
+                "url": "http://arxiv.org/abs/2304.02381v2",
+                "pdf_url": "https://arxiv.org/pdf/2304.02381v2",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "machine learning",
+            "max_results": 5,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "machine learning",
+            "api_query": "all:machine AND all:learning",
+            "total_results": 338525,
+            "items": [
+              {
+                "arxiv_id": "2607.26055v1",
+                "title": "$π\\mathbf{R}^2$: Reactive Real-time Flow Policies",
+                "summary": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input arriving mid-execution, sacrificing \\emph{reactivity}. Replanning more often would restore it, but the perception-to-action pipeline (a large backbone plus multiple denoising steps) is too slow: this \\emph{latency} forbids frequent replanning and leaves committed actions stale, making such policies ill-suited for dynamic, closed-loop control. We present $π\\mathbf{R}^2$, which makes these policies reactive and real-time while retaining large backbones, expressive multi-modal policies, and multi-action prediction. Built on the per-position noise schedule of diffusion forcing, $π\\mathbf{R}^2$ contributes two ideas. First, it splits conditioning into a fast channel (proprioception, fresh every tick) and an asynchronously updated slow channel (vision-language features), so the policy reacts to proprioception within a chunk while tolerating stale vision. Second, a latency-adaptive flow schedule treats in-flight actions as inpainting conditioning and emits actions in one denoising step per call, letting one trained model adapt to varying hardware latency. Requiring minimal modification to existing architectures, $π\\mathbf{R}^2$ can be finetuned from a pretrained policy: applied to GR00T-N1.7 on a real xArm6+XHand platform, it replans closed-loop roughly $4\\times$ faster than the base policy (~$25$Hz on an A5000 GPU), acting on a fresh observation every $40$ms. Across simulation and real-world manipulation tasks, $π\\mathbf{R}^2$ improves the success rate by up to $23\\%$ in simulation and $30\\%$ in the real world over the strongest baseline. Project page: https://pi-r2-flow.github.io/",
+                "authors": [
+                  "Sungjae Park",
+                  "Shubham Tulsiani"
+                ],
+                "published": "2026-07-28T17:59:31Z",
+                "updated": "2026-07-28T17:59:31Z",
+                "url": "http://arxiv.org/abs/2607.26055v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26055v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.RO",
+                "categories": [
+                  "cs.RO",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26052v1",
+                "title": "Spend Experts Where You Are Unsure: Confidence-Adaptive Routing for Mixture-of-Experts LoRA",
+                "summary": "Mixture-of-Experts (MoE) variants of Low-Rank Adaptation (LoRA) route every token to a fixed number of experts $k$. Tokens differ in how uncertain the model is about them, so a single k over-spends on easy tokens and under-serves hard ones. We observe that the router's output distribution is already a per-token uncertainty signal: peaked mass indicates confidence, while a flat distribution indicates ambiguity. We introduce CARE (Confidence-Adaptive Routing of Experts), which admits experts in a nucleus fashion. Experts are activated in decreasing router weight until their cumulative mass reaches a threshold, with a small extension when the admitted experts disagree. A budget thermostat calibrates the threshold so that the average number of active experts matches any target. CARE is a drop-in, single-forward-pass rule with no extra parameters. Across eight commonsense benchmarks on LLaMA-3.1-8B and Qwen2.5-7B, as well as math, code, and knowledge tasks, CARE improves over fixed top-k MoE-LoRA at matched compute and matches the fixed-k=4 baseline while activating fewer experts. The same confidence and disagreement signals also improve out-of-distribution detection over MSP, entropy, and multi-pass proxies. We support the design with nucleus fidelity, budget optimality, and an epistemic reading of disagreement, and we release code.",
+                "authors": [
+                  "Tom Saliencro",
+                  "Rohan Desai",
+                  "Priya Nair",
+                  "Maya Lindqvist",
+                  "Daniel Whitmore"
+                ],
+                "published": "2026-07-28T17:59:16Z",
+                "updated": "2026-07-28T17:59:16Z",
+                "url": "http://arxiv.org/abs/2607.26052v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26052v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.18292v3",
+                "title": "Reliability Scales Inversely: Hallucinations Snowball Faster in Bigger Language Models",
+                "summary": "Bigger language models are less reliable. Across three families, three benchmarks and six rungs, including in-the-wild chat logs, scaling closes the start-of-response knowledge gap up to $7\\times$ while within-response knowledge degradation grows up to $39\\times$. We trace that residual to one variable, the per-position disagreement $δ= \\log p_M - \\log p_O$ against a stronger oracle, whose second moment splits exactly into bias$^2$ $\\mathrm{KL}(p_M \\,\\|\\, p_O)^2$ and decoding risk $\\mathrm{Var}[δ]$. That split is an interpretability statement before it is a statistical one: the model's self-readable uncertainty $H(p_M)$ enters only the bias term, so the risk term has no model-readable component. Risk also takes a growing share of the squared error with scale, $31\\%$ to $49\\%$ from $1.7$B to $14$B. At a fabrication $H(p_M)$ relaxes within one token while risk persists up to $23\\times$ longer, leaving a confident-but-precarious regime that bridges consecutive fabrications ($+69\\%$ at $14$B). Contracting that risk at fixed $\\mathrm{KL}$ removes $35$-$74\\%$ of web-verified hallucinations across six rungs and three families. Semantic entropy fires $\\approx$$30\\%$ less on that branch ($p\\!<\\!10^{-16}$) though it carries nearly $4\\times$ the fabrications. Bigger models snowball mistakes faster, through a failure mode that is dominant, self-perpetuating, causal and invisible to the model itself.",
+                "authors": [
+                  "Kushal Chakrabarti"
+                ],
+                "published": "2026-06-30T17:51:04Z",
+                "updated": "2026-07-28T17:58:05Z",
+                "url": "http://arxiv.org/abs/2607.18292v3",
+                "pdf_url": "https://arxiv.org/pdf/2607.18292v3",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2507.10643v4",
+                "title": "TaylorPODA: A Taylor Expansion-Based Method to Improve Post-Hoc Attributions for Opaque Models",
+                "summary": "Post-hoc model-agnostic local attribution (LA) methods have been widely adopted to explain opaque AI models by quantifying feature-wise contributions. However, many existing methods rely on heuristic or only partially justified attribution mechanisms, while the quality of attribution itself is often shaped by downstream objectives without universally accepted standards. In this work, we propose Taylor exPansion-Originated aDaptive Attribution (TaylorPODA), a new post-hoc model-agnostic LA method grounded in the Taylor expansion framework. We first introduce a set of postulates, which formalize principled requirements for explicitly and exhaustively attributing Taylor terms to the corresponding features. Based on these postulates, we analyze existing post-hoc model-agnostic LA methods and identify a fundamental tension between principled attribution and adaptation toward user-defined utilities. To address this challenge, TaylorPODA introduces a controllable allocation mechanism for Taylor interaction effects, enabling attribution results to adapt to downstream objectives while preserving the proposed postulates. Furthermore, although developed from a Taylor-expansion perspective, TaylorPODA also admits a Harsanyi-dividend interpretation, allowing the attribution mechanism to extend beyond model differentiability. Theoretical analysis demonstrates that TaylorPODA satisfies all the proposed postulates together with an additional adaptation property. Empirical results across multiple datasets and both differentiable and non-differentiable models further show that TaylorPODA achieves consistently improved alignment with user-defined utilities while maintaining the communicability of the resulting explanations. Overall, this work provides a starting point toward more trustworthy XAI systems for the deployment of increasingly powerful yet opaque task models.",
+                "authors": [
+                  "Yuchi Tang",
+                  "Iñaki Esnaola",
+                  "George Panoutsos"
+                ],
+                "published": "2025-07-14T16:38:30Z",
+                "updated": "2026-07-28T17:52:39Z",
+                "url": "http://arxiv.org/abs/2507.10643v4",
+                "pdf_url": "https://arxiv.org/pdf/2507.10643v4",
+                "source": "arxiv.org",
+                "primary_category": "stat.ML",
+                "categories": [
+                  "stat.ML",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2607.26043v1",
+                "title": "Re-thinking Mammography Transfer Learning: The Dataset-Informed Transfer Learning (DITL) Framework for Breast Cancer Screening and Lesion Diagnosis",
+                "summary": "Enhancing classification performance in mammography remains a persistent challenge across both small curated datasets and large-scale clinical cohorts. Conventional transfer learning approaches often neglect dataset-specific characteristics, while recent neighborhood-informed methods have been restricted to narrow tasks with rigid formulations, limiting their scalability to population-level datasets. To address these challenges, we propose the Dataset-Informed Transfer Learning (DITL) framework, which integrates dataset-derived difficulty signals with neighborhood-based triplet supervision in a unified objective. DITL introduces two adaptive components: (i) Adaptive Difficulty-Weighted Cross-Entropy (A-DWCE), which assigns per-sample weights based on k-nearest neighbor label purity in a self-supervised feature space, and (ii) Adaptive Neighborhood Representation Triplet (A-NR-Triplet), which enforces intra-class compactness and inter-class separation using a learnable margin. Unlike focal loss, DITL requires no hyperparameter tuning, removes heuristic weighting and fixed margins, and incurs negligible computational overhead, yielding a robust and scalable optimization strategy. On the large-scale VinDR-Mammo dataset, DITL achieves state-of-the-art performance for whole-image breast density classification, with significant improvements across accuracy, F1-score, and AUC (p < 0.0001). Beyond large cohorts, DITL also delivers consistent, statistically significant gains on small ROI datasets (p < 0.0001). By bridging small-scale lesion analysis with large-scale density estimation, DITL establishes a clinically relevant, scalable, and generalizable framework for mammography classification, spanning the full breast cancer screening-to-diagnosis spectrum.",
+                "authors": [
+                  "Adarsh Bhandary Panambur",
+                  "Siming Bayer",
+                  "Andreas Maier"
+                ],
+                "published": "2026-07-28T17:52:36Z",
+                "updated": "2026-07-28T17:52:36Z",
+                "url": "http://arxiv.org/abs/2607.26043v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.26043v1",
+                "source": "arxiv.org",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG"
+                ]
+              }
+            ],
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:55:08"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-07-29T11:57:41",
+      "user": "đông đất nhật bản hoom qua",
+      "status": "answered",
+      "assistant_text": "Dưới đây là thông tin về trận động đất xảy ra ở Nhật Bản vào ngày 28 tháng 7:\n\n1. **Số người thiệt mạng gia tăng**: Trận động đất mạnh 7,1 độ Richter xảy ra ngoài khơi tỉnh Kumamoto đã khiến ít nhất 13 người thiệt mạng. Thủ tướng Nhật Bản, Sanae Takaichi, cho biết thiệt hại nghiêm trọng đã được xác nhận, bao gồm thương vong và hư hại cơ sở hạ tầng. Lực lượng cứu hộ đang chạy đua với thời gian để tìm kiếm nạn nhân dưới đống đổ nát. (Nguồn: [VnExpress](https://vnexpress.net/it-nhat-13-nguoi-da-thiet-mang-vi-dong-dat-7-1-do-o-nhat-ban-5102821.html))\n\n2. **Cảnh báo sóng thần**: Cơ quan Khí tượng Nhật Bản đã ban hành cảnh báo sóng thần ngay sau trận động đất, nhưng sau đó đã dỡ bỏ. Khoảng 50 người đã được đưa đến bệnh viện và khoảng 48.000 hộ gia đình trên đảo Kyushu bị mất điện. (Nguồn: [baotintuc.vn](https://baotintuc.vn/the-gioi/dong-dat-tai-nhat-ban-so-nguoi-thiet-mang-gia-tang-20260729081846835.htm))\n\n3. **Hình ảnh thiệt hại**: Hình ảnh từ hiện trường cho thấy nhiều công trình, bao gồm nhà cửa và cầu đường, đã bị hư hại nghiêm trọng. Lực lượng cứu hộ đang triển khai các hoạt động cứu nạn tại các khu vực bị ảnh hưởng. (Nguồn: [VietnamNet](https://vietnamnet.vn/hinh-anh-ha-tang-dan-su-o-nhat-ban-do-nat-sau-tran-dong-dat-7-1-do-richter-2540046.html))\n\n4. **Tình hình giao thông**: Nhiều tuyến đường sắt, bao gồm cả tàu cao tốc Shinkansen, đã phải tạm dừng hoạt động để kiểm tra an toàn. Giao thông đường bộ và hàng không cũng bị gián đoạn. (Nguồn: [Thanh Niên](https://thanhnien.vn/dong-dat-lam-rung-chuyen-tay-nam-nhat-ban-co-canh-bao-song-than-185260728152124936.htm))\n\n5. **Cảnh đổ nát**: Hình ảnh cho thấy cảnh đổ nát sau trận động đất, với nhiều công trình bị sập và hư hại. Lực lượng cứu hộ đang nỗ lực tìm kiếm những người có thể còn mắc kẹt trong các đống đổ nát. (Nguồn: [Dân trí](https://dantri.com.vn/the-gioi/canh-do-nat-sau-tran-dong-dat-khien-13-nguoi-thiet-mang-o-nhat-ban-20260729102627044.htm))\n\nNếu bạn cần thêm thông tin chi tiết, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "động đất Nhật Bản",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "động đất Nhật Bản",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "động đất Nhật Bản",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Động đất tại Nhật Bản: Số người thiệt mạng gia tăng | baotintuc.vn",
+                    "url": "https://baotintuc.vn/the-gioi/dong-dat-tai-nhat-ban-so-nguoi-thiet-mang-gia-tang-20260729081846835.htm",
+                    "source": "baotintuc.vn",
+                    "summary": "Cơ quan Khí tượng Nhật Bản (JMA) cho biết trận động đất xảy ra dưới đáy biển ngoài khơi tỉnh Kumamoto, ở độ sâu khoảng 10 km. Cảnh báo sóng thần đã được ban hành ngay sau động đất nhưng nhanh chóng được dỡ bỏ. Khoảng 50 người đã được đưa đến bệnh viện, trong khi công tác đánh giá thiệt hại vẫn đang được tiến hành. [...] Trận động đất khiến ít nhất 48.000 hộ gia đình trên đảo Kyushu bị mất điện. Nhiều tuyến đường sắt, trong đó có tuyến tàu cao tốc Shinkansen, vẫn phải tạm dừng hoạt động để kiểm tra an toàn. Giao thông đường bộ và hàng không tại khu vực cũng bị gián đoạn. Cơ quan Quản lý Hạt nhân Nhật Bản cho biết chưa phát hiện bất thường tại 3 nhà máy điện hạt nhân gần vùng bị ảnh hưởng. Rung chấn cũng được cảm nhận tại một số khu vực của Hàn Quốc, trong đó có thành phố cảng Busan ở Đông Nam nước này. [...] Báo tin tức\n\n# Động đất tại Nhật Bản: Số người thiệt mạng gia tăng\n\n#### Thế giới\n\nBáo Tin Tức trên Google News\n\n## Số người thiệt mạng trong trận động đất có độ lớn 7,1 xảy ra ngoài khơi tỉnh Kumamoto, miền Nam Nhật Bản, ngày 28/7 đã tăng lên 5 người.\n\n#### Động đất tại Nhật Bản: Các cơ quan đại diện Việt Nam khẩn trương triển khai bảo hộ công dân\n\n#### Động đất tại Nhật Bản: Ghi nhận thương vong đầu tiên\n\n#### Động đất tại Nhật Bản: Cộng đồng người Việt vẫn an toàn",
+                    "score": 0.85995835
+                  },
+                  {
+                    "title": "Ít nhất 13 người đã chết vì động đất 7,1 độ ở Nhật Bản - Báo VnExpress",
+                    "url": "https://vnexpress.net/it-nhat-13-nguoi-da-thiet-mang-vi-dong-dat-7-1-do-o-nhat-ban-5102821.html",
+                    "source": "vnexpress.net",
+                    "summary": "\"Những thiệt hại nghiêm trọng đã được xác nhận, bao gồm thương vong, nhà cửa bị sập, hỏa hoạn và hư hại đường sá\", Thủ tướng Nhật Bản Sanae Takaichi hôm nay cho biết khi cập nhật hậu quả của trận động đất mạnh 7,1 độ tại tỉnh Kumamoto trước đó một ngày.\n\nBà Takaichi nói rằng 13 người đã thiệt mạng do trận động đất. Con số có thể tăng thêm, trong khi lực lượng cứu hộ cứu nạn Nhật Bản đang chạy đua với thời gian để tìm kiếm nạn nhn dưới đống đổ nát. [...] Ảnh hưởng từ trận động đất còn khiến gần 37.000 hộ gia đình tại tỉnh Kumamoto mất điện vào sáng 29/7. Kumamoto từng hứng chịu hai trận động đất trong vòng hai ngày vào năm 2016, khiến 273 người thiệt mạng.\n\nLực lượng cứu hộ cứu nạn làm nhiệm vụ tại ngôi nhà bị đổ sập do trận động đất ở tỉnh Kumamoto, Nhật Bản, ngày 29/7. Ảnh: AP\n\nLực lượng cứu hộ cứu nạn làm nhiệm vụ tại ngôi nhà bị đổ sập do trận động đất ở tỉnh Kumamoto, Nhật Bản, ngày 29/7. Ảnh: AP [...] Nhiều người có thể đã chết trong trung tm thương mại sau động đất ở Nhật Bản\n\nNhiều người có thể đã chết trong trung tm thương mại sau động đất ở Nhật Bản\n\nThiệt hại tại tỉnh Kumamoto, Nhật Bản sau trận động đất 7,1 độ ngày 28/7. Video: NHK\n\nHãng tin Kyodo dẫn nguồn thạo tin cho biết trung tm thương mại ở thị trấn Kashima dường như đã bị tàn phá nghiêm trọng bởi vụ nổ khí gas, khiến trần nhà và các bức tường đổ sập.",
+                    "score": 0.8467682
+                  },
+                  {
+                    "title": "Động đất làm rung chuyển tây nam Nhật Bản, có cảnh báo sóng thần",
+                    "url": "https://thanhnien.vn/dong-dat-lam-rung-chuyen-tay-nam-nhat-ban-co-canh-bao-song-than-185260728152124936.htm",
+                    "source": "thanhnien.vn",
+                    "summary": "Cơ quan Khí tượng Nhật Bản (JMA) thông báo một trận động đất mạnh 7,1 độ Richter đã xảy ra tại tỉnh Kumamoto thuộc miền nam của Nhật Bản vào chiều nay 28.7.",
+                    "score": 0.83710164
+                  },
+                  {
+                    "title": "Hình ảnh hạ tầng dân sự ở Nhật Bản đổ nát sau trận động đất 7,1 độ Richter",
+                    "url": "https://vietnamnet.vn/hinh-anh-ha-tang-dan-su-o-nhat-ban-do-nat-sau-tran-dong-dat-7-1-do-richter-2540046.html",
+                    "source": "vietnamnet.vn",
+                    "summary": "Một cy cầu bị hư hại do động đất. Ảnh: Kyodo News\n\n \n\nVideo: Kyodo News\n\nĐộng đất 7,1 độ Richter ở Nhật Bản, nhiều người có thể mắc kẹt trong đống đổ nát\n\nMột trận động đất có cường độ 7,1 độ Richter đã xảy ra ở tỉnh Kumamoto trên đảo Kyushu của Nhật Bản chiều 28/7.\n\nSống sót phi thường sau 8 ngày bị chôn vùi vì động đất ở Venezuela [...] icon\n\n## Trận động đất có cường độ 7,1 độ Richter xảy ra chiều 28/7 ở Nhật Bản đã gy ra nhiều thiệt hại cho cơ sở hạ tầng tại tỉnh Kumamoto.\n\nVideo: Kyodo News\n\nTheo những hình ảnh được trang thông tấn Kyodo News chia sẻ đêm 28/7, dư chấn động đất đã khiến nhiều nhà cửa, một số trung tm thương mại và cầu đường ở tỉnh Kumamoto, Nhật Bản hư hại hoặc đổ sập.\n\n \n\nMột trung tm thương mại bị hư hại sau trận động đất. Ảnh: Kyodo News [...] Thông tin cập nhật vào sáng 29/7 cho thấy, lực lượng cứu hộ Nhật Bản ghi nhận 2 người thiệt mạng và 1 phụ nữ “được tìm thấy trong tình trạng không có phản ứng” tại trung tm thương mại Aeon Mall tại thị trấn Kashima thuộc tỉnh Kumamoto. Hiện Lực lượng phòng vệ Nhật Bản đang triển khai các hoạt động cứu nạn tại đy.\n\n \n\nMột nhà dn bị hỏa hoạn do ảnh hưởng của động đất. Ảnh: Kyodo News\n\n   \n\nĐường sá ở tỉnh Kumamoto, Nhật Bản hư hại do động đất. Ảnh: Kyodo News",
+                    "score": 0.8173562
+                  },
+                  {
+                    "title": "Cảnh đổ nát sau trận động đất khiến 13 người thiệt mạng ở Nhật Bản",
+                    "url": "https://dantri.com.vn/the-gioi/canh-do-nat-sau-tran-dong-dat-khien-13-nguoi-thiet-mang-o-nhat-ban-20260729102627044.htm",
+                    "source": "dantri.com.vn",
+                    "summary": "(Dân trí) - Một trận động đất mạnh đã làm ít nhất 13 người chết, nhiều công trình bị hư hại ở tỉnh Kumamoto, miền Nam Nhật Bản.",
+                    "score": 0.76992935
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là thông tin về trận động đất xảy ra ở Nhật Bản vào ngày 28 tháng 7:\n\n1. **Số người thiệt mạng gia tăng**: Trận động đất mạnh 7,1 độ Richter xảy ra ngoài khơi tỉnh Kumamoto đã khiến ít nhất 13 người thiệt mạng. Thủ tướng Nhật Bản, Sanae Takaichi, cho biết thiệt hại nghiêm trọng đã được xác nhận, bao gồm thương vong và hư hại cơ sở hạ tầng. Lực lượng cứu hộ đang chạy đua với thời gian để tìm kiếm nạn nhân dưới đống đổ nát. (Nguồn: [VnExpress](https://vnexpress.net/it-nhat-13-nguoi-da-thiet-mang-vi-dong-dat-7-1-do-o-nhat-ban-5102821.html))\n\n2. **Cảnh báo sóng thần**: Cơ quan Khí tượng Nhật Bản đã ban hành cảnh báo sóng thần ngay sau trận động đất, nhưng sau đó đã dỡ bỏ. Khoảng 50 người đã được đưa đến bệnh viện và khoảng 48.000 hộ gia đình trên đảo Kyushu bị mất điện. (Nguồn: [baotintuc.vn](https://baotintuc.vn/the-gioi/dong-dat-tai-nhat-ban-so-nguoi-thiet-mang-gia-tang-20260729081846835.htm))\n\n3. **Hình ảnh thiệt hại**: Hình ảnh từ hiện trường cho thấy nhiều công trình, bao gồm nhà cửa và cầu đường, đã bị hư hại nghiêm trọng. Lực lượng cứu hộ đang triển khai các hoạt động cứu nạn tại các khu vực bị ảnh hưởng. (Nguồn: [VietnamNet](https://vietnamnet.vn/hinh-anh-ha-tang-dan-su-o-nhat-ban-do-nat-sau-tran-dong-dat-7-1-do-richter-2540046.html))\n\n4. **Tình hình giao thông**: Nhiều tuyến đường sắt, bao gồm cả tàu cao tốc Shinkansen, đã phải tạm dừng hoạt động để kiểm tra an toàn. Giao thông đường bộ và hàng không cũng bị gián đoạn. (Nguồn: [Thanh Niên](https://thanhnien.vn/dong-dat-lam-rung-chuyen-tay-nam-nhat-ban-co-canh-bao-song-than-185260728152124936.htm))\n\n5. **Cảnh đổ nát**: Hình ảnh cho thấy cảnh đổ nát sau trận động đất, với nhiều công trình bị sập và hư hại. Lực lượng cứu hộ đang nỗ lực tìm kiếm những người có thể còn mắc kẹt trong các đống đổ nát. (Nguồn: [Dân trí](https://dantri.com.vn/the-gioi/canh-do-nat-sau-tran-dong-dat-khien-13-nguoi-thiet-mang-o-nhat-ban-20260729102627044.htm))\n\nNếu bạn cần thêm thông tin chi tiết, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "động đất Nhật Bản",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "động đất Nhật Bản",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Động đất tại Nhật Bản: Số người thiệt mạng gia tăng | baotintuc.vn",
+                "url": "https://baotintuc.vn/the-gioi/dong-dat-tai-nhat-ban-so-nguoi-thiet-mang-gia-tang-20260729081846835.htm",
+                "source": "baotintuc.vn",
+                "summary": "Cơ quan Khí tượng Nhật Bản (JMA) cho biết trận động đất xảy ra dưới đáy biển ngoài khơi tỉnh Kumamoto, ở độ sâu khoảng 10 km. Cảnh báo sóng thần đã được ban hành ngay sau động đất nhưng nhanh chóng được dỡ bỏ. Khoảng 50 người đã được đưa đến bệnh viện, trong khi công tác đánh giá thiệt hại vẫn đang được tiến hành. [...] Trận động đất khiến ít nhất 48.000 hộ gia đình trên đảo Kyushu bị mất điện. Nhiều tuyến đường sắt, trong đó có tuyến tàu cao tốc Shinkansen, vẫn phải tạm dừng hoạt động để kiểm tra an toàn. Giao thông đường bộ và hàng không tại khu vực cũng bị gián đoạn. Cơ quan Quản lý Hạt nhân Nhật Bản cho biết chưa phát hiện bất thường tại 3 nhà máy điện hạt nhân gần vùng bị ảnh hưởng. Rung chấn cũng được cảm nhận tại một số khu vực của Hàn Quốc, trong đó có thành phố cảng Busan ở Đông Nam nước này. [...] Báo tin tức\n\n# Động đất tại Nhật Bản: Số người thiệt mạng gia tăng\n\n#### Thế giới\n\nBáo Tin Tức trên Google News\n\n## Số người thiệt mạng trong trận động đất có độ lớn 7,1 xảy ra ngoài khơi tỉnh Kumamoto, miền Nam Nhật Bản, ngày 28/7 đã tăng lên 5 người.\n\n#### Động đất tại Nhật Bản: Các cơ quan đại diện Việt Nam khẩn trương triển khai bảo hộ công dân\n\n#### Động đất tại Nhật Bản: Ghi nhận thương vong đầu tiên\n\n#### Động đất tại Nhật Bản: Cộng đồng người Việt vẫn an toàn",
+                "score": 0.85995835
+              },
+              {
+                "title": "Ít nhất 13 người đã chết vì động đất 7,1 độ ở Nhật Bản - Báo VnExpress",
+                "url": "https://vnexpress.net/it-nhat-13-nguoi-da-thiet-mang-vi-dong-dat-7-1-do-o-nhat-ban-5102821.html",
+                "source": "vnexpress.net",
+                "summary": "\"Những thiệt hại nghiêm trọng đã được xác nhận, bao gồm thương vong, nhà cửa bị sập, hỏa hoạn và hư hại đường sá\", Thủ tướng Nhật Bản Sanae Takaichi hôm nay cho biết khi cập nhật hậu quả của trận động đất mạnh 7,1 độ tại tỉnh Kumamoto trước đó một ngày.\n\nBà Takaichi nói rằng 13 người đã thiệt mạng do trận động đất. Con số có thể tăng thêm, trong khi lực lượng cứu hộ cứu nạn Nhật Bản đang chạy đua với thời gian để tìm kiếm nạn nhn dưới đống đổ nát. [...] Ảnh hưởng từ trận động đất còn khiến gần 37.000 hộ gia đình tại tỉnh Kumamoto mất điện vào sáng 29/7. Kumamoto từng hứng chịu hai trận động đất trong vòng hai ngày vào năm 2016, khiến 273 người thiệt mạng.\n\nLực lượng cứu hộ cứu nạn làm nhiệm vụ tại ngôi nhà bị đổ sập do trận động đất ở tỉnh Kumamoto, Nhật Bản, ngày 29/7. Ảnh: AP\n\nLực lượng cứu hộ cứu nạn làm nhiệm vụ tại ngôi nhà bị đổ sập do trận động đất ở tỉnh Kumamoto, Nhật Bản, ngày 29/7. Ảnh: AP [...] Nhiều người có thể đã chết trong trung tm thương mại sau động đất ở Nhật Bản\n\nNhiều người có thể đã chết trong trung tm thương mại sau động đất ở Nhật Bản\n\nThiệt hại tại tỉnh Kumamoto, Nhật Bản sau trận động đất 7,1 độ ngày 28/7. Video: NHK\n\nHãng tin Kyodo dẫn nguồn thạo tin cho biết trung tm thương mại ở thị trấn Kashima dường như đã bị tàn phá nghiêm trọng bởi vụ nổ khí gas, khiến trần nhà và các bức tường đổ sập.",
+                "score": 0.8467682
+              },
+              {
+                "title": "Động đất làm rung chuyển tây nam Nhật Bản, có cảnh báo sóng thần",
+                "url": "https://thanhnien.vn/dong-dat-lam-rung-chuyen-tay-nam-nhat-ban-co-canh-bao-song-than-185260728152124936.htm",
+                "source": "thanhnien.vn",
+                "summary": "Cơ quan Khí tượng Nhật Bản (JMA) thông báo một trận động đất mạnh 7,1 độ Richter đã xảy ra tại tỉnh Kumamoto thuộc miền nam của Nhật Bản vào chiều nay 28.7.",
+                "score": 0.83710164
+              },
+              {
+                "title": "Hình ảnh hạ tầng dân sự ở Nhật Bản đổ nát sau trận động đất 7,1 độ Richter",
+                "url": "https://vietnamnet.vn/hinh-anh-ha-tang-dan-su-o-nhat-ban-do-nat-sau-tran-dong-dat-7-1-do-richter-2540046.html",
+                "source": "vietnamnet.vn",
+                "summary": "Một cy cầu bị hư hại do động đất. Ảnh: Kyodo News\n\n \n\nVideo: Kyodo News\n\nĐộng đất 7,1 độ Richter ở Nhật Bản, nhiều người có thể mắc kẹt trong đống đổ nát\n\nMột trận động đất có cường độ 7,1 độ Richter đã xảy ra ở tỉnh Kumamoto trên đảo Kyushu của Nhật Bản chiều 28/7.\n\nSống sót phi thường sau 8 ngày bị chôn vùi vì động đất ở Venezuela [...] icon\n\n## Trận động đất có cường độ 7,1 độ Richter xảy ra chiều 28/7 ở Nhật Bản đã gy ra nhiều thiệt hại cho cơ sở hạ tầng tại tỉnh Kumamoto.\n\nVideo: Kyodo News\n\nTheo những hình ảnh được trang thông tấn Kyodo News chia sẻ đêm 28/7, dư chấn động đất đã khiến nhiều nhà cửa, một số trung tm thương mại và cầu đường ở tỉnh Kumamoto, Nhật Bản hư hại hoặc đổ sập.\n\n \n\nMột trung tm thương mại bị hư hại sau trận động đất. Ảnh: Kyodo News [...] Thông tin cập nhật vào sáng 29/7 cho thấy, lực lượng cứu hộ Nhật Bản ghi nhận 2 người thiệt mạng và 1 phụ nữ “được tìm thấy trong tình trạng không có phản ứng” tại trung tm thương mại Aeon Mall tại thị trấn Kashima thuộc tỉnh Kumamoto. Hiện Lực lượng phòng vệ Nhật Bản đang triển khai các hoạt động cứu nạn tại đy.\n\n \n\nMột nhà dn bị hỏa hoạn do ảnh hưởng của động đất. Ảnh: Kyodo News\n\n   \n\nĐường sá ở tỉnh Kumamoto, Nhật Bản hư hại do động đất. Ảnh: Kyodo News",
+                "score": 0.8173562
+              },
+              {
+                "title": "Cảnh đổ nát sau trận động đất khiến 13 người thiệt mạng ở Nhật Bản",
+                "url": "https://dantri.com.vn/the-gioi/canh-do-nat-sau-tran-dong-dat-khien-13-nguoi-thiet-mang-o-nhat-ban-20260729102627044.htm",
+                "source": "dantri.com.vn",
+                "summary": "(Dân trí) - Một trận động đất mạnh đã làm ít nhất 13 người chết, nhiều công trình bị hư hại ở tỉnh Kumamoto, miền Nam Nhật Bản.",
+                "score": 0.76992935
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:57:41"
+    },
+    {
+      "turn_index": 5,
+      "started_at": "2026-07-29T12:02:14",
+      "user": "bài post mới nhất về elon musk",
+      "status": "answered",
+      "assistant_text": "Bài post mới nhất về Elon Musk trên Twitter có tiêu đề:\n\n**\"Na where ur money stop, another person money dey start\"**  \nNội dung: \"abeg whose money dey start where Elon musk own stop😂🤲?\"  \nNguồn: [@OzyElla2](https://x.com/OzyElla2/status/2082330705858556240)  \nNgày đăng: 29 tháng 7 năm 2026\n\nNếu bạn cần thêm thông tin hoặc bài viết khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "social_search",
+              "args": {
+                "query": "Elon Musk",
+                "limit": 1
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "social_search",
+              "args": {
+                "query": "Elon Musk",
+                "limit": 1
+              },
+              "result": {
+                "tool": "search_tweets",
+                "query": "Elon Musk",
+                "search_type": "Latest",
+                "items": [
+                  {
+                    "title": "\"Na where ur money stop, another person money dey start\"",
+                    "summary": "\"Na where ur money stop, another person money dey start\"\nabeg whose money dey start where Elon musk own stop😂🤲?",
+                    "url": "https://x.com/OzyElla2/status/2082330705858556240",
+                    "source": "@OzyElla2",
+                    "date": "Wed Jul 29 05:01:42 +0000 2026",
+                    "metrics": {
+                      "favorites": 1,
+                      "retweets": 0,
+                      "views": null
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Bài post mới nhất về Elon Musk trên Twitter có tiêu đề:\n\n**\"Na where ur money stop, another person money dey start\"**  \nNội dung: \"abeg whose money dey start where Elon musk own stop😂🤲?\"  \nNguồn: [@OzyElla2](https://x.com/OzyElla2/status/2082330705858556240)  \nNgày đăng: 29 tháng 7 năm 2026\n\nNếu bạn cần thêm thông tin hoặc bài viết khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "social_search",
+          "args": {
+            "query": "Elon Musk",
+            "limit": 1
+          },
+          "result": {
+            "tool": "search_tweets",
+            "query": "Elon Musk",
+            "search_type": "Latest",
+            "items": [
+              {
+                "title": "\"Na where ur money stop, another person money dey start\"",
+                "summary": "\"Na where ur money stop, another person money dey start\"\nabeg whose money dey start where Elon musk own stop😂🤲?",
+                "url": "https://x.com/OzyElla2/status/2082330705858556240",
+                "source": "@OzyElla2",
+                "date": "Wed Jul 29 05:01:42 +0000 2026",
+                "metrics": {
+                  "favorites": 1,
+                  "retweets": 0,
+                  "views": null
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:02:14"
+    },
+    {
+      "turn_index": 6,
+      "started_at": "2026-07-29T12:04:40",
+      "user": "bài post mới nhất của elon musk đăng",
+      "status": "answered",
+      "assistant_text": "Bài post mới nhất của Elon Musk được đăng vào ngày 29 tháng 7 năm 2026:\n\n**Nội dung**: \"RT @finkd: I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with superintelligence…\"\n\n**Liên kết**: [Xem bài viết](https://x.com/elonmusk/status/2082273427315171520)\n\n**Thống kê**: \n- Số lượt thích: 0\n- Số lượt retweet: 1664\n- Số lượt xem: 531487\n\nNếu bạn cần thêm thông tin, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "timeline",
+              "args": {
+                "screenname": "elonmusk",
+                "limit": 1
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "timeline",
+              "args": {
+                "screenname": "elonmusk",
+                "limit": 1
+              },
+              "result": {
+                "tool": "get_user_tweets",
+                "screenname": "elonmusk",
+                "items": [
+                  {
+                    "title": "RT @finkd: I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with",
+                    "summary": "RT @finkd: I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with superintelligence…",
+                    "url": "https://x.com/elonmusk/status/2082273427315171520",
+                    "source": "@elonmusk",
+                    "date": "Wed Jul 29 01:14:06 +0000 2026",
+                    "metrics": {
+                      "favorites": 0,
+                      "retweets": 1664,
+                      "views": "531487"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Bài post mới nhất của Elon Musk được đăng vào ngày 29 tháng 7 năm 2026:\n\n**Nội dung**: \"RT @finkd: I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with superintelligence…\"\n\n**Liên kết**: [Xem bài viết](https://x.com/elonmusk/status/2082273427315171520)\n\n**Thống kê**: \n- Số lượt thích: 0\n- Số lượt retweet: 1664\n- Số lượt xem: 531487\n\nNếu bạn cần thêm thông tin, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "timeline",
+          "args": {
+            "screenname": "elonmusk",
+            "limit": 1
+          },
+          "result": {
+            "tool": "get_user_tweets",
+            "screenname": "elonmusk",
+            "items": [
+              {
+                "title": "RT @finkd: I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with",
+                "summary": "RT @finkd: I wrote about why we believe the future is for everyone. More coming about a positive vision for a world with superintelligence…",
+                "url": "https://x.com/elonmusk/status/2082273427315171520",
+                "source": "@elonmusk",
+                "date": "Wed Jul 29 01:14:06 +0000 2026",
+                "metrics": {
+                  "favorites": 0,
+                  "retweets": 1664,
+                  "views": "531487"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:04:40"
+    },
+    {
+      "turn_index": 7,
+      "started_at": "2026-07-29T12:05:54",
+      "user": "kết quả xổ số miền bắc ngày mai",
+      "status": "answered",
+      "assistant_text": "Hiện tại, chưa có kết quả xổ số miền Bắc cho ngày mai. Tuy nhiên, bạn có thể tham khảo kết quả xổ số miền Bắc hôm nay, ngày 28 tháng 7 năm 2026, với kết quả là 874845. \n\nĐể biết thêm thông tin chi tiết, bạn có thể xem tại các nguồn sau:\n\n1. **[Kết quả xổ số miền Bắc hôm nay 28/7/2026](https://thethao247.vn/503-xsmb-28-7-2026-ket-qua-xo-so-mien-bac-hom-nay-28-7-2026-d430042.html)** - Thethao247.vn\n2. **[Kết quả xổ số Miền Bắc](https://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac.html)** - Minh Ngọc\n\nNếu bạn cần thêm thông tin hoặc có câu hỏi khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "kết quả xổ số miền bắc ngày mai",
+                "topic": "general",
+                "timeframe": "day"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "kết quả xổ số miền bắc ngày mai",
+                "topic": "general",
+                "timeframe": "day"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "kết quả xổ số miền bắc ngày mai",
+                "topic": "general",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "XSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026",
+                    "url": "https://thethao247.vn/503-xsmb-28-7-2026-ket-qua-xo-so-mien-bac-hom-nay-28-7-2026-d430042.html",
+                    "source": "thethao247.vn",
+                    "summary": "# XSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026\n\nAuthor Thethao247.vn\n\n## Kết quả xổ số miền Bắc (XSMB) hôm nay 28/7\n\nXSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026 874845\n\n## Cơ cấu giải thưởng xổ số miền Bắc XSMB như sau:\n\n## Điều kiện lĩnh thưởng Xổ số miền Bắc: [...] Đến văn phòng Công ty xổ số kiến thiết được in trên tờ vé số trúng thưởng, bạn sẽ lĩnh đủ giá trị giải thưởng trúng sau khi trừ thuế thu nhập cá nhân (nếu có) và không phải tốn thêm bất kỳ phí giao dịch nào như đổi thưởng tại đại lý.\n\nXSMB 27/7/2026 - Kết quả xổ số miền Bắc hôm nay 27/7/2026\n\n|  |  |\n --- |\n|  |  |\n|  | |\n\n|  | |\n| Gửi góp ý | | [...] Giá vàng hôm nay 29/7: Vàng trong nước đồng loạt giảm\nGiá xăng dầu hôm nay 29/7: Thị trường phân hóa từng giờ; Đà tăng đà giảm vẫn chờ phía sau\nDự báo thời tiết 29/7: Mưa dông phủ khắp Hà thành; Ba miền phòng tránh mưa 'hành', gió rung\nXSMT 28/7/2026 - Kết quả xổ số miền Trung (Đắk Lắk , Quảng Nam) hôm nay 28/7/2026\nVietlott 28/7/2026 - Kết quả xổ số Vietlott ngày 28/7/2026\nXSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026\nLịch thi đấu AFF Cup 2026 | THỂ THAO 247",
+                    "score": 0.8036831
+                  },
+                  {
+                    "title": "Kết quả xổ số Miền Bắc » Minh Ngọc™",
+                    "url": "https://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac.html",
+                    "source": "minhngoc.net.vn",
+                    "summary": "XỔ SỐ Miền Bắc - 22/07/2026    Xem bảng tỉnh...  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- | | |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  | |  |  |  --- | | Thứ tư | Ngày: 22/07/2026 15DT-6DT-2DT-5DT-4DT-10DT  Ký hiệu trúng Đặc Biệt: | | Giải ĐB | 92154 | | Giải nhất | 31749 | | Giải nhì | 55383 [...] | 9561  2529  2296  7010 | | Giải năm | 3871  1098  5229  6719  9881  3605 | | Giải sáu | 237  505  575 | | Giải bảy | 35  66  69  02 | |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  --- | | Normal  2 số  3 Số | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | Xem Bảng Loto | |  |  |  |  |  ---  | Đổi số trúng | Hình vé số | In Vé Dò; \"In vé dò (in bảng kết quả xổ số) Miền Bắc ngày 25/07/2026\") |  KẾT QUẢ XỔ SỐ Miền Bắc - 24/07/2026    Xem bảng tỉnh...  |  |  |  |  |  |  |  |  |  | [...] |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- | | |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  | |  |  |  --- | | Thứ bảy | Ngày: 25/07/2026 13DX-9DX-10DX-8DX-14DX-6DX  Ký hiệu trúng Đặc Biệt: | | Giải ĐB | 89228 | | Giải nhất | 13978 | | Giải nhì | 86786  24867 | | Giải ba | 77184  57894  96769  77585  07692  18278 | | Giải tư | 9561  2529  2296",
+                    "score": 0.7493996
+                  },
+                  {
+                    "title": "Xổ số trực tiếp Miền Bắc - Xổ Số Phương Trang - XSTT MB - XSMB - TT XSMB Ngày 24/07/2026",
+                    "url": "https://vesophuongtrang.com/truc-tiep-xo-so-mien-bac-xsttmb.html",
+                    "source": "vesophuongtrang.com",
+                    "summary": "|  |\n\n| 15  ( 17 ngày )  96  ( 13 ngày )  25  ( 12 ngày )  73  ( 12 ngày )  20  ( 11 ngày )  40  ( 11 ngày )  03  ( 10 ngày )  31  ( 10 ngày )  55  ( 10 ngày )  76  ( 10 ngày ) |\n\n#### Các cặp số ra liên tiếp Miền Bắc:\n\n06  ( 3 Ngày ) ( 4 lần )\n\n52  ( 2 Ngày ) ( 2 lần )\n\n54  ( 2 Ngày ) ( 4 lần )\n\n61  ( 2 Ngày ) ( 2 lần )\n\n81  ( 2 Ngày ) ( 2 lần )\n\n82  ( 2 Ngày ) ( 3 lần )\n\n#### Bảng Thống kê \"Chục - Đơn vị\" trong ngày [...] 19/07/2026\n 20/07/2026\n 21/07/2026\n 22/07/2026\n\n# TRỰC TIẾP XỔ SỐ Miền Bắc - XSMB - XSTT MB - XSTTMB Ngày 24/07/2026\n\n XSMN\n XSMT\n XSMB\n Mega\n Power\n Max4D\n\n# Xổ số điện toán\n\n|  |  |\n --- |\n| Kết quả xổ số điện toán 1\\2\\3 | T.Sáu ngày  24/07/2026 |\n\n|  |  |  |  |  |  |\n ---  ---  --- |\n| |  |  |  |  |  |  ---  ---  |  |  |  |  |  | |\n\n|  |  |\n --- |\n| Kết quả xổ số Thần Tài | T.Sáu ngày 24/07/2026 |\n\n|  |\n\n|  |\n\n|  | [...] #### Hải Phòng\n\n|  |  |  |  |  |  |  |  |  |  |\n ---  ---  ---  ---  --- |\n| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n\n## Các thống kê cơ bản xổ số Miền Bắc (lô) đến KQXS Ngày 23/07/2026\n\n Lưu ý: Thống kê này không cập nhật khi đang trực tiếp xổ số, sau khi hoàn tất mở thưởng status chuyển qua chế độ kết thúc hệ thống sẽ tự động cập nhật.\n\n#### Những cặp số không xuất hiện lu nhất:\n\n|  |",
+                    "score": 0.73299384
+                  },
+                  {
+                    "title": "XSMB Trực Tiếp – Kết Quả Xổ Số Miền Bắc Hôm Nay - Trực Tiếp XSMB",
+                    "url": "https://xoso.com.vn/tuong-thuat-mien-bac/xsmb-tructiep.html",
+                    "source": "xoso.com.vn",
+                    "summary": "menu xo so\n\ntrang chu xo so\n\nHôm nay: Thứ Hai ngày 27/07/2026\n\nĐăng nhập\n\nTrang chủ Xổ số miền Bắc Trực tiếp XSMB\n\nĐang tường thuật Xổ số  ➜ Xem ngay \"➜ Xem ngay\")\n\n# XSMB Truc tiep – Tường thuật KQXS miền Bắc hôm nay lúc 18h10 nhanh chính xác\n\nTrực tiếp XSMB Trực tiếp XSMT Trực tiếp XSMN\n\nCòn \n\n12  giờ\n\n44  phút\n\n15  giy\n\nLà tới giờ quay xổ số Miền Bắc trực tiếp, chúng tôi sẽ tường thuật kết quả XSMB ngay sau khi hội đồng xổ số bắt đầu. [...] | Giải năm | 200,000 | 900 | 180,000,000 | 20 lần |\n| Giải sáu | 100,000 | 4,500 | 450,000,000 | 10 lần |\n| Giải bảy | 40,000 | 60,000 | 2,400,000,000 | 4 lần |\n| Giải KK | 40,000 | 15,000 | 600,000,000 | 4 lần | [...] | Giải năm | 200,000 | 1,200 | 240,000,000 | 20 lần |\n| Giải sáu | 100,000 | 6,000 | 600,000,000 | 10 lần |\n| Giải bảy | 40,000 | 80,000 | 3,200,000,000 | 4 lần |\n| Giải KK | 40,000 | 20,000 | 800,000,000 | 4 lần |",
+                    "score": 0.7178241
+                  },
+                  {
+                    "title": "XSMB Hôm qua - XSTD - SXMB - Kết quả Xổ số miền Bắc hôm qua",
+                    "url": "https://xoso.com.vn/xsmb-hom-qua.html",
+                    "source": "xoso.com.vn",
+                    "summary": "Nhận kết quả tường thuật XS soạn XS MB gửi 8336 (3.000đ/SMS)\n\n## XSMB Thứ 2, Xổ số miền Bắc ngày 20/07/2026 mở thưởng tại Hà Nội\n\n|  |\n\n| 1DR   2DR   8DR   9DR  10DR  12DR |\n| ĐB | 39128 |\n| 1 | 66850 |\n| 2 | 32789   07339 |\n| 3 | 08556   22983   80160   37394   88718   60939 |\n| 4 | 3337   6114   4588   7189 |\n| 5 | 9574   8427   7683   7174   3867   0477 |\n| 6 | 170   436   972 |\n| 7 | 01   44   89   63 |\n\nBảng Loto Miền Bắc Loto XSTD Thứ 2 [...] | Đầu | Đuôi | Đầu | Đuôi |\n ---  --- |\n| 0 | 7,6,6,9 | 7,7 | 0 |\n| 1 | 7 | 5,5 | 1 |\n| 2 | 6 | 6,7 | 2 |\n| 3  5,6,5,8 | 3 |\n| 4 | 4,7 | 4,8,7,9 | 4 |\n| 5 | 1,1,3,3 | 7 | 5 |\n| 6 | 2,3 | 0,0,2 | 6 |\n| 7 | 0,0,2,5,4 | 0,1,4,9 | 7 |\n| 8 | 9,4,8,8,3 | 9,8,8 | 8 |\n| 9 | 8,7,4 | 8,0 | 9 |\n\n Loto gan Miền Bắc (Gan MB)\n Trực tiếp XSMB hôm nay\n Thống kê giải ĐB miền Bắc\n Kết quả XSMB Hôm nay\n KQXS Hôm nay\n\nNhận KQXS MB, soạn XS MB gửi 8136 (1.500đ/SMS) [...] | Giải sáu | 100,000 | 4500 | 450,000,000 | 10 lần |\n| Giải bảy | 40,000 | 60000 | 2,400,000,000 | 4 lần |",
+                    "score": 0.7106489
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại, chưa có kết quả xổ số miền Bắc cho ngày mai. Tuy nhiên, bạn có thể tham khảo kết quả xổ số miền Bắc hôm nay, ngày 28 tháng 7 năm 2026, với kết quả là 874845. \n\nĐể biết thêm thông tin chi tiết, bạn có thể xem tại các nguồn sau:\n\n1. **[Kết quả xổ số miền Bắc hôm nay 28/7/2026](https://thethao247.vn/503-xsmb-28-7-2026-ket-qua-xo-so-mien-bac-hom-nay-28-7-2026-d430042.html)** - Thethao247.vn\n2. **[Kết quả xổ số Miền Bắc](https://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac.html)** - Minh Ngọc\n\nNếu bạn cần thêm thông tin hoặc có câu hỏi khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "kết quả xổ số miền bắc ngày mai",
+            "topic": "general",
+            "timeframe": "day"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "kết quả xổ số miền bắc ngày mai",
+            "topic": "general",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "XSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026",
+                "url": "https://thethao247.vn/503-xsmb-28-7-2026-ket-qua-xo-so-mien-bac-hom-nay-28-7-2026-d430042.html",
+                "source": "thethao247.vn",
+                "summary": "# XSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026\n\nAuthor Thethao247.vn\n\n## Kết quả xổ số miền Bắc (XSMB) hôm nay 28/7\n\nXSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026 874845\n\n## Cơ cấu giải thưởng xổ số miền Bắc XSMB như sau:\n\n## Điều kiện lĩnh thưởng Xổ số miền Bắc: [...] Đến văn phòng Công ty xổ số kiến thiết được in trên tờ vé số trúng thưởng, bạn sẽ lĩnh đủ giá trị giải thưởng trúng sau khi trừ thuế thu nhập cá nhân (nếu có) và không phải tốn thêm bất kỳ phí giao dịch nào như đổi thưởng tại đại lý.\n\nXSMB 27/7/2026 - Kết quả xổ số miền Bắc hôm nay 27/7/2026\n\n|  |  |\n --- |\n|  |  |\n|  | |\n\n|  | |\n| Gửi góp ý | | [...] Giá vàng hôm nay 29/7: Vàng trong nước đồng loạt giảm\nGiá xăng dầu hôm nay 29/7: Thị trường phân hóa từng giờ; Đà tăng đà giảm vẫn chờ phía sau\nDự báo thời tiết 29/7: Mưa dông phủ khắp Hà thành; Ba miền phòng tránh mưa 'hành', gió rung\nXSMT 28/7/2026 - Kết quả xổ số miền Trung (Đắk Lắk , Quảng Nam) hôm nay 28/7/2026\nVietlott 28/7/2026 - Kết quả xổ số Vietlott ngày 28/7/2026\nXSMB 28/7/2026 - Kết quả xổ số miền Bắc hôm nay 28/7/2026\nLịch thi đấu AFF Cup 2026 | THỂ THAO 247",
+                "score": 0.8036831
+              },
+              {
+                "title": "Kết quả xổ số Miền Bắc » Minh Ngọc™",
+                "url": "https://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac.html",
+                "source": "minhngoc.net.vn",
+                "summary": "XỔ SỐ Miền Bắc - 22/07/2026    Xem bảng tỉnh...  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- | | |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  | |  |  |  --- | | Thứ tư | Ngày: 22/07/2026 15DT-6DT-2DT-5DT-4DT-10DT  Ký hiệu trúng Đặc Biệt: | | Giải ĐB | 92154 | | Giải nhất | 31749 | | Giải nhì | 55383 [...] | 9561  2529  2296  7010 | | Giải năm | 3871  1098  5229  6719  9881  3605 | | Giải sáu | 237  505  575 | | Giải bảy | 35  66  69  02 | |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  --- | | Normal  2 số  3 Số | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | Xem Bảng Loto | |  |  |  |  |  ---  | Đổi số trúng | Hình vé số | In Vé Dò; \"In vé dò (in bảng kết quả xổ số) Miền Bắc ngày 25/07/2026\") |  KẾT QUẢ XỔ SỐ Miền Bắc - 24/07/2026    Xem bảng tỉnh...  |  |  |  |  |  |  |  |  |  | [...] |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  --- | | |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  ---  ---  ---  ---  ---  ---  ---  ---  ---  | |  |  |  --- | | Thứ bảy | Ngày: 25/07/2026 13DX-9DX-10DX-8DX-14DX-6DX  Ký hiệu trúng Đặc Biệt: | | Giải ĐB | 89228 | | Giải nhất | 13978 | | Giải nhì | 86786  24867 | | Giải ba | 77184  57894  96769  77585  07692  18278 | | Giải tư | 9561  2529  2296",
+                "score": 0.7493996
+              },
+              {
+                "title": "Xổ số trực tiếp Miền Bắc - Xổ Số Phương Trang - XSTT MB - XSMB - TT XSMB Ngày 24/07/2026",
+                "url": "https://vesophuongtrang.com/truc-tiep-xo-so-mien-bac-xsttmb.html",
+                "source": "vesophuongtrang.com",
+                "summary": "|  |\n\n| 15  ( 17 ngày )  96  ( 13 ngày )  25  ( 12 ngày )  73  ( 12 ngày )  20  ( 11 ngày )  40  ( 11 ngày )  03  ( 10 ngày )  31  ( 10 ngày )  55  ( 10 ngày )  76  ( 10 ngày ) |\n\n#### Các cặp số ra liên tiếp Miền Bắc:\n\n06  ( 3 Ngày ) ( 4 lần )\n\n52  ( 2 Ngày ) ( 2 lần )\n\n54  ( 2 Ngày ) ( 4 lần )\n\n61  ( 2 Ngày ) ( 2 lần )\n\n81  ( 2 Ngày ) ( 2 lần )\n\n82  ( 2 Ngày ) ( 3 lần )\n\n#### Bảng Thống kê \"Chục - Đơn vị\" trong ngày [...] 19/07/2026\n 20/07/2026\n 21/07/2026\n 22/07/2026\n\n# TRỰC TIẾP XỔ SỐ Miền Bắc - XSMB - XSTT MB - XSTTMB Ngày 24/07/2026\n\n XSMN\n XSMT\n XSMB\n Mega\n Power\n Max4D\n\n# Xổ số điện toán\n\n|  |  |\n --- |\n| Kết quả xổ số điện toán 1\\2\\3 | T.Sáu ngày  24/07/2026 |\n\n|  |  |  |  |  |  |\n ---  ---  --- |\n| |  |  |  |  |  |  ---  ---  |  |  |  |  |  | |\n\n|  |  |\n --- |\n| Kết quả xổ số Thần Tài | T.Sáu ngày 24/07/2026 |\n\n|  |\n\n|  |\n\n|  | [...] #### Hải Phòng\n\n|  |  |  |  |  |  |  |  |  |  |\n ---  ---  ---  ---  --- |\n| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |\n\n## Các thống kê cơ bản xổ số Miền Bắc (lô) đến KQXS Ngày 23/07/2026\n\n Lưu ý: Thống kê này không cập nhật khi đang trực tiếp xổ số, sau khi hoàn tất mở thưởng status chuyển qua chế độ kết thúc hệ thống sẽ tự động cập nhật.\n\n#### Những cặp số không xuất hiện lu nhất:\n\n|  |",
+                "score": 0.73299384
+              },
+              {
+                "title": "XSMB Trực Tiếp – Kết Quả Xổ Số Miền Bắc Hôm Nay - Trực Tiếp XSMB",
+                "url": "https://xoso.com.vn/tuong-thuat-mien-bac/xsmb-tructiep.html",
+                "source": "xoso.com.vn",
+                "summary": "menu xo so\n\ntrang chu xo so\n\nHôm nay: Thứ Hai ngày 27/07/2026\n\nĐăng nhập\n\nTrang chủ Xổ số miền Bắc Trực tiếp XSMB\n\nĐang tường thuật Xổ số  ➜ Xem ngay \"➜ Xem ngay\")\n\n# XSMB Truc tiep – Tường thuật KQXS miền Bắc hôm nay lúc 18h10 nhanh chính xác\n\nTrực tiếp XSMB Trực tiếp XSMT Trực tiếp XSMN\n\nCòn \n\n12  giờ\n\n44  phút\n\n15  giy\n\nLà tới giờ quay xổ số Miền Bắc trực tiếp, chúng tôi sẽ tường thuật kết quả XSMB ngay sau khi hội đồng xổ số bắt đầu. [...] | Giải năm | 200,000 | 900 | 180,000,000 | 20 lần |\n| Giải sáu | 100,000 | 4,500 | 450,000,000 | 10 lần |\n| Giải bảy | 40,000 | 60,000 | 2,400,000,000 | 4 lần |\n| Giải KK | 40,000 | 15,000 | 600,000,000 | 4 lần | [...] | Giải năm | 200,000 | 1,200 | 240,000,000 | 20 lần |\n| Giải sáu | 100,000 | 6,000 | 600,000,000 | 10 lần |\n| Giải bảy | 40,000 | 80,000 | 3,200,000,000 | 4 lần |\n| Giải KK | 40,000 | 20,000 | 800,000,000 | 4 lần |",
+                "score": 0.7178241
+              },
+              {
+                "title": "XSMB Hôm qua - XSTD - SXMB - Kết quả Xổ số miền Bắc hôm qua",
+                "url": "https://xoso.com.vn/xsmb-hom-qua.html",
+                "source": "xoso.com.vn",
+                "summary": "Nhận kết quả tường thuật XS soạn XS MB gửi 8336 (3.000đ/SMS)\n\n## XSMB Thứ 2, Xổ số miền Bắc ngày 20/07/2026 mở thưởng tại Hà Nội\n\n|  |\n\n| 1DR   2DR   8DR   9DR  10DR  12DR |\n| ĐB | 39128 |\n| 1 | 66850 |\n| 2 | 32789   07339 |\n| 3 | 08556   22983   80160   37394   88718   60939 |\n| 4 | 3337   6114   4588   7189 |\n| 5 | 9574   8427   7683   7174   3867   0477 |\n| 6 | 170   436   972 |\n| 7 | 01   44   89   63 |\n\nBảng Loto Miền Bắc Loto XSTD Thứ 2 [...] | Đầu | Đuôi | Đầu | Đuôi |\n ---  --- |\n| 0 | 7,6,6,9 | 7,7 | 0 |\n| 1 | 7 | 5,5 | 1 |\n| 2 | 6 | 6,7 | 2 |\n| 3  5,6,5,8 | 3 |\n| 4 | 4,7 | 4,8,7,9 | 4 |\n| 5 | 1,1,3,3 | 7 | 5 |\n| 6 | 2,3 | 0,0,2 | 6 |\n| 7 | 0,0,2,5,4 | 0,1,4,9 | 7 |\n| 8 | 9,4,8,8,3 | 9,8,8 | 8 |\n| 9 | 8,7,4 | 8,0 | 9 |\n\n Loto gan Miền Bắc (Gan MB)\n Trực tiếp XSMB hôm nay\n Thống kê giải ĐB miền Bắc\n Kết quả XSMB Hôm nay\n KQXS Hôm nay\n\nNhận KQXS MB, soạn XS MB gửi 8136 (1.500đ/SMS) [...] | Giải sáu | 100,000 | 4500 | 450,000,000 | 10 lần |\n| Giải bảy | 40,000 | 60000 | 2,400,000,000 | 4 lần |",
+                "score": 0.7106489
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:05:54"
+    },
+    {
+      "turn_index": 8,
+      "started_at": "2026-07-29T12:09:47",
+      "user": "thông tin về lê tuấn hiệp",
+      "status": "answered",
+      "assistant_text": "Dưới đây là một số thông tin liên quan đến Lê Tuấn Hiệp từ các nguồn trực tuyến:\n\n1. **Instagram**: Một bài đăng từ Hoàng Tuấn Hiệp vào ngày 26 tháng 7 năm 2026, có hình ảnh về một hồ nước. [Xem tại đây](https://www.instagram.com/p/DbPy9PZPnfY).\n\n2. **Facebook**: Tuấn Hiệp đã thêm một bức ảnh mới, liên quan đến các mẫu da ghế cho xe điện của nhà Lavor. [Xem tại đây](https://www.facebook.com/tuanhieptire/photos/1526449949278821).\n\n3. **TikTok**: Một video từ tài khoản @712tuanhiep1986 nói về lý do Tuấn Hiệp Group gặp phải thất bại và bài học từ đó. [Xem video](https://www.tiktok.com/@712tuanhiep1986/video/7666438079820860693).\n\n4. **TikTok**: Một video khác ghi lại khoảnh khắc trên xe của anh Khang Katrum cùng Nhà Xe Tuấn Hiệp. [Xem video](https://www.tiktok.com/@tuan_anh62p1/video/7665341130413739272).\n\n5. **Instagram**: Một reel từ Trần Tuấn Hiệp vào ngày 24 tháng 7 năm 2026, với nội dung liên quan đến tình cảm. [Xem tại đây](https://www.instagram.com/reel/DbLklKmTIyJ).\n\nNếu bạn cần thêm thông tin chi tiết hoặc có câu hỏi khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "Lê Tuấn Hiệp",
+                "topic": "general",
+                "timeframe": "week",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "Lê Tuấn Hiệp",
+                "topic": "general",
+                "timeframe": "week",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "Lê Tuấn Hiệp",
+                "topic": "general",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "Photos by Hoàng Tuấn Hiệp (@ht_hiepp) · July 26, 2026",
+                    "url": "https://www.instagram.com/p/DbPy9PZPnfY",
+                    "source": "instagram.com",
+                    "summary": "Photo by Lê Thịnh on June 25, 2026. May be an image of lake. Photo by Lê Thịnh on June 25, 2026.",
+                    "score": 0.22397944
+                  },
+                  {
+                    "title": "TUẤN HIỆP added a new photo.",
+                    "url": "https://www.facebook.com/tuanhieptire/photos/1526449949278821",
+                    "source": "facebook.com",
+                    "summary": "Cơn hot xe điện vẫn chưa hạ nhiệt nên hôm nay lại lên cho mấy bác tài vài mẫu da ghế riêng cho dòng xe điện của nhà Lavor !! Sở hữu một chiếc xe điện cá",
+                    "score": 0.22023381
+                  },
+                  {
+                    "title": "Video của tuấn hiệp (@712tuanhiep1986) với bản nhạc âm ...",
+                    "url": "https://www.tiktok.com/@712tuanhiep1986/video/7666438079820860693",
+                    "source": "tiktok.com",
+                    "summary": "Tuấn Hiệp Group: Bị Flop Quá Rồi? Khám phá lý do Tuấn Hiệp Group gặp phải thất bại và bài học từ đó. Đừng bỏ lỡ! #hoangduyutvan #tuanhiepgroup #quancomutvan.",
+                    "score": 0.21529336
+                  },
+                  {
+                    "title": "Video của Tuấn anh (@tuan_anh62p1) với bản nhạc âm ...",
+                    "url": "https://www.tiktok.com/@tuan_anh62p1/video/7665341130413739272",
+                    "source": "tiktok.com",
+                    "summary": "Lead Video ghi lại khoảnh khắc “lên sóng” trên xe của anh Khang Katrum cùng Nhà Xe Tuấn Hiệp — một đoạn clip hài hước, ấm áp và đầy tính đời thường trên xekhach",
+                    "score": 0.18719247
+                  },
+                  {
+                    "title": "Reel by Trần Tuấn Hiệp (@th2mixxs) · July 24, 2026",
+                    "url": "https://www.instagram.com/reel/DbLklKmTIyJ",
+                    "source": "instagram.com",
+                    "summary": "NGAY CẢ KHI EM CÓ BƯỚC LÊN GIƯỜNG VỚI NÓ CHỈ CẦN EM NÓI LÀ EM LỠ CHÂN THÌ ANH SẴN SÀNG TIN ĐÓ LÀ THẬT TRĂM ĐAU NGÀN ĐAU NHƯNG SAO VẪN CỨ THAM LAM MƠ VỀ MỘT",
+                    "score": 0.13185388
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Dưới đây là một số thông tin liên quan đến Lê Tuấn Hiệp từ các nguồn trực tuyến:\n\n1. **Instagram**: Một bài đăng từ Hoàng Tuấn Hiệp vào ngày 26 tháng 7 năm 2026, có hình ảnh về một hồ nước. [Xem tại đây](https://www.instagram.com/p/DbPy9PZPnfY).\n\n2. **Facebook**: Tuấn Hiệp đã thêm một bức ảnh mới, liên quan đến các mẫu da ghế cho xe điện của nhà Lavor. [Xem tại đây](https://www.facebook.com/tuanhieptire/photos/1526449949278821).\n\n3. **TikTok**: Một video từ tài khoản @712tuanhiep1986 nói về lý do Tuấn Hiệp Group gặp phải thất bại và bài học từ đó. [Xem video](https://www.tiktok.com/@712tuanhiep1986/video/7666438079820860693).\n\n4. **TikTok**: Một video khác ghi lại khoảnh khắc trên xe của anh Khang Katrum cùng Nhà Xe Tuấn Hiệp. [Xem video](https://www.tiktok.com/@tuan_anh62p1/video/7665341130413739272).\n\n5. **Instagram**: Một reel từ Trần Tuấn Hiệp vào ngày 24 tháng 7 năm 2026, với nội dung liên quan đến tình cảm. [Xem tại đây](https://www.instagram.com/reel/DbLklKmTIyJ).\n\nNếu bạn cần thêm thông tin chi tiết hoặc có câu hỏi khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "Lê Tuấn Hiệp",
+            "topic": "general",
+            "timeframe": "week",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "Lê Tuấn Hiệp",
+            "topic": "general",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Photos by Hoàng Tuấn Hiệp (@ht_hiepp) · July 26, 2026",
+                "url": "https://www.instagram.com/p/DbPy9PZPnfY",
+                "source": "instagram.com",
+                "summary": "Photo by Lê Thịnh on June 25, 2026. May be an image of lake. Photo by Lê Thịnh on June 25, 2026.",
+                "score": 0.22397944
+              },
+              {
+                "title": "TUẤN HIỆP added a new photo.",
+                "url": "https://www.facebook.com/tuanhieptire/photos/1526449949278821",
+                "source": "facebook.com",
+                "summary": "Cơn hot xe điện vẫn chưa hạ nhiệt nên hôm nay lại lên cho mấy bác tài vài mẫu da ghế riêng cho dòng xe điện của nhà Lavor !! Sở hữu một chiếc xe điện cá",
+                "score": 0.22023381
+              },
+              {
+                "title": "Video của tuấn hiệp (@712tuanhiep1986) với bản nhạc âm ...",
+                "url": "https://www.tiktok.com/@712tuanhiep1986/video/7666438079820860693",
+                "source": "tiktok.com",
+                "summary": "Tuấn Hiệp Group: Bị Flop Quá Rồi? Khám phá lý do Tuấn Hiệp Group gặp phải thất bại và bài học từ đó. Đừng bỏ lỡ! #hoangduyutvan #tuanhiepgroup #quancomutvan.",
+                "score": 0.21529336
+              },
+              {
+                "title": "Video của Tuấn anh (@tuan_anh62p1) với bản nhạc âm ...",
+                "url": "https://www.tiktok.com/@tuan_anh62p1/video/7665341130413739272",
+                "source": "tiktok.com",
+                "summary": "Lead Video ghi lại khoảnh khắc “lên sóng” trên xe của anh Khang Katrum cùng Nhà Xe Tuấn Hiệp — một đoạn clip hài hước, ấm áp và đầy tính đời thường trên xekhach",
+                "score": 0.18719247
+              },
+              {
+                "title": "Reel by Trần Tuấn Hiệp (@th2mixxs) · July 24, 2026",
+                "url": "https://www.instagram.com/reel/DbLklKmTIyJ",
+                "source": "instagram.com",
+                "summary": "NGAY CẢ KHI EM CÓ BƯỚC LÊN GIƯỜNG VỚI NÓ CHỈ CẦN EM NÓI LÀ EM LỠ CHÂN THÌ ANH SẴN SÀNG TIN ĐÓ LÀ THẬT TRĂM ĐAU NGÀN ĐAU NHƯNG SAO VẪN CỨ THAM LAM MƠ VỀ MỘT",
+                "score": 0.13185388
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:09:47"
+    },
+    {
+      "turn_index": 9,
+      "started_at": "2026-07-29T12:10:56",
+      "user": "thông tin sinh viên dhbkhn mssv 20235392",
+      "status": "answered",
+      "assistant_text": "Hiện tại, không có thông tin cụ thể nào về sinh viên Đại học Bách Khoa Hà Nội với mã số sinh viên 20235392. Tuy nhiên, bạn có thể tham khảo một số thông tin liên quan đến sinh viên và các quy định tại các trường đại học khác:\n\n1. **Reset mật khẩu Mail sinh viên**: Nếu bạn cần reset mật khẩu email sinh viên, có thể tham khảo [đường dẫn này](https://docs.google.com/forms/d/e/1FAIpQLSdLBqx1EPtxonL-VAe__Xy-gMzOgeuYl7uKjbRbW4tgsOcpSg/viewform) để điền thông tin cần thiết.\n\n2. **Thông báo về mã số sinh viên**: Một số thông báo liên quan đến việc khóa và mở mã số sinh viên có thể tham khảo tại [đây](https://sis.ou.edu.vn/thong-bao-ve-viec-khoa-va-mo-ma-so-sinh-vien-mssv-hoc-ky-ii20202021).\n\nNếu bạn cần thông tin cụ thể hơn hoặc có câu hỏi khác, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "sinh viên DHBKHN mssv 20235392",
+                "topic": "general"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "sinh viên DHBKHN mssv 20235392",
+                "topic": "general"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "sinh viên DHBKHN mssv 20235392",
+                "topic": "general",
+                "timeframe": "week",
+                "items": [
+                  {
+                    "title": "Reset mật khẩu Mail sinh viên: mssv@student.hcmute.edu.vn",
+                    "url": "https://docs.google.com/forms/d/e/1FAIpQLSdLBqx1EPtxonL-VAe__Xy-gMzOgeuYl7uKjbRbW4tgsOcpSg/viewform",
+                    "source": "docs.google.com",
+                    "summary": "Reset mật khẩu Mail sinh viên: mssv@.vn. Reset mật khẩu Mail sinh viên: mssv@.vn. Sinh viên có nhu cầu reset mật khẩu mail sinh viên (mssv@.vn) hãy điền đầy đủ thông tin bên dưới và bấm nút gửi. Trung tâm Thông tin - Máy tính sẽ kiểm tra thông tin và reset lại mật khẩu mail cho sinh viên. Sign in to Google to save your progress. Họ và tên đệm (đánh chữ thường, không dấu). Tên cuối (đánh chữ thường, không dấu). Vì tình trạng sinh viên lâu quá không sử dụng mail hoặc chưa đăng nhập mail lần nào nên tài khoản mail bị khóa, sinh viên vui lòng chọn đúng tùy chọn bên dưới để Trung tâm lọc ra danh sách sinh viên tài khoản bị khóa để mở lại. Chưa đăng nhập vào mail lần nào hoặc có đăng nhập mail nhưng lâu quá không sử dụng. Số chứng minh nhân dân. Số điện thoại liên lạc. Tôi xin chịu hoàn toàn chịu trách nhiệm trước nhà trường về việc yêu cầu đổi mật khẩu này. Never submit passwords through Google Forms. This form was created inside of Ho Chi Minh City University of Technology and Education. Does this form look suspicious?",
+                    "score": 0.46249792
+                  },
+                  {
+                    "title": "Hệ thống thông tin sinh viên - Trường Đại học Mở Tp.HCM",
+                    "url": "https://sis.ou.edu.vn/thong-bao-ve-viec-khoa-va-mo-ma-so-sinh-vien-mssv-hoc-ky-ii20202021",
+                    "source": "sis.ou.edu.vn",
+                    "summary": "## THÔNG BÁO Về việc khóa và mở mã số sinh viên (MSSV) Học kỳ II/2020-2021. Căn cứ Điều 14 Quy chế học vụ theo học chế tín chỉ ban hành kèm theo Quyết định số 1769/QĐ-ĐHM ngày 16/8/2019 về việc tạm dừng học tập các sinh viên: Tự ý bỏ học không lý do một học kỳ; không hoàn thành nghĩa vụ học phí theo quy định của nhà trường; vi phạm kỷ luật đến mức tạm dừng học tập;... Phòng Quản lý Đào tạo khóa MSSV Học kỳ II/2020-2021 từ ngày 30/11/2020 đối với các sinh viên đóng học phí trễ hạn các môn học thực hành và các môn học lý thuyết. Để chuẩn bị cho công tác đăng ký môn học trực tuyến Học kỳ II/2020-2021, Phòng Quản lý Đào tạo thông báo Quy trình mở mã số sinh viên như sau:. 1. Đối tượng cần mớ mã số sinh viên:. - Sinh viên đã xin bảo lưu học tập;. - Sinh viên đóng học phí HK I/2020-2021 sau ngày 27/11/2020;. - Sinh viên tự ý nghỉ học tối thiểu 1 học kỳ:. - Sinh viên hết thời hạn kỷ luật. 2. Quy trình mở mã số sinh viên. - Sinh viên kiểm tra tình trạng khóa MSSV trên website trường: (vào mục Tiện ích - Kiểm tra khóa MSSV, chọn năm học - học kỳ để kiểm tra tình trạng MSSV). - Trường hợp bị khóa MSSV do đóng học phí trễ hạn: Sinh viên nộp đơn yêu cầu mở MSSV kèm theo biên lai đóng học phí (bản photo). - Trường hợp bảo lưu học tập: Sinh viên nộp đơn đề nghị được tiếp tục học tập kèm theo giấy báo tạm dừng học tập do phòng Quản lý Đào tạo . ##### Về việc điều chỉnh mức thu các dịch vụ cung cấp cho sinh viên. ##### Triển khai nng cấp hệ thống HCMCOU-SIS. ##### V/v điều chỉnh khung thời gian mở mã SV Học kỳ II năm hoc 2020-2021. ##### Nng cấp hệ thống HCMCOU-SIS. ##### THÔNG BÁO Về việc khóa và mở mã số sinh viên (MSSV) Học kỳ III/2020-2021.",
+                    "score": 0.19678025
+                  },
+                  {
+                    "title": "SInh viên tiêu biểu",
+                    "url": "https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u",
+                    "source": "fit.uit.edu.vn",
+                    "summary": "Title: SInh viên tiêu biểu\nTRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN. **KHOA **KHOA** HỌC VÀ KỸ THUẬT THÔNG TIN**. **NGÀNH CNTT TUYỂN SINH NHIỀU CHỈ TIÊU NGÀNH CNTT, CNTT VIỆT NHẬT VÀ KHOA HỌC DỮ LIỆU**. # Sinh viên tiêu biểu. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2018 - 2019. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2019 - 2020. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2017 - 2018. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2016 - 2017. # Vinh danh sinh viên đạt thành tích cao trong kỳ tuyển sinh năm học 2020-2021. Khoa Khoa học và Kỹ thuật Thông tin xin chúc mừng các bạn:. | Nguyễn Trường Thịnh (KHDL2020) - MSSV: 20520783 - Thủ khoa kỳ thi đánh giá năng lực do ĐHQG tổ chức với số điểm **1063**. | Nguyễn Hữu Minh Tm (KHDL2020) - MSSV: 20521871 - Thủ khoa kỳ thi tốt nghiệp THPT với số điểm **28.55**. | Trần Thanh Phát (CNTT2020) - MSSV: 20520685 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi đánh giá năng lực **1001**. |  | Bùi Trung Hiếu (CNTT2020) - MSSV: 20521314 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi THPT **27.8**. |  | Nguyễn Nhã Minh (CNCL2020) - MSSV: 20520637 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi đánh giá năng lực **872**. |  | Hồ Đăng Minh Trí (CNCL2020) - MSSV: 20522047 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi THPT **27**. * Vinh danh các nhóm sinh viên đạt điểm cao trong kỳ bảo vệ KLTN đợt 2 năm học 2019 - 2020. * Vinh danh các nhóm sinh viên có đề tài NCKH cấp trường đợt 08/2020. * Vinh danh sinh viên đạt thành tích cao trong kỳ tuyển sinh năm học 2021-2022. * VINH DANH VÀ KHEN THƯỞNG NHỮNG \"CHIẾN BINH\" KHOA ISE – NHÀ VÔ ĐỊCH FUTSAL ĐHQG-HCM 2025.",
+                    "score": 0.14046617
+                  },
+                  {
+                    "title": "Email sinh viên TDTU | Giáo dục đại học",
+                    "url": "https://undergrad.tdtu.edu.vn/huong-dan/email-sinh-vien-tdtu",
+                    "source": "undergrad.tdtu.edu.vn",
+                    "summary": "Title: Email sinh viên TDTU | Giáo dục đại học\nĐại học Tôn Đức Thắng. # Email sinh viên TDTU. ## Email sinh viên TDTU. Mỗi sinh viên được cấp 1 tài khoản email để trao đổi thông tin phục vụ việc học tại Trường. Cấu trúc email: MSSV@student.tdtu.edu.vn. Địa chỉ đăng nhập: mail.student.tdtu.edu.vn. Mật khẩu khởi tạo: TDTU + MSSV. *(Lưu ý: viết hoa MSSV)*. *Ví dụ: MSSV của bạn là A25H9999 -> mật khẩu khởi tạo là TDTUA25H9999*. **\\* Chú ý: Thay đổi mật khẩu ngay khi đăng nhập lần đầu.**. Kiểm tra cổng thông tin sinh viên (thông báo, email, ... ) mỗi ngày để kịp thời nắm bắt các thông tin cần thiết. Bảo mật tài khoản của mình, không cung cấp cho người khác sử dụng. Sinh viên sẽ chịu hoàn toàn trách nhiệm khi để người khác sử dụng tài khoản của mình. Sử dụng tài khoản được cấp khi liên hệ với Trường, không sử dụng email cá nhn. Lưu ý kiểm tra thông tin sinh viên cẩn thận vì dữ liệu này sẽ được sử dụng để in văn bằng tốt nghiệp và các loại chứng chỉ. Khi có sự thay đổi về thông tin cá nhn, liên hệ Phòng Công tác học sinh - sinh viên (A.0003) để được hỗ trợ cập nhật. ### Học vụ. Những điều cần biết khi học tại TDTU. Hướng dẫn đăng nhập hệ thống thông tin sinh viên. Hướng dẫn sử dụng Email sinh viên. Phòng ban chức năng hỗ trợ sinh viên.",
+                    "score": 0.13870688
+                  },
+                  {
+                    "title": "SInh viên tiêu biểu",
+                    "url": "https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u?format=feed&type=atom",
+                    "source": "fit.uit.edu.vn",
+                    "summary": "Title: SInh viên tiêu biểu\nSInh viên tiêu biểu https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u 2026-04-04T16:49:38+07:00 ntcvn.com  Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2018 - 2019 2020-07-10T02:35:37+07:00 2020-07-10T02:35:37+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5152-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2018-2019  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn       Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2017 - 2018 2020-07-10T02:31:13+07:00 2020-07-10T02:31:13+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5151-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2017-2018  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn      Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2019 - 2020 2020-10-22T07:47:27+07:00 2020-10-22T07:47:27+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5262-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2019-2020  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn       Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2016 - 2017 2020-07-09T14:30:02+07:00 2020-07-09T14:30:02+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5150-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2016-2017  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn      Vinh danh sinh viên đạt thành tích cao trong kỳ tuyển sinh năm học 2020-2021 2020-10-19T04:51:27+07:00 2020-10-19T04:51:27+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5253-vinh-danh-sinh-vien-d-t-thanh-tich-cao-trong-ky-tuy-n-sinh-nam-h-c-2020-2021  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn. |  | Trần Thanh Phát (CNTT2020) - MSSV: 20520685 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi đánh giá năng lực **1001**. |  | Bùi Trung Hiếu (CNTT2020) - MSSV: 20521314 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi THPT **27.8**. |  | Nguyễn Nhã Minh (CNCL2020) - MSSV: 20520637 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi đánh giá năng lực **872**. |  | Hồ Đăng Minh Trí (CNCL2020) - MSSV: 20522047 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi THPT **27**. |  | Trần Thanh Phát (CNTT2020) - MSSV: 20520685 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi đánh giá năng lực **1001**. |  | Bùi Trung Hiếu (CNTT2020) - MSSV: 20521314 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi THPT **27.8**. |  | Nguyễn Nhã Minh (CNCL2020) - MSSV: 20520637 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi đánh giá năng lực **872**. |  | Hồ Đăng Minh Trí (CNCL2020) - MSSV: 20522047 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi THPT **27**.",
+                    "score": 0.09194332
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại, không có thông tin cụ thể nào về sinh viên Đại học Bách Khoa Hà Nội với mã số sinh viên 20235392. Tuy nhiên, bạn có thể tham khảo một số thông tin liên quan đến sinh viên và các quy định tại các trường đại học khác:\n\n1. **Reset mật khẩu Mail sinh viên**: Nếu bạn cần reset mật khẩu email sinh viên, có thể tham khảo [đường dẫn này](https://docs.google.com/forms/d/e/1FAIpQLSdLBqx1EPtxonL-VAe__Xy-gMzOgeuYl7uKjbRbW4tgsOcpSg/viewform) để điền thông tin cần thiết.\n\n2. **Thông báo về mã số sinh viên**: Một số thông báo liên quan đến việc khóa và mở mã số sinh viên có thể tham khảo tại [đây](https://sis.ou.edu.vn/thong-bao-ve-viec-khoa-va-mo-ma-so-sinh-vien-mssv-hoc-ky-ii20202021).\n\nNếu bạn cần thông tin cụ thể hơn hoặc có câu hỏi khác, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "sinh viên DHBKHN mssv 20235392",
+            "topic": "general"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "sinh viên DHBKHN mssv 20235392",
+            "topic": "general",
+            "timeframe": "week",
+            "items": [
+              {
+                "title": "Reset mật khẩu Mail sinh viên: mssv@student.hcmute.edu.vn",
+                "url": "https://docs.google.com/forms/d/e/1FAIpQLSdLBqx1EPtxonL-VAe__Xy-gMzOgeuYl7uKjbRbW4tgsOcpSg/viewform",
+                "source": "docs.google.com",
+                "summary": "Reset mật khẩu Mail sinh viên: mssv@.vn. Reset mật khẩu Mail sinh viên: mssv@.vn. Sinh viên có nhu cầu reset mật khẩu mail sinh viên (mssv@.vn) hãy điền đầy đủ thông tin bên dưới và bấm nút gửi. Trung tâm Thông tin - Máy tính sẽ kiểm tra thông tin và reset lại mật khẩu mail cho sinh viên. Sign in to Google to save your progress. Họ và tên đệm (đánh chữ thường, không dấu). Tên cuối (đánh chữ thường, không dấu). Vì tình trạng sinh viên lâu quá không sử dụng mail hoặc chưa đăng nhập mail lần nào nên tài khoản mail bị khóa, sinh viên vui lòng chọn đúng tùy chọn bên dưới để Trung tâm lọc ra danh sách sinh viên tài khoản bị khóa để mở lại. Chưa đăng nhập vào mail lần nào hoặc có đăng nhập mail nhưng lâu quá không sử dụng. Số chứng minh nhân dân. Số điện thoại liên lạc. Tôi xin chịu hoàn toàn chịu trách nhiệm trước nhà trường về việc yêu cầu đổi mật khẩu này. Never submit passwords through Google Forms. This form was created inside of Ho Chi Minh City University of Technology and Education. Does this form look suspicious?",
+                "score": 0.46249792
+              },
+              {
+                "title": "Hệ thống thông tin sinh viên - Trường Đại học Mở Tp.HCM",
+                "url": "https://sis.ou.edu.vn/thong-bao-ve-viec-khoa-va-mo-ma-so-sinh-vien-mssv-hoc-ky-ii20202021",
+                "source": "sis.ou.edu.vn",
+                "summary": "## THÔNG BÁO Về việc khóa và mở mã số sinh viên (MSSV) Học kỳ II/2020-2021. Căn cứ Điều 14 Quy chế học vụ theo học chế tín chỉ ban hành kèm theo Quyết định số 1769/QĐ-ĐHM ngày 16/8/2019 về việc tạm dừng học tập các sinh viên: Tự ý bỏ học không lý do một học kỳ; không hoàn thành nghĩa vụ học phí theo quy định của nhà trường; vi phạm kỷ luật đến mức tạm dừng học tập;... Phòng Quản lý Đào tạo khóa MSSV Học kỳ II/2020-2021 từ ngày 30/11/2020 đối với các sinh viên đóng học phí trễ hạn các môn học thực hành và các môn học lý thuyết. Để chuẩn bị cho công tác đăng ký môn học trực tuyến Học kỳ II/2020-2021, Phòng Quản lý Đào tạo thông báo Quy trình mở mã số sinh viên như sau:. 1. Đối tượng cần mớ mã số sinh viên:. - Sinh viên đã xin bảo lưu học tập;. - Sinh viên đóng học phí HK I/2020-2021 sau ngày 27/11/2020;. - Sinh viên tự ý nghỉ học tối thiểu 1 học kỳ:. - Sinh viên hết thời hạn kỷ luật. 2. Quy trình mở mã số sinh viên. - Sinh viên kiểm tra tình trạng khóa MSSV trên website trường: (vào mục Tiện ích - Kiểm tra khóa MSSV, chọn năm học - học kỳ để kiểm tra tình trạng MSSV). - Trường hợp bị khóa MSSV do đóng học phí trễ hạn: Sinh viên nộp đơn yêu cầu mở MSSV kèm theo biên lai đóng học phí (bản photo). - Trường hợp bảo lưu học tập: Sinh viên nộp đơn đề nghị được tiếp tục học tập kèm theo giấy báo tạm dừng học tập do phòng Quản lý Đào tạo . ##### Về việc điều chỉnh mức thu các dịch vụ cung cấp cho sinh viên. ##### Triển khai nng cấp hệ thống HCMCOU-SIS. ##### V/v điều chỉnh khung thời gian mở mã SV Học kỳ II năm hoc 2020-2021. ##### Nng cấp hệ thống HCMCOU-SIS. ##### THÔNG BÁO Về việc khóa và mở mã số sinh viên (MSSV) Học kỳ III/2020-2021.",
+                "score": 0.19678025
+              },
+              {
+                "title": "SInh viên tiêu biểu",
+                "url": "https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u",
+                "source": "fit.uit.edu.vn",
+                "summary": "Title: SInh viên tiêu biểu\nTRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN. **KHOA **KHOA** HỌC VÀ KỸ THUẬT THÔNG TIN**. **NGÀNH CNTT TUYỂN SINH NHIỀU CHỈ TIÊU NGÀNH CNTT, CNTT VIỆT NHẬT VÀ KHOA HỌC DỮ LIỆU**. # Sinh viên tiêu biểu. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2018 - 2019. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2019 - 2020. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2017 - 2018. # Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2016 - 2017. # Vinh danh sinh viên đạt thành tích cao trong kỳ tuyển sinh năm học 2020-2021. Khoa Khoa học và Kỹ thuật Thông tin xin chúc mừng các bạn:. | Nguyễn Trường Thịnh (KHDL2020) - MSSV: 20520783 - Thủ khoa kỳ thi đánh giá năng lực do ĐHQG tổ chức với số điểm **1063**. | Nguyễn Hữu Minh Tm (KHDL2020) - MSSV: 20521871 - Thủ khoa kỳ thi tốt nghiệp THPT với số điểm **28.55**. | Trần Thanh Phát (CNTT2020) - MSSV: 20520685 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi đánh giá năng lực **1001**. |  | Bùi Trung Hiếu (CNTT2020) - MSSV: 20521314 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi THPT **27.8**. |  | Nguyễn Nhã Minh (CNCL2020) - MSSV: 20520637 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi đánh giá năng lực **872**. |  | Hồ Đăng Minh Trí (CNCL2020) - MSSV: 20522047 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi THPT **27**. * Vinh danh các nhóm sinh viên đạt điểm cao trong kỳ bảo vệ KLTN đợt 2 năm học 2019 - 2020. * Vinh danh các nhóm sinh viên có đề tài NCKH cấp trường đợt 08/2020. * Vinh danh sinh viên đạt thành tích cao trong kỳ tuyển sinh năm học 2021-2022. * VINH DANH VÀ KHEN THƯỞNG NHỮNG \"CHIẾN BINH\" KHOA ISE – NHÀ VÔ ĐỊCH FUTSAL ĐHQG-HCM 2025.",
+                "score": 0.14046617
+              },
+              {
+                "title": "Email sinh viên TDTU | Giáo dục đại học",
+                "url": "https://undergrad.tdtu.edu.vn/huong-dan/email-sinh-vien-tdtu",
+                "source": "undergrad.tdtu.edu.vn",
+                "summary": "Title: Email sinh viên TDTU | Giáo dục đại học\nĐại học Tôn Đức Thắng. # Email sinh viên TDTU. ## Email sinh viên TDTU. Mỗi sinh viên được cấp 1 tài khoản email để trao đổi thông tin phục vụ việc học tại Trường. Cấu trúc email: MSSV@student.tdtu.edu.vn. Địa chỉ đăng nhập: mail.student.tdtu.edu.vn. Mật khẩu khởi tạo: TDTU + MSSV. *(Lưu ý: viết hoa MSSV)*. *Ví dụ: MSSV của bạn là A25H9999 -> mật khẩu khởi tạo là TDTUA25H9999*. **\\* Chú ý: Thay đổi mật khẩu ngay khi đăng nhập lần đầu.**. Kiểm tra cổng thông tin sinh viên (thông báo, email, ... ) mỗi ngày để kịp thời nắm bắt các thông tin cần thiết. Bảo mật tài khoản của mình, không cung cấp cho người khác sử dụng. Sinh viên sẽ chịu hoàn toàn trách nhiệm khi để người khác sử dụng tài khoản của mình. Sử dụng tài khoản được cấp khi liên hệ với Trường, không sử dụng email cá nhn. Lưu ý kiểm tra thông tin sinh viên cẩn thận vì dữ liệu này sẽ được sử dụng để in văn bằng tốt nghiệp và các loại chứng chỉ. Khi có sự thay đổi về thông tin cá nhn, liên hệ Phòng Công tác học sinh - sinh viên (A.0003) để được hỗ trợ cập nhật. ### Học vụ. Những điều cần biết khi học tại TDTU. Hướng dẫn đăng nhập hệ thống thông tin sinh viên. Hướng dẫn sử dụng Email sinh viên. Phòng ban chức năng hỗ trợ sinh viên.",
+                "score": 0.13870688
+              },
+              {
+                "title": "SInh viên tiêu biểu",
+                "url": "https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u?format=feed&type=atom",
+                "source": "fit.uit.edu.vn",
+                "summary": "Title: SInh viên tiêu biểu\nSInh viên tiêu biểu https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u 2026-04-04T16:49:38+07:00 ntcvn.com  Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2018 - 2019 2020-07-10T02:35:37+07:00 2020-07-10T02:35:37+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5152-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2018-2019  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn       Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2017 - 2018 2020-07-10T02:31:13+07:00 2020-07-10T02:31:13+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5151-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2017-2018  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn      Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2019 - 2020 2020-10-22T07:47:27+07:00 2020-10-22T07:47:27+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5262-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2019-2020  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn       Bảng vàng thành tích Khoa Khoa học và Kỹ thuật Thông tin năm học 2016 - 2017 2020-07-09T14:30:02+07:00 2020-07-09T14:30:02+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5150-b-ng-vang-thanh-tich-khoa-khoa-h-c-va-k-thu-t-thong-tin-nam-h-c-2016-2017  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn      Vinh danh sinh viên đạt thành tích cao trong kỳ tuyển sinh năm học 2020-2021 2020-10-19T04:51:27+07:00 2020-10-19T04:51:27+07:00 https://fit.uit.edu.vn/index.php/nckh/sinh-vien-tieu-bi-u/5253-vinh-danh-sinh-vien-d-t-thanh-tich-cao-trong-ky-tuy-n-sinh-nam-h-c-2020-2021  Nguyen Duy Van Tien Loc locndvt@uit.edu.vn. |  | Trần Thanh Phát (CNTT2020) - MSSV: 20520685 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi đánh giá năng lực **1001**. |  | Bùi Trung Hiếu (CNTT2020) - MSSV: 20521314 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi THPT **27.8**. |  | Nguyễn Nhã Minh (CNCL2020) - MSSV: 20520637 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi đánh giá năng lực **872**. |  | Hồ Đăng Minh Trí (CNCL2020) - MSSV: 20522047 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi THPT **27**. |  | Trần Thanh Phát (CNTT2020) - MSSV: 20520685 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi đánh giá năng lực **1001**. |  | Bùi Trung Hiếu (CNTT2020) - MSSV: 20521314 - Thủ khoa ngành Công nghệ Thông tin với số điểm thi THPT **27.8**. |  | Nguyễn Nhã Minh (CNCL2020) - MSSV: 20520637 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi đánh giá năng lực **872**. |  | Hồ Đăng Minh Trí (CNCL2020) - MSSV: 20522047 - Thủ khoa ngành Công nghệ Thông tin định hướng Nhật Bản với số điểm thi THPT **27**.",
+                "score": 0.09194332
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:10:56"
+    },
+    {
+      "turn_index": 10,
+      "started_at": "2026-07-29T12:12:22",
+      "user": "bạn là ai",
+      "status": "answered",
+      "assistant_text": "Tôi là một trợ lý ảo được thiết kế để cung cấp thông tin và hỗ trợ bạn trong nhiều lĩnh vực khác nhau, từ tìm kiếm thông tin đến trả lời câu hỏi. Nếu bạn có bất kỳ câu hỏi nào hoặc cần trợ giúp, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "Tôi là một trợ lý ảo được thiết kế để cung cấp thông tin và hỗ trợ bạn trong nhiều lĩnh vực khác nhau, từ tìm kiếm thông tin đến trả lời câu hỏi. Nếu bạn có bất kỳ câu hỏi nào hoặc cần trợ giúp, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [],
+      "ended_at": "2026-07-29T12:12:22"
+    },
+    {
+      "turn_index": 11,
+      "started_at": "2026-07-29T12:14:18",
+      "user": "thống kê số lượng người ung thư việt nam",
+      "status": "answered",
+      "assistant_text": "Hiện tại, không có thông tin cụ thể nào về số lượng người mắc bệnh ung thư tại Việt Nam trong các tin tức gần đây. Tuy nhiên, bạn có thể tham khảo một số thông tin liên quan đến tình hình sức khỏe và bệnh tật tại Việt Nam từ các nguồn khác nhau.\n\nNếu bạn cần thông tin cụ thể hơn về ung thư tại Việt Nam, tôi khuyên bạn nên tham khảo các báo cáo y tế hoặc các tổ chức y tế như Bộ Y tế Việt Nam hoặc các tổ chức nghiên cứu về ung thư.\n\nNếu bạn có câu hỏi khác hoặc cần tìm kiếm thông tin cụ thể hơn, hãy cho tôi biết!",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": null,
+          "tool_calls": [
+            {
+              "name": "lookup",
+              "args": {
+                "query": "số lượng người ung thư Việt Nam",
+                "topic": "news",
+                "timeframe": "day"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "số lượng người ung thư Việt Nam",
+                "topic": "news",
+                "timeframe": "day"
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "số lượng người ung thư Việt Nam",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "Survivors rise to 48 with more missing after Vietnamese ship sinks in South China Sea - The Washington Post",
+                    "url": "https://www.washingtonpost.com/world/2026/07/28/vietnam-china-cargo-ship-sinks-missing-search/e3fd05fa-8a55-11f1-8912-d71e69d679d7_story.html",
+                    "source": "washingtonpost.com",
+                    "summary": "# Survivors rise to 48 with more missing after Vietnamese ship sinks in South China Sea. The number of survivors of a cargo ship that sank off a Chinese-occupied shoal in the South China Sea has risen to 48 as search and rescue crews hunt for more people who went down with the vessel. HANOI, Vietnam — The number of survivors of a cargo ship that sank Saturday off a Chinese-occupied shoal in the South China Sea rose to 48 by Tuesday as search and rescue crews hunted for more people who went down with the vessel. A multinational search for 14 people who remain missing was still underway Tuesday afternoon involving Vietnamese, Philippine and Chinese rescuers. See what it’s like to use a North Korean smartphone under Kim Jong Un. Trump’s fresh mocking of CNN reporter renews calls to end correspondents’ dinner. Trump’s fresh mocking of CNN reporter renews calls to end correspondents’ dinner.",
+                    "score": 0.09767424
+                  },
+                  {
+                    "title": "Black people’s risk factors for stroke ‘rising faster than for white people’ - The Guardian",
+                    "url": "https://www.theguardian.com/society/2026/jul/28/black-african-caribbean-risk-factor-stroke-diabetes-high-blood-pressure-hypertension",
+                    "source": "theguardian.com",
+                    "summary": "# Black people’s risk factors for stroke ‘rising faster than for white people’. Exclusive: King’s College London analysis finds diabetes and hypertension are more common in Black African and Caribbean people. Stroke risk factors including high blood pressure and diabetes are rising faster among people from Black African and Caribbean backgrounds compared with their white counterparts, according to analysis. The study found that while the prevalence of stroke risk factors, including diabetes and hypertension, were increasing faster among Black people, those from Black African backgrounds were also twice as likely to experience stroke without a prior risk factor diagnosis than white people, at a rate of 12% compared with 6%. Diabetes was about twice as common in Black Caribbean and Black Africans on the stroke register compared with white participants, and high blood pressure was 29% more prevalent in Black Caribbean and 47% more prevalent in Black African people.",
+                    "score": 0.036869973
+                  },
+                  {
+                    "title": "New treatment providing hope for people with advanced form of skin cancer - CBS News",
+                    "url": "https://www.cbsnews.com/philadelphia/video/new-treatment-providing-hope-for-people-with-advanced-form-of-skin-cancer/",
+                    "source": "cbsnews.com",
+                    "summary": "* Send Us a News Tip. # New treatment providing hope for people with advanced form of skin cancer. The new treatment is for melanoma, and it uses the patient's own tumor cells to turn them into cancer fighters. CBS News Philadelphia health reporter Stephanie Stahl has the details.",
+                    "score": 0.026925152
+                  },
+                  {
+                    "title": "Healing Without Drugs: A Promising Future for Alzheimer’s Patients - HIT Consultant",
+                    "url": "https://hitconsultant.net/2026/07/29/healing-without-drugs-a-promising-future-for-alzheimers-patients/",
+                    "source": "hitconsultant.net",
+                    "summary": "# Healing Without Drugs: A Promising Future for Alzheimer’s Patients. Of the medical diagnoses that cause anxiety, sorrow, and despair for patients and their loved ones, Alzheimer’s is near the top of the list. A new wave of scientific and technological innovation is beginning to brighten what has been a dark picture, bringing with it a sense of hope. Despite the limited benefits of the pharmaceutical approach to Alzheimer’s, some 80% of people surveyed by the Alzheimer’s Association say they are now optimistic that new treatment techniques will make a meaningful difference when it comes to managing, slowing, and even curing the condition. Nearly 11% of the total U.S. population has been diagnosed with Alzheimer’s dementia, according to the Alzheimer’s Association’s *2025 Alzheimer’s Disease Facts and Figures* report.The majority are those aged 75 and older. When it comes to treatments for Alzheimer’s, the options are limited. These drugs hint at the promise but also show the limitations of today’s Alzheimer’s treatments: Progress only comes with high costs and continuous side-effect management.",
+                    "score": 0.025841616
+                  },
+                  {
+                    "title": "The Vietnam Self-Storage Boom: An Overview of This Southeast Asia Market and Predictions for the Future - Inside Self-Storage",
+                    "url": "https://www.insideselfstorage.com/market-conditions/the-vietnam-self-storage-boom-an-overview-of-this-southeast-asia-market-and-predictions-for-the-future",
+                    "source": "insideselfstorage.com",
+                    "summary": "# The Vietnam Self-Storage Boom: An Overview of This Southeast Asia Market and Predictions for the Future. In Vietnam, the gap between the amount of stuff people own and the space they have to accommodate it keeps widening, fueling demand for self-storage units. Though the industry is still developing in this country, there’s vast potential for expansion. In this article, the founder of local operator MyStorage shares an insider’s view of market conditions and what he sees as the future of the sector. When I founded MyStorage in Ho Chi Minh City in 2019, it was based on the observation that Vietnam’s cities were growing fast, but the homes weren’t getting any larger. In the 2025 Asia-Pacific (APAC) Self-Storage Annual Report published by commercial real estate firm JLL and the Self Storage Association Asia, Vietnam was identified as a “developing market,” which means it has 15 to 50 square feet of rentable space per 1,000 urban residents.",
+                    "score": 0.02206811
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Hiện tại, không có thông tin cụ thể nào về số lượng người mắc bệnh ung thư tại Việt Nam trong các tin tức gần đây. Tuy nhiên, bạn có thể tham khảo một số thông tin liên quan đến tình hình sức khỏe và bệnh tật tại Việt Nam từ các nguồn khác nhau.\n\nNếu bạn cần thông tin cụ thể hơn về ung thư tại Việt Nam, tôi khuyên bạn nên tham khảo các báo cáo y tế hoặc các tổ chức y tế như Bộ Y tế Việt Nam hoặc các tổ chức nghiên cứu về ung thư.\n\nNếu bạn có câu hỏi khác hoặc cần tìm kiếm thông tin cụ thể hơn, hãy cho tôi biết!",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "số lượng người ung thư Việt Nam",
+            "topic": "news",
+            "timeframe": "day"
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "số lượng người ung thư Việt Nam",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "Survivors rise to 48 with more missing after Vietnamese ship sinks in South China Sea - The Washington Post",
+                "url": "https://www.washingtonpost.com/world/2026/07/28/vietnam-china-cargo-ship-sinks-missing-search/e3fd05fa-8a55-11f1-8912-d71e69d679d7_story.html",
+                "source": "washingtonpost.com",
+                "summary": "# Survivors rise to 48 with more missing after Vietnamese ship sinks in South China Sea. The number of survivors of a cargo ship that sank off a Chinese-occupied shoal in the South China Sea has risen to 48 as search and rescue crews hunt for more people who went down with the vessel. HANOI, Vietnam — The number of survivors of a cargo ship that sank Saturday off a Chinese-occupied shoal in the South China Sea rose to 48 by Tuesday as search and rescue crews hunted for more people who went down with the vessel. A multinational search for 14 people who remain missing was still underway Tuesday afternoon involving Vietnamese, Philippine and Chinese rescuers. See what it’s like to use a North Korean smartphone under Kim Jong Un. Trump’s fresh mocking of CNN reporter renews calls to end correspondents’ dinner. Trump’s fresh mocking of CNN reporter renews calls to end correspondents’ dinner.",
+                "score": 0.09767424
+              },
+              {
+                "title": "Black people’s risk factors for stroke ‘rising faster than for white people’ - The Guardian",
+                "url": "https://www.theguardian.com/society/2026/jul/28/black-african-caribbean-risk-factor-stroke-diabetes-high-blood-pressure-hypertension",
+                "source": "theguardian.com",
+                "summary": "# Black people’s risk factors for stroke ‘rising faster than for white people’. Exclusive: King’s College London analysis finds diabetes and hypertension are more common in Black African and Caribbean people. Stroke risk factors including high blood pressure and diabetes are rising faster among people from Black African and Caribbean backgrounds compared with their white counterparts, according to analysis. The study found that while the prevalence of stroke risk factors, including diabetes and hypertension, were increasing faster among Black people, those from Black African backgrounds were also twice as likely to experience stroke without a prior risk factor diagnosis than white people, at a rate of 12% compared with 6%. Diabetes was about twice as common in Black Caribbean and Black Africans on the stroke register compared with white participants, and high blood pressure was 29% more prevalent in Black Caribbean and 47% more prevalent in Black African people.",
+                "score": 0.036869973
+              },
+              {
+                "title": "New treatment providing hope for people with advanced form of skin cancer - CBS News",
+                "url": "https://www.cbsnews.com/philadelphia/video/new-treatment-providing-hope-for-people-with-advanced-form-of-skin-cancer/",
+                "source": "cbsnews.com",
+                "summary": "* Send Us a News Tip. # New treatment providing hope for people with advanced form of skin cancer. The new treatment is for melanoma, and it uses the patient's own tumor cells to turn them into cancer fighters. CBS News Philadelphia health reporter Stephanie Stahl has the details.",
+                "score": 0.026925152
+              },
+              {
+                "title": "Healing Without Drugs: A Promising Future for Alzheimer’s Patients - HIT Consultant",
+                "url": "https://hitconsultant.net/2026/07/29/healing-without-drugs-a-promising-future-for-alzheimers-patients/",
+                "source": "hitconsultant.net",
+                "summary": "# Healing Without Drugs: A Promising Future for Alzheimer’s Patients. Of the medical diagnoses that cause anxiety, sorrow, and despair for patients and their loved ones, Alzheimer’s is near the top of the list. A new wave of scientific and technological innovation is beginning to brighten what has been a dark picture, bringing with it a sense of hope. Despite the limited benefits of the pharmaceutical approach to Alzheimer’s, some 80% of people surveyed by the Alzheimer’s Association say they are now optimistic that new treatment techniques will make a meaningful difference when it comes to managing, slowing, and even curing the condition. Nearly 11% of the total U.S. population has been diagnosed with Alzheimer’s dementia, according to the Alzheimer’s Association’s *2025 Alzheimer’s Disease Facts and Figures* report.The majority are those aged 75 and older. When it comes to treatments for Alzheimer’s, the options are limited. These drugs hint at the promise but also show the limitations of today’s Alzheimer’s treatments: Progress only comes with high costs and continuous side-effect management.",
+                "score": 0.025841616
+              },
+              {
+                "title": "The Vietnam Self-Storage Boom: An Overview of This Southeast Asia Market and Predictions for the Future - Inside Self-Storage",
+                "url": "https://www.insideselfstorage.com/market-conditions/the-vietnam-self-storage-boom-an-overview-of-this-southeast-asia-market-and-predictions-for-the-future",
+                "source": "insideselfstorage.com",
+                "summary": "# The Vietnam Self-Storage Boom: An Overview of This Southeast Asia Market and Predictions for the Future. In Vietnam, the gap between the amount of stuff people own and the space they have to accommodate it keeps widening, fueling demand for self-storage units. Though the industry is still developing in this country, there’s vast potential for expansion. In this article, the founder of local operator MyStorage shares an insider’s view of market conditions and what he sees as the future of the sector. When I founded MyStorage in Ho Chi Minh City in 2019, it was based on the observation that Vietnam’s cities were growing fast, but the homes weren’t getting any larger. In the 2025 Asia-Pacific (APAC) Self-Storage Annual Report published by commercial real estate firm JLL and the Self Storage Association Asia, Vietnam was identified as a “developing market,” which means it has 15 to 50 square feet of rentable space per 1,000 urban residents.",
+                "score": 0.02206811
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T12:14:18"
+    }
+  ]
+}

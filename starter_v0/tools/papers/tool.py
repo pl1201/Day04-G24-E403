@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import re
 import time
+import unicodedata
 import xml.etree.ElementTree as ET
 from typing import Any
 
@@ -14,6 +15,48 @@ from tools._shared import TIMEOUT, err
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
 ARXIV_MIN_INTERVAL_SECONDS = 3.0
 _last_arxiv_request_at = 0.0
+
+
+# arXiv titles and abstracts are predominantly English. Translate a small,
+# explicit academic vocabulary before falling back to accent folding. This is
+# intentionally conservative: it improves common Vietnamese searches without
+# pretending to be a general-purpose translation system.
+_VIETNAMESE_ACADEMIC_PHRASES = {
+    "trí tuệ nhân tạo": "artificial intelligence",
+    "học máy": "machine learning",
+    "học sâu": "deep learning",
+    "mô hình ngôn ngữ lớn": "large language model",
+    "xử lý ngôn ngữ tự nhiên": "natural language processing",
+    "thị giác máy tính": "computer vision",
+    "dinh dưỡng": "nutrition",
+    "chế độ ăn": "diet",
+    "sức khỏe": "health",
+    "tim mạch": "cardiovascular",
+}
+
+_QUERY_FILLER_WORDS = {
+    "bai",
+    "bao",
+    "cac",
+    "cho",
+    "cua",
+    "giup",
+    "kiem",
+    "lien",
+    "muon",
+    "mot",
+    "nghien",
+    "cuu",
+    "nhung",
+    "paper",
+    "papers",
+    "tim",
+    "toi",
+    "quan",
+    "so",
+    "va",
+    "ve",
+}
 
 
 def _arxiv_user_agent() -> str:
@@ -45,7 +88,28 @@ def _arxiv_search_query(query: str) -> str:
     cleaned = " ".join((query or "").split())
     if ":" in cleaned:
         return cleaned
-    terms = [term for term in re.findall(r"[A-Za-z0-9_\\-]+", cleaned) if len(term) > 1]
+
+    normalized = cleaned.casefold()
+    for vietnamese, english in sorted(
+        _VIETNAMESE_ACADEMIC_PHRASES.items(),
+        key=lambda item: len(item[0]),
+        reverse=True,
+    ):
+        normalized = normalized.replace(vietnamese, english)
+
+    # Fold remaining accents only after phrase translation. The previous ASCII
+    # regex split "dưỡng" into meaningless fragments such as "ng", which made
+    # arXiv match unrelated author names and papers.
+    normalized = "".join(
+        char
+        for char in unicodedata.normalize("NFKD", normalized.replace("đ", "d"))
+        if not unicodedata.combining(char)
+    )
+    terms = [
+        term
+        for term in re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)*", normalized)
+        if len(term) > 1 and term not in _QUERY_FILLER_WORDS
+    ]
     return " AND ".join(f"all:{term}" for term in terms[:8]) or cleaned
 
 
